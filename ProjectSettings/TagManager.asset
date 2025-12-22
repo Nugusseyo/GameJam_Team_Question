@@ -17,7 +17,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -41,6 +41,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemy
+    uniqueID: 1401587587
+    locked: 0
+  - name: EnemyDeadParticle
+    uniqueID: 1067090465
     locked: 0
   m_RenderingLayers:
   - Default

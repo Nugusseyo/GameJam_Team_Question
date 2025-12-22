@@ -45,7 +45,7 @@ namespace Assets.JYG._Script
                 {
                     EnemyHeal?.Invoke();
                 }
-                    _currentHealth = value;
+                _currentHealth = value;
             }
         }
 
