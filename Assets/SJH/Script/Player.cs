@@ -1,16 +1,20 @@
 using System;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private float strength = 1;
     [SerializeField] private float frictionForce = 1;
     [SerializeField] private float cooltime = 1;
+    [SerializeField] private LineRenderer predictLine;
 
     private Rigidbody2D rigidbody;
     private LineRenderer lineRenderer;
+    private CinemachineImpulseSource impulseSource; 
     private Vector2 stopOffset = new Vector2(0.3f, 0.3f);
     private Vector2 dir;
     private bool isDrag = false;
@@ -22,12 +26,14 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public HealthSystem HealthSystem;
     public event Action OnBump;
     public event Action OnStop;
+    public float spread = 0;
 
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         lineRenderer = GetComponent<LineRenderer>();
         HealthSystem = GetComponent<HealthSystem>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     private void Update()
@@ -48,6 +54,14 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, mousePosition);
+            Vector2 predictDir = -(mousePosition - transform.position);
+            RaycastHit2D hit2d = Physics2D.Raycast(transform.position, predictDir, 200, LayerMask.GetMask("Wall"));
+            RaycastHit2D hit2d2 = Physics2D.Raycast(hit2d.point+hit2d.normal, Vector2.Reflect(predictDir,hit2d.normal), 200, LayerMask.GetMask("Wall"));
+            if (hit2d.collider == null) return;
+            Vector2 dir2 = new Vector2(Mathf.Lerp(hit2d.point.x, hit2d2.point.x, 0.1f), Mathf.Lerp(hit2d.point.y, hit2d2.point.y, 0.1f));
+            predictLine.SetPosition(0, new Vector3(0,0,0));
+            predictLine.SetPosition(1, hit2d.point - (Vector2)transform.position);
+            predictLine.SetPosition(2, dir2 - (Vector2)transform.position);
         }
     }
 
@@ -72,6 +86,7 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (isMoving) return;
         isDrag = true;
         lineRenderer.enabled = true;
+        predictLine.enabled = true;
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -87,6 +102,7 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             rigidbody.linearVelocity = -(dir.normalized) * currentSpeed;
             lineRenderer.SetPosition(1, transform.position);
             lineRenderer.enabled = false;
+            predictLine.enabled = false;
 
         }
     }
@@ -103,9 +119,11 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             ParticleSpawn(collision, particleP, 1, 0.4f);
             ParticleSpawn(collision, particleP2, -1,1);
-            dir = Vector2.Reflect(dir, collision.GetContact(0).normal);
+            impulseSource.GenerateImpulseWithVelocity(collision.GetContact(0).normal/180*currentSpeed);
+            dir = Vector2.Reflect(dir, (collision.GetContact(0).normal + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread)).normalized));
             rigidbody.linearVelocity = -(dir.normalized) * currentSpeed;
             OnBump?.Invoke();
+            spread = 0;
         }
     }
 
