@@ -7,13 +7,13 @@ public class Level : MonoBehaviour
     private int currentLevel;
 
     public event Action OnLevelUp;
-    public event Action OnDameged;
 
     public void GetExp(int amount)
     {
         exp += amount;
         if (exp >= 4 + 2*currentLevel)
         {
+            currentLevel++;
             OnLevelUp?.Invoke();
         }
     }
