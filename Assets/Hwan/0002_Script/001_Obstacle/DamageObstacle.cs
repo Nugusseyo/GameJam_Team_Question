@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Hwan
 {
@@ -7,7 +8,6 @@ namespace Hwan
     {
         [SerializeField] private int damage;
         [SerializeField] private ObstacleDamagedType damagedType;
-        [SerializeField] private int maxDamage; //- : -maxDamage ~ 0, + : 0 ~ maxDamage
 
         protected override void OnPlayerReachedOnce()
         {
@@ -17,18 +17,30 @@ namespace Hwan
                     Debug.Log("None 이잔아ㅏ");
                     break;
                 case ObstacleDamagedType.Player:
-                    //Player에게 데미지를 입히자
+                    if (damage > 0)
+                    {
+                        GameManager.Instance.Player.HealthSystem.GetDamage(damage);
+                    }
+                    else
+                    {
+                        GameManager.Instance.Player.HealthSystem.GetHeal(damage);
+                    }
                     break;
                 case ObstacleDamagedType.Enemy:
-                    //Enemy에게 데미지를 입히자
+                    EnemyManager.Instance.MinusEnemyHealth(damage);
                     break;
             }
         }
 
         protected override void CountObsInitialize()
         {
-            int tempDmg = Random.Range(0, maxDamage);
-            damage = maxDamage > 0 ? tempDmg : -tempDmg;
+        }
+
+        public override string GetObstacleDesc()
+        {
+            string desc = base.GetObstacleDesc();
+            desc = desc.Replace("{d}", damage.ToString());
+            return desc;
         }
     }
 }

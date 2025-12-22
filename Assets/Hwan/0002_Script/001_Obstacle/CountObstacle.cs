@@ -5,7 +5,7 @@ namespace Hwan
     public abstract class CountObstacle : Obstacle
     {
         [SerializeField] private int count;
-        [SerializeField] private int currentCount;
+        protected int currentCount;
         public sealed override void OnPlayerReached()
         {
             OnPlayerReachedOnce();
@@ -24,6 +24,13 @@ namespace Hwan
         }
 
         protected abstract void CountObsInitialize();
+
+        public override string GetObstacleDesc()
+        {
+            string desc = base.GetObstacleDesc();
+            desc = desc.Replace("{c}", currentCount.ToString());
+            return desc;
+        }
     }
 }
 

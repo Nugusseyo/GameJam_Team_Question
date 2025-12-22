@@ -36,7 +36,7 @@ public class Upgrade : MonoBehaviour
                 player.HealthSystem.hasShield = true;
                 break;
             case UpgradeType.Heal:
-                player.HealthSystem.GetHeal();
+                player.HealthSystem.GetHeal(so.Amount);
                 break;
         }
     }

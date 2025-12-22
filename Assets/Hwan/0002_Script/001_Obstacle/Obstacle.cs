@@ -1,18 +1,39 @@
 using DG.Tweening;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 namespace Hwan
 {
-    public abstract class Obstacle : MonoBehaviour
+    public abstract class Obstacle : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        [SerializeField] private ParticleSystem deadParticle;
-        [SerializeField] private SpriteRenderer spriteRen;
+        private ParticleSystem deadParticle;
+        private SpriteRenderer spriteRen;
         public bool IsDestroyed { get; private set; }
         [SerializeField] private ObstacleSO obstacleSO;
+        protected Vector2 normalVector;
 
-        public void SpawnObstacle()
+        public void SpawnObstacle(Vector2 normalVector)
         {
+            this.normalVector = normalVector;
+
+            deadParticle = transform.GetChild(0).GetComponent<ParticleSystem>();
+
+            spriteRen = GetComponent<SpriteRenderer>();
+            spriteRen.color = obstacleSO.Color;
+
+            var main = deadParticle.main;
+            main.startColor = obstacleSO.Color;
+
+            PointMove();
+
+            Initialize();
+        }
+
+        private void PointMove()
+        {
+            transform.DOKill();
             transform.localScale = Vector3.one;
 
             transform.DOPunchScale(
@@ -21,23 +42,44 @@ namespace Hwan
                 vibrato: 1,                // Èçµé¸² È½¼ö
                 elasticity: 0.8f           // Æ¨±è Á¤µµ
             );
-
-            Initialize();
         }
+
         protected abstract void Initialize();
         public abstract void OnPlayerReached();
         public virtual void Destroy()
         {
-            transform.DOKill();
-            IsDestroyed = true;
-            spriteRen.enabled = false;
-            deadParticle.Play();
-            Destroy(gameObject, deadParticle.main.duration);
+            transform
+                .DOScale(Vector3.one * 1.2f, 0.1f)   // ¼ø°£ÀûÀ¸·Î Ä¿Áü
+                .SetEase(Ease.OutBack)
+                .OnComplete(() =>
+                {
+                    transform
+                        .DOScale(Vector3.zero, 0.15f) // ±×´ë·Î 0À¸·Î ÁÙ¾îµé¸ç »ç¶óÁü
+                        .SetEase(Ease.InBack)
+                        .OnComplete(() =>
+                        {
+                            IsDestroyed = true;
+                            spriteRen.enabled = false;
+                            deadParticle.Play();
+                            Destroy(gameObject, deadParticle.main.duration);
+                            transform.DOKill();
+                        });
+                });
         }
 
-        public string GetObstacleDesc()
+        public virtual string GetObstacleDesc()
         {
             return obstacleSO.Desc;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            
         }
     }
 }

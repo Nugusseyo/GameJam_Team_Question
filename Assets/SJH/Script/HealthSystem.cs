@@ -40,9 +40,9 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
-    public void GetHeal()
+    public void GetHeal(int amount)
     {
-        health += 2;
+        health += amount;
         health = Mathf.Clamp(health, 0, 10);
     }
 
