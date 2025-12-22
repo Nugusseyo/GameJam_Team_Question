@@ -8,7 +8,6 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] private float strength = 1;
     [SerializeField] private float frictionForce = 1;
     [SerializeField] private float cooltime = 1;
-    [SerializeField] private ParticleSystem particle;
 
     private Rigidbody2D rigidbody;
     private LineRenderer lineRenderer;
@@ -18,6 +17,7 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private bool isMoving = false;
     private float currentSpeed;
 
+    public ParticleSystem particleP;
     public HealthSystem HealthSystem;
     public event Action OnBump;
     public event Action OnStop;
@@ -89,7 +89,11 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if(collision.gameObject.CompareTag("Wall"))
         {
+            ParticleSystem particle = Instantiate(particleP);
             particle.gameObject.transform.position = collision.GetContact(0).point;
+            float atan = Mathf.Atan2(collision.GetContact(0).normal.x, collision.GetContact(0).normal.y);
+            float angle =  (collision.GetContact(0).normal.x != 0 ? -atan : atan) * Mathf.Rad2Deg;
+            particle.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0,0, angle));
             particle.Play();
             dir = Vector2.Reflect(dir, collision.GetContact(0).normal);
             rigidbody.linearVelocity = -(dir.normalized) * currentSpeed;

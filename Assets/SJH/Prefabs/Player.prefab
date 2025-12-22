@@ -170,9 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61376f527170764eb8c9556a2b163a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 5
-  frictionForce: 0.5
+  strength: 10
+  frictionForce: 1
   cooltime: 1
+  particleP: {fileID: 0}
   HealthSystem: {fileID: 0}
 --- !u!114 &1334989194191306588
 MonoBehaviour:
