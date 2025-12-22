@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: cca5649b4d0f83048ac0e963d6d82bbe
+  productGUID: bc8efcac18a810c469a900cb60ab6bf0
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Team_Question
+  productName: GJ
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -619,14 +619,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Team_Question
+  metroPackageName: GJ
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Team_Question
+  metroApplicationDescription: GJ
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -697,10 +697,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 650d9e75-6fff-4934-894b-7bea8e97f31b
+  cloudProjectId: 0644f53f-7008-439f-8bc5-bfe4fe00a209
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Team_Question
+  projectName: GJ
   organizationId: nugusaeyo0110
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

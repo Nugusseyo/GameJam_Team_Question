@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using DG.Tweening;
-
-public class TestScript : MonoBehaviour
+using Unity.Cinemachine;
+public class TestEnemyScript : MonoBehaviour
 {
+    CinemachineImpulseSource impulse;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
