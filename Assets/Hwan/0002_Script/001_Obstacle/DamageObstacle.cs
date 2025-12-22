@@ -18,7 +18,7 @@ namespace Hwan
             }
             else if (Keyboard.current.aKey.wasPressedThisFrame) 
             {
-                SpawnObstacle();
+                SpawnObstacle(Vector2.up);
             }
         }
 
@@ -30,10 +30,10 @@ namespace Hwan
                     Debug.Log("None 이잔아ㅏ");
                     break;
                 case ObstacleDamagedType.Player:
-                    //Player에게 데미지를 입히자
+                    GameManager.Instance.Player.HealthSystem.GetDamage(damage);
                     break;
                 case ObstacleDamagedType.Enemy:
-                    //Enemy에게 데미지를 입히자
+                    //Enemy
                     break;
             }
         }

@@ -10,11 +10,22 @@ namespace Hwan
         private SpriteRenderer spriteRen;
         public bool IsDestroyed { get; private set; }
         [SerializeField] private ObstacleSO obstacleSO;
+        protected Vector2 normalVector;
 
-        public void SpawnObstacle()
+        public void SpawnObstacle(Vector2 normalVector)
         {
+            this.normalVector = normalVector;
             spriteRen = GetComponent<SpriteRenderer>();
+            spriteRen.color = obstacleSO.Color;
+            //deadParticle.main.startColor = obstacleSO.Color;
 
+            PointMove();
+
+            Initialize();
+        }
+
+        private void PointMove()
+        {
             transform.DOKill();
             transform.localScale = Vector3.one;
 
@@ -24,9 +35,8 @@ namespace Hwan
                 vibrato: 1,                // Èçµé¸² È½¼ö
                 elasticity: 0.8f           // Æ¨±è Á¤µµ
             );
-
-            Initialize();
         }
+
         protected abstract void Initialize();
         public abstract void OnPlayerReached();
         public virtual void Destroy()
