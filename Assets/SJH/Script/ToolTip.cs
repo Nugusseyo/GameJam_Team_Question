@@ -40,7 +40,9 @@ public class ToolTip : MonoBehaviour
         {
             TextMeshPro textMeshPro = new TextMeshPro();
             textMeshPro.textWrappingMode = TextWrappingModes.NoWrap;
-
+            textMeshPro.transform.position = new Vector2(obstacle.transform.position.x + obstacle.transform.localScale.x,obstacle.transform.position.y - obstacle.transform.position.y);
+            textMeshPro.text = obstacle.GetObstacleDesc();
+            texts.Add(textMeshPro);
         }
     }
 
