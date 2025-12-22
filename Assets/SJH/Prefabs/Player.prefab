@@ -208,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   shieldChargeTime: 3
+  eventChannel: {fileID: 11400000, guid: ece2c66e8a67ede448687dc3fca4bbd1, type: 2}
   hasShield: 0
 --- !u!114 &4583368813360535062
 MonoBehaviour:
