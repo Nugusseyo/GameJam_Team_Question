@@ -7,13 +7,13 @@ using UnityEngine.InputSystem;
 
 public class ToolTip : MonoBehaviour
 {
-    private TextMeshProUGUI tmp;
+    private TextMeshPro tmp;
     private List<Obstacle> objs = new();
     private List<TextMeshPro> texts = new();
 
     private void Awake()
     {
-        tmp = GetComponent<TextMeshProUGUI>();
+        tmp = GetComponent<TextMeshPro>();
     }
 
     private void Update()
@@ -38,10 +38,14 @@ public class ToolTip : MonoBehaviour
     {
         foreach (Obstacle obstacle in objs)
         {
-            TextMeshPro textMeshPro = new TextMeshPro();
+            GameObject textObj = new GameObject();
+            TextMeshPro textMeshPro = textObj.AddComponent<TextMeshPro>();
             textMeshPro.textWrappingMode = TextWrappingModes.NoWrap;
-            textMeshPro.transform.position = new Vector2(obstacle.transform.position.x + obstacle.transform.localScale.x,obstacle.transform.position.y - obstacle.transform.position.y);
+            textMeshPro.transform.position = new Vector2(obstacle.transform.position.x + obstacle.transform.localScale.x,obstacle.transform.position.y - obstacle.transform.localScale.y);
             textMeshPro.text = obstacle.GetObstacleDesc();
+            textMeshPro.font = tmp.font;
+            textMeshPro.fontSize = tmp.fontSize;
+            textMeshPro.alignment = TextAlignmentOptions.Center;
             texts.Add(textMeshPro);
         }
     }

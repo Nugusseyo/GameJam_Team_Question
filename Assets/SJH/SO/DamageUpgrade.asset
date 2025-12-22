@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fc7ba4fc695bd45848ae975ab50aca, type: 3}
   m_Name: DamageUpgrade
   m_EditorClassIdentifier: 
+  Image: {fileID: -3753825769889500098, guid: 1446be8319f21174ea97db8ab94c7267, type: 3}
   Name: 
   Type: 0
   Amount: 0
