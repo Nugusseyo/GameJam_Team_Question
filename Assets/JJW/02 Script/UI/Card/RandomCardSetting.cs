@@ -6,9 +6,17 @@ namespace JJW._02_Script.UI.Card
 {
     public class RandomCardSetting : MonoBehaviour
     {
+        public int first;
+        public int second;
+        public int third;
+        
         [SerializeField] private Image leftCardImage;
         [SerializeField] private Image rightCardImage;
         [SerializeField] private Image middleCardImage;
+        
+        [SerializeField] private Card leftCard;
+        [SerializeField] private Card rightCard;
+        [SerializeField] private Card middleCard;
 
         [SerializeField] private TextMeshProUGUI leftCardName;
         [SerializeField] private TextMeshProUGUI rightCardName;
@@ -18,7 +26,7 @@ namespace JJW._02_Script.UI.Card
         [SerializeField] private TextMeshProUGUI middleCardDesc;
         [SerializeField] private TextMeshProUGUI rightCardDesc;
         
-        [SerializeField] private UpgradeListSO upgradeListSO;
+        public UpgradeListSO UpgradeListSO;
 
         private void OnEnable()
         {
@@ -27,25 +35,28 @@ namespace JJW._02_Script.UI.Card
 
         private void GetRandomCard()
         {
-            int first = Random.Range(0, upgradeListSO.Upgrades.Count);
-            leftCardImage.sprite = upgradeListSO.Upgrades[first].Image;
-            leftCardName.text = upgradeListSO.Upgrades[first].Name;
-            leftCardDesc.text = upgradeListSO.Upgrades[first].Desc;
-            int second = first;
+            first = Random.Range(0, UpgradeListSO.Upgrades.Count);
+            leftCard.UpgradeSO =  UpgradeListSO.Upgrades[first];
+            leftCardImage.sprite = UpgradeListSO.Upgrades[first].Image;
+            leftCardName.text = UpgradeListSO.Upgrades[first].Name;
+            leftCardDesc.text = UpgradeListSO.Upgrades[first].Desc;
+            second = first;
             while (second == first)
             {
-                second = Random.Range(0, upgradeListSO.Upgrades.Count);
-                middleCardImage.sprite = upgradeListSO.Upgrades[second].Image;
-                middleCardName.text = upgradeListSO.Upgrades[second].Name;
-                middleCardDesc.text = upgradeListSO.Upgrades[second].Desc;
+                second = Random.Range(0, UpgradeListSO.Upgrades.Count);
+                middleCard.UpgradeSO = UpgradeListSO.Upgrades[second];
+                middleCardImage.sprite = UpgradeListSO.Upgrades[second].Image;
+                middleCardName.text = UpgradeListSO.Upgrades[second].Name;
+                middleCardDesc.text = UpgradeListSO.Upgrades[second].Desc;
             }
-            int third = second;
+            third = second;
             while (second == third || third == first)
             {
-                third = Random.Range(0, upgradeListSO.Upgrades.Count);
-                rightCardImage.sprite = upgradeListSO.Upgrades[third].Image;
-                rightCardName.text = upgradeListSO.Upgrades[third].Name;
-                rightCardDesc.text = upgradeListSO.Upgrades[third].Desc;
+                third = Random.Range(0, UpgradeListSO.Upgrades.Count);
+                rightCard.UpgradeSO = UpgradeListSO.Upgrades[third];
+                rightCardImage.sprite = UpgradeListSO.Upgrades[third].Image;
+                rightCardName.text = UpgradeListSO.Upgrades[third].Name;
+                rightCardDesc.text = UpgradeListSO.Upgrades[third].Desc;
             }
         }
     }
