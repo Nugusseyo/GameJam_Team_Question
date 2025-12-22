@@ -11,6 +11,8 @@ public class ToolTip : MonoBehaviour
     private List<Obstacle> objs = new();
     private List<TextMeshPro> texts = new();
 
+    private Vector2 mousePosition;
+
     private void Awake()
     {
         tmp = GetComponent<TextMeshPro>();
@@ -18,7 +20,10 @@ public class ToolTip : MonoBehaviour
 
     private void Update()
     {
-        if(Keyboard.current.spaceKey.wasPressedThisFrame)
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = mousePosition + new Vector2(0.5f,-0.5f);
+
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             objs.AddRange(FindObjectsByType<Obstacle>(FindObjectsSortMode.None));
             ViewAllTooltips();

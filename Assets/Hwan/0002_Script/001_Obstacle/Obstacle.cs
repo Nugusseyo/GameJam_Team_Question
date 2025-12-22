@@ -74,12 +74,12 @@ namespace Hwan
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            
+            GameManager.Instance.Tooltip.ChangeText(GetObstacleDesc());
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            
+            GameManager.Instance.Tooltip.ChangeText("");
         }
     }
 }
