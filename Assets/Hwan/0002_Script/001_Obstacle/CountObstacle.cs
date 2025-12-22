@@ -24,6 +24,13 @@ namespace Hwan
         }
 
         protected abstract void CountObsInitialize();
+
+        public override string GetObstacleDesc()
+        {
+            string desc = base.GetObstacleDesc();
+            desc = desc.Replace("{c}", currentCount.ToString());
+            return desc;
+        }
     }
 }
 
