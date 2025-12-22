@@ -18,6 +18,7 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private float currentSpeed;
 
     public ParticleSystem particleP;
+    public ParticleSystem particleP2;
     public HealthSystem HealthSystem;
     public event Action OnBump;
     public event Action OnStop;
@@ -48,6 +49,17 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, mousePosition);
         }
+    }
+
+    public void SetMove(Vector2 vector2, float power)
+    {
+        dir = vector2;
+        rigidbody.linearVelocity = dir * power;
+    }
+
+    public Vector2 GetDir()
+    {
+        return dir;
     }
 
     public void GetSpeed()
@@ -89,18 +101,24 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if(collision.gameObject.CompareTag("Wall"))
         {
-            ParticleSystem particle = Instantiate(particleP);
-            particle.gameObject.transform.localScale = new Vector2(0.4f, 0.4f);
-            particle.gameObject.transform.position = collision.GetContact(0).point;
-            float atan = Mathf.Atan2(collision.GetContact(0).normal.x, collision.GetContact(0).normal.y);
-            float angle =  (collision.GetContact(0).normal.x != 0 ? -atan : atan) * Mathf.Rad2Deg;
-            particle.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0,0, angle));
-            particle.Play();
-            StartCoroutine(ParticleDestroy(particle.gameObject));
+            ParticleSpawn(collision, particleP, 1, 0.4f);
+            ParticleSpawn(collision, particleP2, -1,1);
             dir = Vector2.Reflect(dir, collision.GetContact(0).normal);
             rigidbody.linearVelocity = -(dir.normalized) * currentSpeed;
             OnBump?.Invoke();
         }
+    }
+
+    private void ParticleSpawn(Collision2D other, ParticleSystem par, int rotation, float scale)
+    {
+        ParticleSystem particle = Instantiate(par);
+        particle.gameObject.transform.localScale = new Vector2(scale, scale);
+        particle.gameObject.transform.position = other.GetContact(0).point;
+        float atan = Mathf.Atan2(other.GetContact(0).normal.x, -other.GetContact(0).normal.y);
+        float angle = (other.GetContact(0).normal.y != 0 ? atan : -atan) * Mathf.Rad2Deg;
+        particle.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle * rotation));
+        particle.Play();
+        StartCoroutine(ParticleDestroy(particle.gameObject));
     }
 
     private IEnumerator ParticleDestroy(GameObject obj)

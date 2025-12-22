@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5498950559141810496}
   - component: {fileID: 4583368813360535062}
   - component: {fileID: 2845019511572484306}
+  - component: {fileID: 5377065950467120761}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -174,6 +175,7 @@ MonoBehaviour:
   frictionForce: 1
   cooltime: 1
   particleP: {fileID: 0}
+  particleP2: {fileID: 0}
   HealthSystem: {fileID: 0}
 --- !u!114 &1334989194191306588
 MonoBehaviour:
@@ -331,6 +333,66 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &5377065950467120761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832444295519675430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd438dd108a0f284aa931a2da434f1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ImpulseDefinition:
+    ImpulseChannel: 1
+    ImpulseShape: 0
+    CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ImpulseDuration: 0.2
+    ImpulseType: 3
+    DissipationRate: 0
+    RawSignal: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    RepeatMode: 0
+    Randomize: 1
+    TimeEnvelope:
+      AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AttackTime: 0
+      SustainTime: 0.2
+      DecayTime: 0.7
+      ScaleWithImpact: 1
+      HoldForever: 0
+    ImpactRadius: 100
+    DirectionMode: 0
+    DissipationMode: 2
+    DissipationDistance: 100
+    PropagationSpeed: 343
+  DefaultVelocity: {x: 0, y: -1, z: 0}
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  IgnoreTag: 
+  UseImpactDirection: 0
+  ScaleImpactWithMass: 0
+  ScaleImpactWithSpeed: 0
 --- !u!1 &6113890401949027086
 GameObject:
   m_ObjectHideFlags: 0
