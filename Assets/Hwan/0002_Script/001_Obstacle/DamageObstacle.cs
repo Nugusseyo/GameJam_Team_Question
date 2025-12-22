@@ -6,9 +6,8 @@ namespace Hwan
 {
     public class DamageObstacle : CountObstacle
     {
-        private int damage;
+        [SerializeField] private int damage;
         [SerializeField] private ObstacleDamagedType damagedType;
-        [SerializeField] private int maxDamage; //- : -maxDamage ~ 0, + : 0 ~ maxDamage
 
         private void Update()
         {
@@ -33,6 +32,7 @@ namespace Hwan
                     GameManager.Instance.Player.HealthSystem.GetDamage(damage);
                     break;
                 case ObstacleDamagedType.Enemy:
+                    //EnemyManager.Instance.MinusEnemyHealth();
                     //Enemy
                     break;
             }
@@ -40,8 +40,15 @@ namespace Hwan
 
         protected override void CountObsInitialize()
         {
-            int tempDmg = Random.Range(0, maxDamage);
-            damage = maxDamage > 0 ? tempDmg : -tempDmg;
+        }
+
+        public override string GetObstacleDesc()
+        {
+            string desc = base.GetObstacleDesc();
+            desc = desc.Replace("{t}", damagedType.ToString());
+            desc = desc.Replace("{n}", damage.ToString());
+            desc = desc.Replace("{c}", currentCount.ToString());
+            return desc;
         }
     }
 }

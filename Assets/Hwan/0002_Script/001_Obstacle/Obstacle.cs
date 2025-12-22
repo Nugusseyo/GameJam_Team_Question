@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Hwan
 {
@@ -17,7 +18,8 @@ namespace Hwan
             this.normalVector = normalVector;
             spriteRen = GetComponent<SpriteRenderer>();
             spriteRen.color = obstacleSO.Color;
-            //deadParticle.main.startColor = obstacleSO.Color;
+            var main = deadParticle.main;
+            main.startColor = obstacleSO.Color;
 
             PointMove();
 
@@ -60,7 +62,7 @@ namespace Hwan
                 });
         }
 
-        public string GetObstacleDesc()
+        public virtual string GetObstacleDesc()
         {
             return obstacleSO.Desc;
         }

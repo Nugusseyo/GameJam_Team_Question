@@ -72,6 +72,7 @@ public class EnemyManager : MonoBehaviour
             enemy.StartMoveEnemy();
         }
     }
+
     [ContextMenu("Enemy Attacked")]
     public void MinusEnemyHealth()
     {
