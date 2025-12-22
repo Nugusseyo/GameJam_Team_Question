@@ -96,9 +96,18 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             float angle =  (collision.GetContact(0).normal.x != 0 ? -atan : atan) * Mathf.Rad2Deg;
             particle.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0,0, angle));
             particle.Play();
+            StartCoroutine(ParticleDestroy(particle.gameObject));
             dir = Vector2.Reflect(dir, collision.GetContact(0).normal);
             rigidbody.linearVelocity = -(dir.normalized) * currentSpeed;
             OnBump?.Invoke();
         }
     }
+
+    private IEnumerator ParticleDestroy(GameObject obj)
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(obj);
+    }
+
+
 }
