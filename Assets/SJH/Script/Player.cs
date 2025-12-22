@@ -26,7 +26,7 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public HealthSystem HealthSystem;
     public event Action OnBump;
     public event Action OnStop;
-    public Vector2? RandomBounce = Vector2.zero;
+    public Vector2? RandomBounce = null;
 
     private void Awake()
     {
