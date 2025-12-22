@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Hwan
 {
-    public class RandomBounceObstacle : Obstacle
+    public class BouncePowerChangerObstacle : Obstacle
     {
         [SerializeField] private float bouncePower;
 
@@ -14,8 +14,8 @@ namespace Hwan
 
         public override void OnPlayerReached()
         {
-            Debug.Log("플레이어 바운스 파워 바꾸기");
+            Player player = GameManager.Instance.Player;
+            player.SetMove(player.GetDir(), player.GetDir().magnitude * bouncePower);
         }
     }
-
 }

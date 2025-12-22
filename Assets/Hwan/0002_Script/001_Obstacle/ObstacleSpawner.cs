@@ -6,19 +6,27 @@ namespace Hwan
 
     public class ObstacleSpawner : MonoBehaviour
     {
-        [SerializeField] private Obstacle[] obstaclePrefabs;
-        [SerializeField] private List<Obstacle> currentObstacles;
+        [SerializeField] private GameObject[] obstaclePrefabs;
+        private List<Obstacle> currentObstacles;
         [SerializeField] private spawnPoints[] spawnPoints;
         private float[] obstacleWeights;
+        private Dictionary<NormalVectorType, Vector2> normalVectorDictionary = new();
 
         public void Awake()
         {
+            normalVectorDictionary.Add(NormalVectorType.Up, Vector2.up);
+            normalVectorDictionary.Add(NormalVectorType.Down, Vector2.down);
+            normalVectorDictionary.Add(NormalVectorType.Left, Vector2.left);
+            normalVectorDictionary.Add(NormalVectorType.Right, Vector2.right);
+
             currentObstacles = new List<Obstacle>();
 
             obstacleWeights = new float[obstaclePrefabs.Length];
 
             for (int i = 0; i < obstacleWeights.Length; i++)
                 obstacleWeights[i] = 1f; // 기본 확률
+
+            GameManager.Instance.TurnManager.OnTurnComplete.AddListener(SpawnObstacle);
         }
 
         public void SpawnObstacle()
@@ -34,12 +42,10 @@ namespace Hwan
                 int index = GetRandomObstacleIndex();
 
                 // 생성
-                currentObstacles.Add(
-                    Instantiate(obstaclePrefabs[index], transform)
-                );
+                currentObstacles.Add(Instantiate(obstaclePrefabs[index], transform).GetComponent<Obstacle>());
 
-                currentObstacles[i].transform.position = spawnPoints[i].SpawnPoint;
-                currentObstacles[i].SpawnObstacle(spawnPoints[i].NormalVector);
+                currentObstacles[i].transform.position = spawnPoints[i].SpawnPoint.position;
+                currentObstacles[i].SpawnObstacle(normalVectorDictionary[spawnPoints[i].NormalVector]);
                 
                 obstacleWeights[index] *= 0.5f;
 
@@ -70,7 +76,7 @@ namespace Hwan
     [Serializable]
     public struct spawnPoints
     {
-        [field: SerializeField] public Vector2 NormalVector { get; private set; }
-        [field: SerializeField] public Vector2 SpawnPoint {get; private set;}
+        [field: SerializeField] public NormalVectorType NormalVector { get; private set; }
+        [field: SerializeField] public Transform SpawnPoint {get; private set;}
     }
 }
