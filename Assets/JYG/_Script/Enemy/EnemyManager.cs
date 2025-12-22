@@ -109,6 +109,10 @@ public class EnemyManager : MonoBehaviour
         foreach(Enemy enemy in enemyList)
         {
             enemy.CurrentHealth += value;
+            if(value < 0)
+            {
+                enemy.EnemyHeal?.Invoke();
+            }
         }
     }
 

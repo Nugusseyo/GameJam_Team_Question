@@ -584,7 +584,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4a631fc90e0c7f74e8cf944c1268d7a9, type: 2}
+  - {fileID: 2100000, guid: 1826daac5d5593f40b00266eae592ee5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -775,6 +775,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4039577000710323708}
+    - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6708570046009383124}
   m_SourcePrefab: {fileID: 100100000, guid: d231c4d42de810b43804fd573804cea4, type: 3}
 --- !u!4 &445373914816896047 stripped
 Transform:
@@ -959,3 +962,15 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &-6708570046009383124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6827514980458629523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb6853ce092b9a4e91da947dbc9cea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

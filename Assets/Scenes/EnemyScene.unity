@@ -233,6 +233,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 549215564090360228, guid: 88b1672b94802e54bbcb7bd2aa6cce37, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 549215564090360228, guid: 88b1672b94802e54bbcb7bd2aa6cce37, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 549215564090360228, guid: 88b1672b94802e54bbcb7bd2aa6cce37, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7490196
+      objectReference: {fileID: 0}
     - target: {fileID: 2897244373164775247, guid: 88b1672b94802e54bbcb7bd2aa6cce37, type: 3}
       propertyPath: m_Name
       value: Rabbit Step Enemy
