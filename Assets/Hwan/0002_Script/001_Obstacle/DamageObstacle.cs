@@ -6,7 +6,8 @@ namespace Hwan
 {
     public class DamageObstacle : CountObstacle
     {
-        [SerializeField] private int damage;
+        [SerializeField] private int maxDamage = 2;
+        private int damage;
         [SerializeField] private ObstacleDamagedType damagedType;
 
         protected override void OnPlayerReachedOnce()
@@ -34,6 +35,7 @@ namespace Hwan
 
         protected override void CountObsInitialize()
         {
+            damage = Random.Range(1, maxDamage + 1);
         }
 
         public override string GetObstacleDesc()
