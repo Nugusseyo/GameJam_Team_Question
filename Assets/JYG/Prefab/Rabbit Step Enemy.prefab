@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3972923032654788791
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_Name
+      value: Rabbit Step Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4098334984493989259}
+    - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1777899257188135719}
+  m_SourcePrefab: {fileID: 100100000, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+--- !u!1 &2897244373164775247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+  m_PrefabInstance: {fileID: 3972923032654788791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4098334984493989259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897244373164775247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f85b4587b9b5c4697e36cf661cc88a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Duration>k__BackingField: 5
+  <Distance>k__BackingField: 4
+  <MoveDelay>k__BackingField: 1.5
+  <MaxHealth>k__BackingField: 2
+  EnemyDead:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4266223202352933066}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <Ease>k__BackingField: 24
+  hopCount: 8
+  rotationPower: 35
+--- !u!114 &1777899257188135719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897244373164775247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c0d586d5349a7449df00e90f45d579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "\uD1A0\uB07C\uCC98\uB7FC \uC5F0\uC18D\uC73C\uB85C n\uBC88 \uB3CC\uC9C4\uD558\uB294
+    \uC801 \uC785\uB2C8\uB2E4.\n"
+--- !u!198 &4266223202352933066 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 870886965826654333, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+  m_PrefabInstance: {fileID: 3972923032654788791}
+  m_PrefabAsset: {fileID: 0}
