@@ -5,7 +5,7 @@ namespace Hwan
     public class RandomAngleObstacle : Obstacle
     {
         [SerializeField] private float maxAngle;
-        [SerializeField] private float angle;
+        private float angle;
 
         protected override void Initialize()
         {
@@ -14,7 +14,9 @@ namespace Hwan
 
         public override void OnPlayerReached()
         {
-            Debug.Log("플레이어 각도 틀기");
+            Vector2 playerDir = GameManager.Instance.Player.GetDir();
+            float rad = Mathf.Deg2Rad * (angle + Mathf.Atan2(normalVector.y, normalVector.x));
+            GameManager.Instance.Player.SetMove(new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)), playerDir.magnitude);
         }
     }
 }

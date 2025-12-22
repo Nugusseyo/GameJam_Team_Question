@@ -6,9 +6,8 @@ namespace Hwan
 {
     public class DamageObstacle : CountObstacle
     {
-        private int damage;
+        [SerializeField] private int damage;
         [SerializeField] private ObstacleDamagedType damagedType;
-        [SerializeField] private int maxDamage; //- : -maxDamage ~ 0, + : 0 ~ maxDamage
 
         private void Update()
         {
@@ -18,7 +17,7 @@ namespace Hwan
             }
             else if (Keyboard.current.aKey.wasPressedThisFrame) 
             {
-                SpawnObstacle();
+                SpawnObstacle(Vector2.up);
             }
         }
 
@@ -30,18 +29,25 @@ namespace Hwan
                     Debug.Log("None 이잔아ㅏ");
                     break;
                 case ObstacleDamagedType.Player:
-                    //Player에게 데미지를 입히자
+                    GameManager.Instance.Player.HealthSystem.GetDamage(damage);
                     break;
                 case ObstacleDamagedType.Enemy:
-                    //Enemy에게 데미지를 입히자
+                    EnemyManager.Instance.MinusEnemyHealth(damage);
                     break;
             }
         }
 
         protected override void CountObsInitialize()
         {
-            int tempDmg = Random.Range(0, maxDamage);
-            damage = maxDamage > 0 ? tempDmg : -tempDmg;
+        }
+
+        public override string GetObstacleDesc()
+        {
+            string desc = base.GetObstacleDesc();
+            desc = desc.Replace("{t}", damagedType.ToString());
+            desc = desc.Replace("{n}", damage.ToString());
+            desc = desc.Replace("{c}", currentCount.ToString());
+            return desc;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Hwan
 
         protected override void OnPlayerReachedOnce()
         {
-            Debug.Log("에너미 리셋 끄기");
+            //GameManager.Instance
         }
     }
 }
