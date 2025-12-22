@@ -13,6 +13,7 @@ public enum UpgradeType
 [CreateAssetMenu(fileName = "UpgradeSO", menuName = "SJH/SO/UpgradeSO")]
 public class UpgradeSO : ScriptableObject
 {
+    public Sprite Image;
     public string Name;
     public UpgradeType Type;
     public int Amount;

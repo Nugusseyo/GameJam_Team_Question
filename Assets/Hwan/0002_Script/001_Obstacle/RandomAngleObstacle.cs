@@ -14,9 +14,9 @@ namespace Hwan
 
         public override void OnPlayerReached()
         {
-            Vector2 playerDir = GameManager.Instance.Player.GetDir();
             float rad = Mathf.Deg2Rad * (angle + Mathf.Atan2(normalVector.y, normalVector.x));
-            GameManager.Instance.Player.SetMove(new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)), playerDir.magnitude);
+            Vector2 vector = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+            GameManager.Instance.Player.RandomBounce = vector;
         }
     }
 }

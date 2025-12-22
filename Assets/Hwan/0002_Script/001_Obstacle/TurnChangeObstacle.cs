@@ -4,7 +4,7 @@ namespace Hwan
 
     public class TurnChangeObstacle : CountObstacle
     {
-        [SerializeField] private int changeTurnAmount;
+        [SerializeField] private bool isPass;
 
         protected override void CountObsInitialize()
         {
@@ -13,7 +13,21 @@ namespace Hwan
 
         protected override void OnPlayerReachedOnce()
         {
-            Debug.Log("턴 바꾸기");
+            if (isPass == true)
+            {
+                GameManager.Instance.TurnManager.PlusTurn(1);
+            }
+            else
+            {
+                GameManager.Instance.TurnManager.MinusTurn(1);
+            }
+        }
+
+        public override string GetObstacleDesc()
+        {
+            string desc = base.GetObstacleDesc();
+            desc = desc.Replace("{t}", 1.ToString());
+            return desc;
         }
     }
 }

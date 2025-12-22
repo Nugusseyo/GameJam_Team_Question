@@ -21,7 +21,7 @@ namespace JJW._02_Script.UI
         {
             _rectTransform.DOSizeDelta(targetScale, time).SetEase(ease).OnComplete(() =>
             {
-                _rectTransform.DOSizeDelta(new Vector2(100,100),time).SetEase(ease);
+                _rectTransform.DOSizeDelta(new Vector2(60,60),time).SetEase(ease);
             });
         }
     }

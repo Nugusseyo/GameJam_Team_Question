@@ -1,11 +1,12 @@
 using DG.Tweening;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 namespace Hwan
 {
-    public abstract class Obstacle : MonoBehaviour
+    public abstract class Obstacle : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         private ParticleSystem deadParticle;
         private SpriteRenderer spriteRen;
@@ -20,10 +21,10 @@ namespace Hwan
             deadParticle = transform.GetChild(0).GetComponent<ParticleSystem>();
 
             spriteRen = GetComponent<SpriteRenderer>();
-            spriteRen.color = obstacleSO.Color;
+            Color useColor = spriteRen.color;
 
             var main = deadParticle.main;
-            main.startColor = obstacleSO.Color;
+            main.startColor = useColor;
 
             PointMove();
 
@@ -69,6 +70,16 @@ namespace Hwan
         public virtual string GetObstacleDesc()
         {
             return obstacleSO.Desc;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            
         }
     }
 }

@@ -6,16 +6,31 @@ namespace Hwan
 
     public class ObstacleSpawner : MonoBehaviour
     {
-        [SerializeField] private Obstacle[] obstaclePrefabs;
-        [SerializeField] private List<Obstacle> currentObstacles;
+        [SerializeField] private GameObject[] obstaclePrefabs;
+        private List<Obstacle> currentObstacles;
         [SerializeField] private spawnPoints[] spawnPoints;
+        private float[] obstacleWeights;
+        private Dictionary<NormalVectorType, Vector2> normalVectorDictionary = new();
+
+        public void Awake()
+        {
+            normalVectorDictionary.Add(NormalVectorType.Up, Vector2.up);
+            normalVectorDictionary.Add(NormalVectorType.Down, Vector2.down);
+            normalVectorDictionary.Add(NormalVectorType.Left, Vector2.left);
+            normalVectorDictionary.Add(NormalVectorType.Right, Vector2.right);
+
+            currentObstacles = new List<Obstacle>();
+
+            obstacleWeights = new float[obstaclePrefabs.Length];
+
+            for (int i = 0; i < obstacleWeights.Length; i++)
+                obstacleWeights[i] = 1f; // 기본 확률
+
+            GameManager.Instance.TurnManager.OnTurnComplete.AddListener(SpawnObstacle);
+        }
 
         public void SpawnObstacle()
         {
-            if (currentObstacles == null)
-            {
-                currentObstacles = new List<Obstacle>();
-            }
             foreach (Obstacle obstacle in currentObstacles)
             {
                 currentObstacles.Remove(obstacle);
@@ -24,17 +39,44 @@ namespace Hwan
 
             for (int i = 0; i < spawnPoints.Length; i++)
             {
-                currentObstacles.Add(Instantiate(obstaclePrefabs[UnityEngine.Random.Range(0, obstaclePrefabs.Length)], transform));
-                currentObstacles[i].transform.position = spawnPoints[i].SpawnPoint;
-                currentObstacles[i].SpawnObstacle(spawnPoints[i].NormalVector);
+                int index = GetRandomObstacleIndex();
+
+                // 생성
+                currentObstacles.Add(Instantiate(obstaclePrefabs[index], transform).GetComponent<Obstacle>());
+
+                currentObstacles[i].transform.position = spawnPoints[i].SpawnPoint.position;
+                currentObstacles[i].SpawnObstacle(normalVectorDictionary[spawnPoints[i].NormalVector]);
+                
+                obstacleWeights[index] *= 0.5f;
+
             }
+        }
+
+        int GetRandomObstacleIndex()
+        {
+            float totalWeight = 0f;
+
+            for (int i = 0; i < obstacleWeights.Length; i++)
+                totalWeight += obstacleWeights[i];
+
+            float rand = UnityEngine.Random.Range(0f, totalWeight);
+
+            float current = 0f;
+            for (int i = 0; i < obstacleWeights.Length; i++)
+            {
+                current += obstacleWeights[i];
+                if (rand <= current)
+                    return i;
+            }
+
+            return 0;
         }
     }
 
     [Serializable]
     public struct spawnPoints
     {
-        [field: SerializeField] public Vector2 NormalVector { get; private set; }
-        [field: SerializeField] public Vector2 SpawnPoint {get; private set;}
+        [field: SerializeField] public NormalVectorType NormalVector { get; private set; }
+        [field: SerializeField] public Transform SpawnPoint {get; private set;}
     }
 }

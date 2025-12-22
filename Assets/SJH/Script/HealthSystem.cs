@@ -1,3 +1,4 @@
+using JJW._02_Script.UI;
 using System;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 5;
     [SerializeField] private int shieldChargeTime = 3;
+    [SerializeField] private IntEventChannel eventChannel;
     private int health;
     private bool shield = false;
     private int lastShield = 0;
@@ -29,6 +31,7 @@ public class HealthSystem : MonoBehaviour
             return;
         }
         health -= amount;
+        eventChannel.Raise(health);
         health = Mathf.Clamp(health, 0, 10);
         if(health == 0)
         {
@@ -44,6 +47,7 @@ public class HealthSystem : MonoBehaviour
     {
         health += amount;
         health = Mathf.Clamp(health, 0, 10);
+        eventChannel.Raise(health);
     }
 
     public void GetAddictionalHealth()
