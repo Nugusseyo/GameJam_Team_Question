@@ -26,7 +26,7 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public HealthSystem HealthSystem;
     public event Action OnBump;
     public event Action OnStop;
-    public float spread = 0;
+    public Vector2? RandomBounce = Vector2.zero;
 
     private void Awake()
     {
@@ -117,13 +117,13 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if(collision.gameObject.CompareTag("Wall"))
         {
-            ParticleSpawn(collision, particleP, 1, 0.4f);
             ParticleSpawn(collision, particleP2, -1,1);
+            ParticleSpawn(collision, particleP, 1, 0.4f);
             impulseSource.GenerateImpulseWithVelocity(collision.GetContact(0).normal/180*currentSpeed);
-            dir = Vector2.Reflect(dir, (collision.GetContact(0).normal + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread)).normalized));
-            rigidbody.linearVelocity = -(dir.normalized) * currentSpeed;
             OnBump?.Invoke();
-            spread = 0;
+            dir = RandomBounce != null ? (Vector2)RandomBounce : Vector2.Reflect(dir, collision.GetContact(0).normal);
+            rigidbody.linearVelocity = -(dir.normalized) * currentSpeed;
+            RandomBounce = null;
         }
     }
 
