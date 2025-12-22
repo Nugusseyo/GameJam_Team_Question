@@ -59,6 +59,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8548867725489867546}
+    - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3790044018520091303}
   m_SourcePrefab: {fileID: 100100000, guid: d231c4d42de810b43804fd573804cea4, type: 3}
 --- !u!1 &2621518504218316822 stripped
 GameObject:
@@ -97,6 +100,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   <Ease>k__BackingField: 1
+--- !u!114 &-3790044018520091303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2621518504218316822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c0d586d5349a7449df00e90f45d579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "Normal Enemy\uB294 \uBAA8\uB4E0 Enemy\uC758 \uAE30\uC900\uC810\uC785\uB2C8\uB2E4."
 --- !u!198 &3990257708630618003 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 870886965826654333, guid: d231c4d42de810b43804fd573804cea4, type: 3}
