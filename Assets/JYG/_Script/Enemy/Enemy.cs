@@ -41,10 +41,6 @@ namespace Assets.JYG._Script
                 {
                     EnemyLive?.Invoke();
                 }
-                else if(value > _currentHealth)
-                {
-                    EnemyHeal?.Invoke();
-                }
                 _currentHealth = value;
             }
         }
@@ -56,7 +52,7 @@ namespace Assets.JYG._Script
 
         [field: SerializeField] public Ease Ease { get; set; } = Ease.Linear;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _collider = GetComponent<Collider2D>();
         }
@@ -76,12 +72,11 @@ namespace Assets.JYG._Script
             CurrentHealth = MaxHealth;
         }
         protected abstract void EnemyMove();
-        public void StopEnemy()
+        public virtual void StopEnemy()
         {
             _moveTween.Pause();
-            _moveTween.Kill();
         }
-        public void StartMoveEnemy()
+        public virtual void StartMoveEnemy()
         {
             EnemyMove();
         }
@@ -93,7 +88,6 @@ namespace Assets.JYG._Script
         private void OnTriggerEnter2D(Collider2D collision)
         {
             DeadEnemy();
-            Debug.Log("플레이어 감지됨");
         }
 
         private void DeadEnemy()
