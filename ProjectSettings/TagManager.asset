@@ -48,5 +48,8 @@ TagManager:
   - name: EnemyDeadParticle
     uniqueID: 1067090465
     locked: 0
+  - name: Table
+    uniqueID: 2512146449
+    locked: 0
   m_RenderingLayers:
   - Default
