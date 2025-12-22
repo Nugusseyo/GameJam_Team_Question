@@ -1,11 +1,12 @@
 using DG.Tweening;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 namespace Hwan
 {
-    public abstract class Obstacle : MonoBehaviour
+    public abstract class Obstacle : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         private ParticleSystem deadParticle;
         private SpriteRenderer spriteRen;
@@ -69,6 +70,16 @@ namespace Hwan
         public virtual string GetObstacleDesc()
         {
             return obstacleSO.Desc;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            
         }
     }
 }
