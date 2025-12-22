@@ -781,6 +781,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
   m_PrefabInstance: {fileID: 5042947301448130040}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &2604266522421357090 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7050406385242699738, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+  m_PrefabInstance: {fileID: 5042947301448130040}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4449023647756701492 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8665557582574605004, guid: d231c4d42de810b43804fd573804cea4, type: 3}
@@ -795,6 +800,22 @@ MonoBehaviour:
 --- !u!198 &5139014979754193775 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 192906288760123031, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+  m_PrefabInstance: {fileID: 5042947301448130040}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5407784579495418528 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1076477642896328536, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+  m_PrefabInstance: {fileID: 5042947301448130040}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7abea3f2238da745adaaa5ffa9b9de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!198 &6150018120584723908 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1199476198707454012, guid: d231c4d42de810b43804fd573804cea4, type: 3}
   m_PrefabInstance: {fileID: 5042947301448130040}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6551499136132444672 stripped
@@ -845,9 +866,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2604266522421357090}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5407784579495418528}
+        m_TargetAssemblyTypeName: DOTweenFadeOut, Assembly-CSharp
+        m_MethodName: DoFade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   EnemyHeal:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6150018120584723908}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   EnemyLive:
     m_PersistentCalls:
       m_Calls: []
