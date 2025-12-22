@@ -30,15 +30,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3617a3ffc17d35745a2d04fe9b9e5618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Duration>k__BackingField: 2
+  <Duration>k__BackingField: 2.5
   <Distance>k__BackingField: 1
   <MoveDelay>k__BackingField: 0
   <MaxHealth>k__BackingField: 2
@@ -99,6 +99,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  EnemyHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  EnemyLive:
+    m_PersistentCalls:
+      m_Calls: []
   <Ease>k__BackingField: 1
 --- !u!114 &-3790044018520091303
 MonoBehaviour:

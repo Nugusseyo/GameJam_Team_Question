@@ -59,6 +59,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8548867725489867546}
+    - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1102679285134009367}
   m_SourcePrefab: {fileID: 100100000, guid: d231c4d42de810b43804fd573804cea4, type: 3}
 --- !u!1 &2621518504218316822 stripped
 GameObject:
@@ -77,9 +80,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3617a3ffc17d35745a2d04fe9b9e5618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Duration>k__BackingField: 1.5
-  <Distance>k__BackingField: 2
-  <MoveDelay>k__BackingField: 2.5
+  <Duration>k__BackingField: 2
+  <Distance>k__BackingField: 1.5
+  <MoveDelay>k__BackingField: 3
   <MaxHealth>k__BackingField: 2
   EnemyDead:
     m_PersistentCalls:
@@ -96,9 +99,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7085207878553875209}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EnemyHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  EnemyLive:
+    m_PersistentCalls:
+      m_Calls: []
   <Ease>k__BackingField: 27
+--- !u!114 &1102679285134009367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2621518504218316822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c0d586d5349a7449df00e90f45d579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "\uD55C\uBC88\uC5D0 \uD06C\uAC8C \uAE09\uBC1C\uC9C4 \uD558\uB294 \uC801\uC744
+    \uAD6C\uC0C1\uD558\uBA70 \uC218\uCE58\uB97C \uC870\uC815\uD568."
 --- !u!198 &3990257708630618003 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 870886965826654333, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+  m_PrefabInstance: {fileID: 4284679347843678190}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7085207878553875209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6423692367809481959, guid: d231c4d42de810b43804fd573804cea4, type: 3}
   m_PrefabInstance: {fileID: 4284679347843678190}
   m_PrefabAsset: {fileID: 0}

@@ -80,9 +80,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f85b4587b9b5c4697e36cf661cc88a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Duration>k__BackingField: 5
-  <Distance>k__BackingField: 4
-  <MoveDelay>k__BackingField: 1.5
+  <Duration>k__BackingField: 4
+  <Distance>k__BackingField: 2.5
+  <MoveDelay>k__BackingField: 1
   <MaxHealth>k__BackingField: 2
   EnemyDead:
     m_PersistentCalls:
@@ -99,9 +99,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  <Ease>k__BackingField: 24
-  hopCount: 8
-  rotationPower: 35
+  EnemyHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  EnemyLive:
+    m_PersistentCalls:
+      m_Calls: []
+  <Ease>k__BackingField: 30
+  hopCount: 3
+  rotationPower: 60
 --- !u!114 &1777899257188135719
 MonoBehaviour:
   m_ObjectHideFlags: 0
