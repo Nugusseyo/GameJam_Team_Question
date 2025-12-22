@@ -18,6 +18,15 @@ public class EnemyManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        GameManager.Instance.TurnManager.OnTurnPass.AddListener((_) => OnTurnEnd());
+        GameManager.Instance.TurnManager.OnTurnComplete.AddListener(() =>
+        {
+            for (int i = 0; i < spawnCountSO.SpawnCounts[GameManager.Instance.TurnManager.Turn].EnemyCount; i++)
+            {
+                SpawnEnemyRandomPosition();
+            }
+        });
     }
     #endregion
 
@@ -28,13 +37,24 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float cameraHeight;
     [SerializeField] private float cameraWidth;
     [SerializeField] private float distance;
+    [SerializeField] private SpawnCountSO spawnCountSO;
+    public int SkipTurn { get; set; } = 0;
 
     private void Start()
     {
         InitSpawnPosition();
     }
 
-    
+    private void OnTurnEnd()
+    {
+        StartMoveEnemy();
+        if (SkipTurn > 0)
+        {
+            SkipTurn--;
+            return;
+        }
+        ResetEnemy();
+    }
 
     public void AddEnemy(Enemy enemy)
     {
@@ -90,6 +110,7 @@ public class EnemyManager : MonoBehaviour
             Instantiate(spawnEnemyList[UnityEngine.Random.Range(0, spawnEnemyList.Count)], pos, Quaternion.identity);
         }
     }
+
     private void InitSpawnPosition()
     {
         Vector2 cameraMaxSize = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));

@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 196274615771296509, guid: cf2cc860e565dfe40bb9ba2ab391082a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.47591263
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 196274615771296509, guid: cf2cc860e565dfe40bb9ba2ab391082a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7324624
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 196274615771296509, guid: cf2cc860e565dfe40bb9ba2ab391082a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6679635
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 196274615771296509, guid: cf2cc860e565dfe40bb9ba2ab391082a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -77,13 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358cb8cb1f49bdd4e8fe493d0a1bf421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadParticle: {fileID: 7220721109681455870}
   obstacleSO: {fileID: 11400000, guid: 7989771bfa654b944a2da456f7e72bee, type: 2}
   count: 3
   damage: 1
   damagedType: 1
---- !u!198 &7220721109681455870 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6417627378355737020, guid: cf2cc860e565dfe40bb9ba2ab391082a, type: 3}
-  m_PrefabInstance: {fileID: 4412077991674073922}
-  m_PrefabAsset: {fileID: 0}
