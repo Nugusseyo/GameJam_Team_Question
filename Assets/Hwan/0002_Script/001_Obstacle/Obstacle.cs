@@ -7,7 +7,7 @@ namespace Hwan
 {
     public abstract class Obstacle : MonoBehaviour
     {
-        [SerializeField] private ParticleSystem deadParticle;
+        private ParticleSystem deadParticle;
         private SpriteRenderer spriteRen;
         public bool IsDestroyed { get; private set; }
         [SerializeField] private ObstacleSO obstacleSO;
@@ -16,8 +16,12 @@ namespace Hwan
         public void SpawnObstacle(Vector2 normalVector)
         {
             this.normalVector = normalVector;
+
+            deadParticle = transform.GetChild(0).GetComponent<ParticleSystem>();
+
             spriteRen = GetComponent<SpriteRenderer>();
             spriteRen.color = obstacleSO.Color;
+
             var main = deadParticle.main;
             main.startColor = obstacleSO.Color;
 

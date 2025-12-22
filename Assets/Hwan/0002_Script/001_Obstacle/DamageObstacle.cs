@@ -32,8 +32,7 @@ namespace Hwan
                     GameManager.Instance.Player.HealthSystem.GetDamage(damage);
                     break;
                 case ObstacleDamagedType.Enemy:
-                    //EnemyManager.Instance.MinusEnemyHealth();
-                    //Enemy
+                    EnemyManager.Instance.MinusEnemyHealth(damage);
                     break;
             }
         }

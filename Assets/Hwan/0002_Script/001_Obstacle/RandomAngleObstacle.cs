@@ -5,7 +5,7 @@ namespace Hwan
     public class RandomAngleObstacle : Obstacle
     {
         [SerializeField] private float maxAngle;
-        [SerializeField] private float angle;
+        private float angle;
 
         protected override void Initialize()
         {
