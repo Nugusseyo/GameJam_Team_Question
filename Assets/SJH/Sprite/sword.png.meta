@@ -103,10 +103,10 @@ TextureImporter:
       name: sword_0
       rect:
         serializedVersion: 2
-        x: 259
-        y: 87
-        width: 627
-        height: 850
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: eca88a67523cfd34bb0c79cf92130ff1
     internalID: 0
     vertices: []
     indices: 

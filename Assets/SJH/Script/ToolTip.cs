@@ -21,7 +21,8 @@ public class ToolTip : MonoBehaviour
     private void Update()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = mousePosition + new Vector2(0.5f,-0.5f);
+        transform.position = mousePosition.x < 0 ? mousePosition + new Vector2(0.5f, mousePosition.y > 2 ? -0.5f : 0.5f) : mousePosition + new Vector2(-0.5f, mousePosition.y > 2 ? -0.5f : 0.5f);
+        tmp.alignment = mousePosition.x < 0 ? (mousePosition.y < 2 ? TextAlignmentOptions.BottomLeft : TextAlignmentOptions.TopLeft) : (mousePosition.y < 2 ? TextAlignmentOptions.BottomRight : TextAlignmentOptions.TopRight);
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
