@@ -1,6 +1,8 @@
 ﻿using System;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
+using Sequence = DG.Tweening.Sequence;
 
 namespace JJW._02_Script.UI.Card
 {
@@ -10,10 +12,15 @@ namespace JJW._02_Script.UI.Card
         [SerializeField] private GameObject rightMapCardObj;
         [SerializeField] private GameObject middleMapCardObj;
         [SerializeField] private Ease ease;
+        [SerializeField] private Cards cards;
 
         private RectTransform _leftCardRect;
         private RectTransform _rightCardRect;
         private RectTransform _middleCardRect;
+        
+        [SerializeField] private Card leftCard;
+        [SerializeField] private Card rightCard;
+        [SerializeField]  private Card middleCard;
 
         private Vector3 _leftMapCardPos;
         private Vector3 _rightMapCardPos;
@@ -73,8 +80,15 @@ namespace JJW._02_Script.UI.Card
             if (!_isCanClick) return;
 
             Debug.Log("왼쪽");
-            
+            foreach (Card card in cards.MyCards)
+            {
+                if (card.UpgradeSO == leftCard.UpgradeSO)
+                {
+                    card.Enable();
+                }
+            }
 
+            
             _isCanClick = false;
 
             MoveDownCard(() =>
@@ -88,6 +102,13 @@ namespace JJW._02_Script.UI.Card
             if (!_isCanClick) return;
 
             Debug.Log("오른쪽");
+            foreach (Card card in cards.MyCards)
+            {
+                if (card.UpgradeSO == rightCard.UpgradeSO)
+                {
+                    card.Enable();
+                }
+            }
 
             _isCanClick = false;
 
@@ -102,6 +123,13 @@ namespace JJW._02_Script.UI.Card
             if (!_isCanClick) return;
 
             Debug.Log("가운데");
+            foreach (Card card in cards.MyCards)
+            {
+                if (card.UpgradeSO == middleCard.UpgradeSO)
+                {
+                    card.Enable();
+                }
+            }
 
             _isCanClick = false;
 

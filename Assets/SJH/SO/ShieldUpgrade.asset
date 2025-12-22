@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fc7ba4fc695bd45848ae975ab50aca, type: 3}
   m_Name: ShieldUpgrade
   m_EditorClassIdentifier: 
-  Image: {fileID: 0}
-  Name: 
-  Type: 0
-  Amount: 0
-  Desc: 
+  Image: {fileID: 2389193319765324094, guid: dc1152e6eae32764687ca04cd8b1fc53, type: 3}
+  Name: ShieldUpgrade
+  Type: 3
+  Amount: 1
+  Desc: "\uD53C\uD574\uB97C 1\uBC29\uC5B4 \uD574\uC8FC\uB294 \uBC29\uC5B4\uB9C9\uC744
+    \uC5BB\uC2B5\uB2C8\uB2E4.\n\uBC29\uC5B4\uB9C9\uC774 \uAE68\uC9C0\uBA74 3\uD134
+    \uD6C4 \uB2E4\uC2DC \uBC29\uC5B4\uB9C9\uC774 \uC0DD\uAE41\uB2C8\uB2E4"
