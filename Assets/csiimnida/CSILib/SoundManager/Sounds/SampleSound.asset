@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: SampleSound
   soundType: 1
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: bfc5803fa8fa8924bbeaa34f4f689bb1, type: 3}
   loop: 0
   Priority: 128
   volume: 1
