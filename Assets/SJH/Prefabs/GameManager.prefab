@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceParticle: {fileID: 569208537624664135, guid: aad6f3aadbaa35f47899cd9b5cf04a95, type: 3}
   bounceParticle2: {fileID: 5699307028181602292, guid: 1ff5335e43c9bb04a9e90bae585a28b8, type: 3}
+  background: {fileID: 6205703070724732681, guid: d296ee274563f844d8bcec0c08f6365a, type: 3}
   Player: {fileID: 4668783259198474308, guid: 4bebf49c88079b046acb02890cc1082a, type: 3}
   TurnManager: {fileID: 5722712729958216344, guid: f952dcc9b71c63640af1508f2dbc36b9, type: 3}
   Tooltip: {fileID: 8353775180383277340, guid: cae088fa7904c984b9a237de448c6cb9, type: 3}

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private ParticleSystem bounceParticle;
     [SerializeField] private ParticleSystem bounceParticle2;
+    [SerializeField] private MouseClick background;
   
     public Player Player;
     public TurnManager TurnManager;
@@ -26,5 +27,6 @@ public class GameManager : MonoBehaviour
         Player.particleP2 = bounceParticle2;
         TurnManager = Instantiate(TurnManager);
         Tooltip = Instantiate(Tooltip);
+        Instantiate(background);
     }
 }
