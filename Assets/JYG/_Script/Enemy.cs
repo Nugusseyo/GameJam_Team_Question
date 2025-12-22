@@ -37,12 +37,22 @@ namespace Assets.JYG._Script
                     _currentHealth = MaxHealth;
                     return;
                 }
-                 _currentHealth = value;
+                if(_currentHealth == 0 && value > 0)
+                {
+                    EnemyLive?.Invoke();
+                }
+                else if(value > _currentHealth)
+                {
+                    EnemyHeal?.Invoke();
+                }
+                    _currentHealth = value;
             }
         }
 
         public Action EnemyStun;
         public UnityEvent EnemyDead;
+        public UnityEvent EnemyHeal;
+        public UnityEvent EnemyLive;
 
         [field: SerializeField] public Ease Ease { get; set; } = Ease.Linear;
 

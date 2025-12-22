@@ -59,6 +59,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4098334984493989259}
+    - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1777899257188135719}
   m_SourcePrefab: {fileID: 100100000, guid: d231c4d42de810b43804fd573804cea4, type: 3}
 --- !u!1 &2897244373164775247 stripped
 GameObject:
@@ -99,6 +102,20 @@ MonoBehaviour:
   <Ease>k__BackingField: 24
   hopCount: 8
   rotationPower: 35
+--- !u!114 &1777899257188135719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897244373164775247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c0d586d5349a7449df00e90f45d579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "\uD1A0\uB07C\uCC98\uB7FC \uC5F0\uC18D\uC73C\uB85C n\uBC88 \uB3CC\uC9C4\uD558\uB294
+    \uC801 \uC785\uB2C8\uB2E4.\n"
 --- !u!198 &4266223202352933066 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 870886965826654333, guid: d231c4d42de810b43804fd573804cea4, type: 3}
