@@ -38,7 +38,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float cameraWidth;
     [SerializeField] private float distance;
     [SerializeField] private SpawnCountSO spawnCountSO;
-    public int SkipTurn { get; set; } = 0;
+    public int ResetSkipTurn { get; set; } = 0;
+    public int MoveSkipTurn { get; set; } = 0;
 
     private void Start()
     {
@@ -47,13 +48,22 @@ public class EnemyManager : MonoBehaviour
 
     private void OnTurnEnd()
     {
-        StartMoveEnemy();
-        if (SkipTurn > 0)
+        if (MoveSkipTurn > 0)
         {
-            SkipTurn--;
-            return;
+            MoveSkipTurn--;
         }
-        ResetEnemy();
+        else
+        {
+            StartMoveEnemy();
+        }
+        if (ResetSkipTurn > 0)
+        {
+            ResetSkipTurn--;
+        }
+        else
+        {
+            ResetEnemy();
+        }
     }
 
     public void AddEnemy(Enemy enemy)

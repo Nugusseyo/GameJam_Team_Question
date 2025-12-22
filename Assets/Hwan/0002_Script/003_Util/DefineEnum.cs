@@ -6,4 +6,12 @@ namespace Hwan
         Player,
         Enemy
     }
+    public enum NormalVectorType
+    {
+        None,
+        Up,
+        Down,
+        Left,
+        Right
+    }
 }

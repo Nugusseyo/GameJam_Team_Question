@@ -8,7 +8,7 @@ namespace Hwan
 
         protected override void OnPlayerReachedOnce()
         {
-            EnemyManager.Instance.SkipTurn = 1;
+            EnemyManager.Instance.ResetSkipTurn = 1;
         }
     }
 }

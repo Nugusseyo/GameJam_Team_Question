@@ -1,9 +1,9 @@
 namespace Hwan
 {
     using UnityEngine;
-    public class SlowEnemyObstacle : CountObstacle
+    public class StopEnemyObstacle : CountObstacle
     {
-        [SerializeField] private float slowAmount;
+        [SerializeField] private int stopTurn = 2;
 
         protected override void CountObsInitialize()
         {
@@ -12,7 +12,7 @@ namespace Hwan
 
         protected override void OnPlayerReachedOnce()
         {
-            Debug.Log("Enemy 슬로우 뭍히기");
+            EnemyManager.Instance.MoveSkipTurn = stopTurn;
         }
     }
 }
