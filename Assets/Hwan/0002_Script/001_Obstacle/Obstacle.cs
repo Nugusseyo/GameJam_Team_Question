@@ -7,12 +7,15 @@ namespace Hwan
     public abstract class Obstacle : MonoBehaviour
     {
         [SerializeField] private ParticleSystem deadParticle;
-        [SerializeField] private SpriteRenderer spriteRen;
+        private SpriteRenderer spriteRen;
         public bool IsDestroyed { get; private set; }
         [SerializeField] private ObstacleSO obstacleSO;
 
         public void SpawnObstacle()
         {
+            spriteRen = GetComponent<SpriteRenderer>();
+
+            transform.DOKill();
             transform.localScale = Vector3.one;
 
             transform.DOPunchScale(
@@ -28,11 +31,23 @@ namespace Hwan
         public abstract void OnPlayerReached();
         public virtual void Destroy()
         {
-            transform.DOKill();
-            IsDestroyed = true;
-            spriteRen.enabled = false;
-            deadParticle.Play();
-            Destroy(gameObject, deadParticle.main.duration);
+            transform
+                .DOScale(Vector3.one * 1.2f, 0.1f)   // 순간적으로 커짐
+                .SetEase(Ease.OutBack)
+                .OnComplete(() =>
+                {
+                    transform
+                        .DOScale(Vector3.zero, 0.15f) // 그대로 0으로 줄어들며 사라짐
+                        .SetEase(Ease.InBack)
+                        .OnComplete(() =>
+                        {
+                            IsDestroyed = true;
+                            spriteRen.enabled = false;
+                            deadParticle.Play();
+                            Destroy(gameObject, deadParticle.main.duration);
+                            transform.DOKill();
+                        });
+                });
         }
 
         public string GetObstacleDesc()

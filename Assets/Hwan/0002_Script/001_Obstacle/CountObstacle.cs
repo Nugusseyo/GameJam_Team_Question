@@ -5,7 +5,7 @@ namespace Hwan
     public abstract class CountObstacle : Obstacle
     {
         [SerializeField] private int count;
-        [SerializeField] private int currentCount;
+        private int currentCount;
         public sealed override void OnPlayerReached()
         {
             OnPlayerReachedOnce();

@@ -1,13 +1,26 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Hwan
 {
     public class DamageObstacle : CountObstacle
     {
-        [SerializeField] private int damage;
+        private int damage;
         [SerializeField] private ObstacleDamagedType damagedType;
         [SerializeField] private int maxDamage; //- : -maxDamage ~ 0, + : 0 ~ maxDamage
+
+        private void Update()
+        {
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                OnPlayerReached();
+            }
+            else if (Keyboard.current.aKey.wasPressedThisFrame) 
+            {
+                SpawnObstacle();
+            }
+        }
 
         protected override void OnPlayerReachedOnce()
         {
