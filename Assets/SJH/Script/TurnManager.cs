@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,9 +10,11 @@ public class TurnManager : MonoBehaviour
     private int completeTurnCount = 5;
     private UnityEvent<int> OnTurnChange = new();
 
-    private void Awake()
+    private void Start()
     {
         GameManager.Instance.Player.OnStop += PassTurn;
+        Turn = -1;
+        PassTurn();
     }
 
     private void PassTurn()
@@ -51,7 +54,6 @@ public class TurnManager : MonoBehaviour
 
         private set
         {
-            if (currentTurn % 5 == 0 && value < currentTurn) return;
             currentTurn = value;
             OnTurnChange?.Invoke(currentTurn);
         }
@@ -60,5 +62,7 @@ public class TurnManager : MonoBehaviour
     private void OnDestroy()
     {
         OnTurnPass.RemoveAllListeners();
+        OnTurnChange.RemoveAllListeners();
+        OnTurnComplete.RemoveAllListeners();
     }
 }

@@ -14,5 +14,12 @@ namespace Hwan
         {
             EnemyManager.Instance.MoveSkipTurn = stopTurn;
         }
+
+        public override string GetObstacleDesc()
+        {
+            string desc = base.GetObstacleDesc();
+            desc = desc.Replace("{t}", stopTurn.ToString());
+            return desc;
+        }
     }
 }
