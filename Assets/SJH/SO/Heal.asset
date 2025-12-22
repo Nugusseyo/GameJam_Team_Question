@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fc7ba4fc695bd45848ae975ab50aca, type: 3}
   m_Name: Heal
   m_EditorClassIdentifier: 
-  Image: {fileID: 0}
-  Name: 
-  Type: 0
-  Amount: 0
-  Desc: 
+  Image: {fileID: -1049461823314036041, guid: fe8e09098bff2c74e86e0daa0b942710, type: 3}
+  Name: Heal
+  Type: 5
+  Amount: 1
+  Desc: "\uCCB4\uB825 \uD68C\uBCF5"

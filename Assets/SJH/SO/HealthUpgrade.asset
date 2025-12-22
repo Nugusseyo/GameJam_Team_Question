@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HealthUpgrade
   m_EditorClassIdentifier: 
   Image: {fileID: -205270267638800340, guid: cedadac1bdf1a854eba876ae32d59711, type: 3}
-  Name: 
+  Name: HealthUpgrade
   Type: 0
-  Amount: 0
-  Desc: 
+  Amount: 1
+  Desc: "\uCD5C\uB300 \uCCB4\uB825 1\uC99D\uAC00"

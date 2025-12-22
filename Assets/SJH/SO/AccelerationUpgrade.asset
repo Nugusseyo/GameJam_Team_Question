@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fc7ba4fc695bd45848ae975ab50aca, type: 3}
   m_Name: AccelerationUpgrade
   m_EditorClassIdentifier: 
-  Image: {fileID: 0}
-  Name: 
-  Type: 0
-  Amount: 0
-  Desc: 
+  Image: {fileID: 6574347039459564156, guid: a1b952f98cc53964eb77bc7cc31fedd5, type: 3}
+  Name: AccelerationUpgrade
+  Type: 2
+  Amount: 1
+  Desc: "\uBCBD\uC5D0 \uBD80\uB52A\uD788\uBA74 1\uB9CC\uD07C\uC758 \uAC00\uC18D\uC5BB\uB294\uB2E4"

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fc7ba4fc695bd45848ae975ab50aca, type: 3}
   m_Name: SpeedUpgrade
   m_EditorClassIdentifier: 
-  Image: {fileID: 0}
-  Name: 
-  Type: 0
-  Amount: 0
-  Desc: 
+  Image: {fileID: -9083362998159298969, guid: 5152f861a6d2dcf4cbac5c9c745e35de, type: 3}
+  Name: SpeedUpgrade
+  Type: 4
+  Amount: 1
+  Desc: "\uACF5\uC744 \uCE58\uB294 \uD30C\uC6CC\uAC00 1 \uC99D\uAC00\uD569\uB2C8\uB2E4"
