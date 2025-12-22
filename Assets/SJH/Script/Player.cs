@@ -90,6 +90,7 @@ public class Player : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if(collision.gameObject.CompareTag("Wall"))
         {
             ParticleSystem particle = Instantiate(particleP);
+            particle.gameObject.transform.localScale = new Vector2(0.4f, 0.4f);
             particle.gameObject.transform.position = collision.GetContact(0).point;
             float atan = Mathf.Atan2(collision.GetContact(0).normal.x, collision.GetContact(0).normal.y);
             float angle =  (collision.GetContact(0).normal.x != 0 ? -atan : atan) * Mathf.Rad2Deg;
