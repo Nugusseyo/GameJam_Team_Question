@@ -103,10 +103,15 @@ public class Player : MonoBehaviour
         if(isDrag)
         {
             isDrag = false;
-            isMoving = true;
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dir = mousePosition - StartPosition;
-            float distance = Mathf.Clamp(dir.magnitude, 0, 5);
+            float distance = Mathf.Clamp(Vector2.Distance(StartPosition, mousePosition), 0, 5);
+            if(distance <= 0.5f)
+            {
+                ResetDrag();
+                return;
+            }
+            isMoving = true;
             currentSpeed = strength * distance;
             rigidbody.linearVelocity = -(dir.normalized) * currentSpeed;
             lineRenderer.enabled = false;
