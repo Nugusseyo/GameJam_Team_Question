@@ -58,9 +58,10 @@ public class Player : MonoBehaviour
         if(isDrag)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            float distance = Mathf.Clamp(Vector2.Distance(StartPosition, mousePosition), 0, 10);
+            float distance = Mathf.Clamp(Vector2.Distance(mousePosition, StartPosition), 0, 10);
+            Vector2 vector2 = (mousePosition - StartPosition).normalized;
             lineRenderer.SetPosition(0, new Vector3(StartPosition.x, StartPosition.y, 0));
-            lineRenderer.SetPosition(1, (mousePosition - StartPosition) * distance);
+            lineRenderer.SetPosition(1, (vector2 * distance/2)+(Vector2)mousePosition);
             Vector2 predictDir = -(mousePosition - StartPosition);
             RaycastHit2D hit2d = Physics2D.Raycast(transform.position, predictDir, 200, LayerMask.GetMask("Wall"));
             RaycastHit2D hit2d2 = Physics2D.Raycast(hit2d.point+hit2d.normal, Vector2.Reflect(predictDir,hit2d.normal), 200, LayerMask.GetMask("Wall"));
