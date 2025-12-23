@@ -15,14 +15,16 @@ namespace Hwan
         Right
     }
 
-    public enum InputType
+    public enum TutorialType
     {
         None,
-        MouseDown,
-        MouseUp,
-        MouseDrag,
-        MouseInObstacle,
-        MouseLeft,
-        SpaceBar
+        Throw,
+        Cancle,
+        KillEnemy,
+        Obstacle,
+        ToolTip,
+        Card,
+        Turn,
+        Boss
     }
 }

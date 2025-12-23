@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87e9980745a05304ebdab48b75631d7d, type: 3}
-  m_Name: Tuto0
+  m_Name: Tuto1
   m_EditorClassIdentifier: 
-  <Text>k__BackingField: "\uB9C8\uC6B0\uC2A4\uB97C \uB4DC\uB798\uADF8 \uD6C4, \uB193\uC544\uC11C
-    \uBE4C\uB9AC\uB97C \uC3E0 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
-  <Position>k__BackingField: {x: 0, y: -200}
-  <TutoType>k__BackingField: 1
-  <WaitTime>k__BackingField: 2
+  <Text>k__BackingField: "\uC6B0\uD074\uB9AD\uC744 \uB20C\uB7EC \uC870\uC900\uC744
+    \uCDE8\uC18C\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  <Position>k__BackingField: {x: 200, y: 0}
+  <TutoType>k__BackingField: 2
+  <WaitTime>k__BackingField: 1
