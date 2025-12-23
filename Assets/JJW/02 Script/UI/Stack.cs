@@ -13,7 +13,6 @@ public class Stack : MonoBehaviour
             currentStack = value;
             string stack = currentStack.ToString(); 
             textMesh.text = "중첩 개수 : "+ stack;
-            Debug.Log("fdsaljk;lkj;fdsaklj;fsadkljfdaskfsedajfdskalj;");
         }
     }
 }

@@ -5,8 +5,8 @@ using UnityEngine.Events;
 public class TurnManager : MonoBehaviour
 {
     private int currentTurn = 0;
-    public UnityEvent<int> OnTurnPass = new();
-    public UnityEvent OnTurnComplete = new();
+    public UnityEvent OnTurnPass = new();
+    public UnityEvent<int> OnTurnComplete = new();
     private int completeTurnCount = 5;
     private UnityEvent<int> OnTurnChange = new();
 
@@ -20,10 +20,10 @@ public class TurnManager : MonoBehaviour
     private void PassTurn()
     {
         Turn++;
-        OnTurnPass?.Invoke(currentTurn);
+        OnTurnPass?.Invoke();
         if (currentTurn % completeTurnCount == 0)
         {
-            OnTurnComplete?.Invoke();
+            OnTurnComplete?.Invoke(currentTurn);
         }
     }
 
