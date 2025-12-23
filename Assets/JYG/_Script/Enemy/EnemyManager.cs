@@ -149,4 +149,27 @@ public class EnemyManager : MonoBehaviour
         enemySpawnPoint.Add(new Vector2(cameraWidth + distance, -cameraHeight - distance));
         enemySpawnPoint.Add(new Vector2(cameraWidth + distance, cameraHeight + distance));
     }
+
+    private void Start()
+    {
+        GameManager.Instance.Player.OnBump += HandlePlayerBump;
+        GameManager.Instance.Player.OnStop += HandlePlayerStop;
+    }
+
+
+    private void OnDisable()
+    {
+        GameManager.Instance.Player.OnBump -= HandlePlayerBump;
+        GameManager.Instance.Player.OnStop -= HandlePlayerStop;
+    }
+
+    private void HandlePlayerBump()
+    {
+        PlusEnemyHealth(-1);
+    }
+    private void HandlePlayerStop()
+    {
+        ResetEnemy();
+        StartMoveEnemy();
+    }
 }

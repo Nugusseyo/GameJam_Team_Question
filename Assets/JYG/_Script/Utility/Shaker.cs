@@ -8,6 +8,6 @@ public class ObjectShaker : MonoBehaviour
 
     public void ShakeTarget()
     {
-        target.transform.DOShakePosition(shakeDuration, new Vector2(0.5f, 0), 6, 2f);
+        target.transform.DOShakePosition(shakeDuration, new Vector2(Random.Range(-0.2f, 0.2f), 0), 6, 2f, true);
     }
 }

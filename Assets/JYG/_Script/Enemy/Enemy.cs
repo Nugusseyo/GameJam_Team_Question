@@ -11,6 +11,7 @@ namespace Assets.JYG._Script
         protected Transform _target;
         protected Sequence _moveTween;
         private Collider2D _collider;
+        bool _isDead = false;
 
         [field: SerializeField] public float Duration { get; protected set; } = 3f;
         [field: SerializeField] public float Distance { get; protected set; } = 2f;
@@ -23,6 +24,7 @@ namespace Assets.JYG._Script
 
             set
             {
+                if(_isDead) return;
                 if (value <= 0)
                 {
                     if(_currentHealth != 0)
@@ -98,6 +100,7 @@ namespace Assets.JYG._Script
 
         private void DeadEnemy()
         {
+            _isDead = true;
             _collider.enabled = false;
 
             StopEnemy();
