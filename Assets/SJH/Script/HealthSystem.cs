@@ -71,7 +71,6 @@ public class HealthSystem : MonoBehaviour
 
     private void Shield()
     {
-        Debug.Log("gg");
         if(!shield && hasShield)
         {
             if(lastShield+shieldChargeTime <= GameManager.Instance.TurnManager.Turn)

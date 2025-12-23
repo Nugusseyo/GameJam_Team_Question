@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e9980745a05304ebdab48b75631d7d, type: 3}
+  m_Name: Tuto5
+  m_EditorClassIdentifier: 
+  <Text>k__BackingField: "\uC801\uC744 \uCC98\uCE58\uD558\uC5EC \uC5BB\uC740 \uACBD\uD5D8\uCE58\uB97C
+    \uD1B5\uD574\\n\uB79C\uB364\uC73C\uB85C \uB098\uC624\uB294 3\uAC00\uC9C0\uC758
+    \uCE74\uB4DC \uC911 \uD558\uB098\uB97C \uC120\uD0DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  <Position>k__BackingField: {x: 0, y: -300}
+  <TutoType>k__BackingField: 6
+  <WaitTime>k__BackingField: 1.5
