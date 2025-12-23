@@ -1,5 +1,6 @@
 ﻿using csiimnida.CSILib.SoundManager.RunTime;
 using DG.Tweening;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,6 +14,7 @@ namespace Hwan
         [SerializeField] private ObstacleSO obstacleSO;
         protected Vector2 normalVector;
         private Collider2D col;
+        public event Action OnDestroy;
 
         public virtual void SpawnObstacle(Vector2 normalVector)
         {
@@ -59,6 +61,7 @@ namespace Hwan
             spriteRen.enabled = false;
             deadParticle.Play();
             transform.DOKill();
+            OnDestroy?.Invoke();
             Destroy(gameObject, deadParticle.main.duration);
         }
 

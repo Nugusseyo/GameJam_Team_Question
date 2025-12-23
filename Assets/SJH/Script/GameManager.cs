@@ -1,3 +1,4 @@
+using Hwan;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private ParticleSystem bounceParticle;
     [SerializeField] private ParticleSystem bounceParticle2;
+    [field: SerializeField] public ObstacleSpawner ObsSpawner { get; private set; }
     [SerializeField] private MouseClick background;
     [SerializeField] private Image expBar;
   
