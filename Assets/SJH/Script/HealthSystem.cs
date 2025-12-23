@@ -1,6 +1,7 @@
 ﻿using csiimnida.CSILib.SoundManager.RunTime;
 using JJW._02_Script.UI;
 using System;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
@@ -10,6 +11,7 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private IntEventChannel eventChannel;
     [SerializeField] private ParticleSystem shieldParticle;
     [SerializeField] private ParticleSystem shieldParticle2;
+    private CinemachineImpulseSource impulseSource;
     private int health;
     private bool shield = true;
     private int lastShield = 0;
@@ -21,6 +23,7 @@ public class HealthSystem : MonoBehaviour
     private void Awake()
     {
         health = maxHealth;
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     private void Start()
@@ -48,6 +51,8 @@ public class HealthSystem : MonoBehaviour
         else
         {
             OnDameged?.Invoke();
+            impulseSource.GenerateImpulseWithVelocity(UnityEngine.Random.insideUnitCircle.normalized*amount*2);
+            VolumeManager.Instance.DefAfterInc(VolumeType.Hit, 0.325f);
         }
     }
 
