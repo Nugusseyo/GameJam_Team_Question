@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         if(isDrag)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            float distance = Mathf.Clamp(Vector2.Distance(mousePosition, StartPosition), 0, 10);
+            float distance = Mathf.Clamp(Vector2.Distance((Vector2)StartPosition, (Vector2)mousePosition), 0, 10);
             Vector2 vector2 = (mousePosition - StartPosition).normalized;
             lineRenderer.SetPosition(0, new Vector3(StartPosition.x, StartPosition.y, 0));
             lineRenderer.SetPosition(1, (vector2 * distance/2)+(Vector2)mousePosition);
