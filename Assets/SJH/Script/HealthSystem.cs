@@ -76,7 +76,7 @@ public class HealthSystem : MonoBehaviour
 
     private void BreakShield()
     {
-        SoundManager.Instance.PlaySound("P_P_ShieldBroken");
+        SoundManager.Instance.PlaySound("P_ShieldBroken");
         shieldParticle.Play();
     }
 
