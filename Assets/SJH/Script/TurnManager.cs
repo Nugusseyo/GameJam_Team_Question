@@ -6,9 +6,9 @@ public class TurnManager : MonoBehaviour
 {
     private int currentTurn = 0;
     public UnityEvent<int> OnTurnPass = new();
-    public UnityEvent OnTurnComplete = new();
-    private int completeTurnCount = 5;
-    private UnityEvent<int> OnTurnChange = new();
+    public UnityEvent OnRoundComplete = new();
+    public int completeTurnCount = 5;
+    public UnityEvent<int> OnTurnChange = new();
 
     private void Start()
     {
@@ -23,7 +23,7 @@ public class TurnManager : MonoBehaviour
         OnTurnPass?.Invoke(currentTurn);
         if (currentTurn % completeTurnCount == 0)
         {
-            OnTurnComplete?.Invoke();
+            OnRoundComplete?.Invoke();
         }
     }
 
@@ -63,6 +63,6 @@ public class TurnManager : MonoBehaviour
     {
         OnTurnPass.RemoveAllListeners();
         OnTurnChange.RemoveAllListeners();
-        OnTurnComplete.RemoveAllListeners();
+        OnRoundComplete.RemoveAllListeners();
     }
 }

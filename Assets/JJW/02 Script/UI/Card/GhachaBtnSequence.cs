@@ -78,7 +78,7 @@ namespace JJW._02_Script.UI.Card
         public void LeftCardClicked()
         {
             if (!_isCanClick) return;
-            Time.timeScale = 0;
+            Time.timeScale = 1;
 
             Debug.Log("왼쪽");
             foreach (Card card in cards.MyCards)

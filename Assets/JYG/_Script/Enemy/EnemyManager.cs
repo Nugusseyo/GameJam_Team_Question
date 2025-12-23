@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
         }
 
         GameManager.Instance.TurnManager.OnTurnPass.AddListener((_) => OnTurnEnd());
-        GameManager.Instance.TurnManager.OnTurnComplete.AddListener(() =>
+        GameManager.Instance.TurnManager.OnRoundComplete.AddListener(() =>
         {
             for (int i = 0; i < spawnCountSO.SpawnCounts[GameManager.Instance.TurnManager.Turn].EnemyCount; i++)
             {
