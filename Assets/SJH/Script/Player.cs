@@ -102,6 +102,7 @@ public class Player : MonoBehaviour
     {
         if(isDrag)
         {
+            EnemyManager.Instance.StopEnemy();
             isDrag = false;
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dir = mousePosition - StartPosition;
