@@ -34,11 +34,16 @@ namespace JJW._02_Script.UI.Card
 
             _rect.anchoredPosition = startPoint.anchoredPosition;
 
-            _seq = DOTween.Sequence();
-            _seq.Append(_rect.DOAnchorPos(endPoint.anchoredPosition, duration)
-                .SetEase(ease));
+            _seq = DOTween.Sequence()
+                .SetUpdate(true) // ✅ Time.timeScale 영향 안 받음
+                .SetLoops(-1, LoopType.Restart);
+
+            _seq.Append(
+                _rect.DOAnchorPos(endPoint.anchoredPosition, duration)
+                    .SetEase(ease)
+            );
+
             _seq.AppendInterval(0.3f);
-            _seq.SetLoops(-1, LoopType.Restart);
         }
     }
 }

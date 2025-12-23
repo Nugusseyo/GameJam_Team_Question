@@ -44,6 +44,12 @@ namespace Hwan
             desc = desc.Replace("{c}", currentCount.ToString());
             return desc;
         }
+
+        public override void Destroy()
+        {
+            base.Destroy();
+            textMeshPro.enabled  = false;
+        }
     }
 }
 
