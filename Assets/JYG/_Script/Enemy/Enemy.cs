@@ -45,7 +45,7 @@ namespace Assets.JYG._Script
             }
         }
 
-        public Action EnemyStun;
+        public UnityEvent EnemyStun;
         public UnityEvent EnemyDead;
         public UnityEvent EnemyHeal;
         public UnityEvent EnemyLive;
@@ -57,17 +57,14 @@ namespace Assets.JYG._Script
             _collider = GetComponent<Collider2D>();
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             EnemyInitialize();
-            _target = GameObject.Find("Player").transform;
+            _target = GameManager.Instance.Player.transform;
             EnemyMove();
-
-            EnemyStun += () => Debug.Log("Enemy Stun");
         }
         public void EnemyInitialize()
         {
-            Debug.Log("Enemy Spanwned");
             EnemyManager.Instance.AddEnemy(this);
             CurrentHealth = MaxHealth;
         }
