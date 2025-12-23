@@ -1,4 +1,4 @@
-using DG.Tweening;
+ï»¿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -39,10 +39,10 @@ namespace Hwan
             transform.localScale = Vector3.one;
 
             transform.DOPunchScale(
-                punch: Vector3.one * 0.5f, // ¾ó¸¶³ª Ä¿ÁúÁö
-                duration: 0.175f,            // ÀüÃ¼ ½Ã°£
-                vibrato: 1,                // Èçµé¸² È½¼ö
-                elasticity: 0.8f           // Æ¨±è Á¤µµ
+                punch: Vector3.one * 0.5f, // ì–¼ë§ˆë‚˜ ì»¤ì§ˆì§€
+                duration: 0.175f,            // ì „ì²´ ì‹œê°„
+                vibrato: 1,                // í”ë“¤ë¦¼ íšŸìˆ˜
+                elasticity: 0.8f           // íŠ•ê¹€ ì •ë„
             ).OnComplete(() => col.enabled = true);
         }
 
