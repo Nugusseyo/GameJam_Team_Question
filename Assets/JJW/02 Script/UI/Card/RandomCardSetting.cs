@@ -1,8 +1,17 @@
-using NUnit.Framework;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
+[Serializable]
+public struct MaxStack
+{
+    public UpgradeSO UpgradeSO;
+    public int Stack;
+
+}
 
 namespace JJW._02_Script.UI.Card
 {
@@ -29,25 +38,41 @@ namespace JJW._02_Script.UI.Card
         [SerializeField] private TextMeshProUGUI rightCardDesc;
 
         [SerializeField] private Cards cards;
-        [SerializeField] private Dictionary<UpgradeSO, int> maxStacks;
+        [SerializeField] private MaxStack[] maxStack;
         
         public UpgradeListSO UpgradeListSO;
 
         private List<UpgradeSO> upgradeList = new();
+        private Dictionary<UpgradeSO, int> maxStacks = new();
         private void Awake()
         {
-            upgradeList = UpgradeListSO.Upgrades;
+            foreach(MaxStack max in maxStack)
+            {
+                maxStacks.Add(max.UpgradeSO,max.Stack);
+            }
         }
 
         private void OnEnable()
         {
+            upgradeList = new List<UpgradeSO>(UpgradeListSO.Upgrades);
             Dictionary<UpgradeSO, int> currentStacks = new();
+            foreach(UpgradeSO card in UpgradeListSO.Upgrades)
+            {
+                currentStacks.Add(card,0);
+            }
+            List<UpgradeSO> currentCards = new List<UpgradeSO>();
+            foreach(Card card in cards.GetComponentsInChildren<Card>())
+            {
+                currentCards.Add(card.UpgradeSO);
+            }
             foreach (Card card in cards.MyCards)
             {
-                currentStacks[card.UpgradeSO]++;
-                if (maxStacks[card.UpgradeSO] == currentStacks[card.UpgradeSO])
+                if (currentCards.FirstOrDefault(x => x == card.UpgradeSO) == null) continue;
+                currentStacks[card.UpgradeSO] = card.GetComponent<Stack>().CurrentStack;
+                if (maxStacks[card.UpgradeSO] <= currentStacks[card.UpgradeSO])
                 {
                     upgradeList.Remove(card.UpgradeSO);
+                    Debug.Log(card.UpgradeSO.Name);
                 }
             }
             GetRandomCard();
@@ -55,7 +80,7 @@ namespace JJW._02_Script.UI.Card
 
         private void GetRandomCard()
         {
-            first = Random.Range(0, upgradeList.Count);
+            first = UnityEngine.Random.Range(0, upgradeList.Count);
             leftCard.UpgradeSO = upgradeList[first];
             leftCardImage.sprite = upgradeList[first].Image;
             leftCardName.text = upgradeList[first].Name;
@@ -63,7 +88,7 @@ namespace JJW._02_Script.UI.Card
             second = first;
             while (second == first)
             {
-                second = Random.Range(0, upgradeList.Count);
+                second = UnityEngine.Random.Range(0, upgradeList.Count);
                 middleCard.UpgradeSO = upgradeList[second];
                 middleCardImage.sprite = upgradeList[second].Image;
                 middleCardName.text = upgradeList[second].Name;
@@ -72,7 +97,7 @@ namespace JJW._02_Script.UI.Card
             third = second;
             while (second == third || third == first)
             {
-                third = Random.Range(0, upgradeList.Count);
+                third = UnityEngine.Random.Range(0, upgradeList.Count);
                 rightCard.UpgradeSO = upgradeList[third];
                 rightCardImage.sprite = upgradeList[third].Image;
                 rightCardName.text = upgradeList[third].Name;
