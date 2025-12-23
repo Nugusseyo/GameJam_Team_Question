@@ -9,22 +9,18 @@ public class MouseClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         playerC = GameManager.Instance.Player;
     }
 
-    void Update()
-    {
-        
-    }
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
             playerC.DragStart(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        if (eventData.button == PointerEventData.InputButton.Right)
+            playerC.ResetDrag();
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
             playerC.DragEnd();
-        if (eventData.button == PointerEventData.InputButton.Right)
-            playerC.ResetDrag();
     }
 
 }
