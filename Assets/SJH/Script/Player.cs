@@ -139,6 +139,7 @@ public class Player : MonoBehaviour
                 ResetDrag();
                 return;
             }
+            TutorialManager.Instance.TryPassTutorial(TutorialType.Throw);
             EnemyManager.Instance.StopEnemy();
             isMoving = true;
             currentSpeed = strength * distance;
