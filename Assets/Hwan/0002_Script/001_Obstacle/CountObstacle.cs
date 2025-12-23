@@ -48,6 +48,7 @@ namespace Hwan
         public override void Destroy()
         {
             base.Destroy();
+            if (IsDestroyed) return;
             textMeshPro.enabled  = false;
         }
     }

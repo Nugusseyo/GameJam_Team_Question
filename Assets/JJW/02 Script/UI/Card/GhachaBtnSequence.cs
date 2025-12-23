@@ -94,6 +94,8 @@ namespace JJW._02_Script.UI.Card
         {
             Time.timeScale = 1;
             _isCanClick = false;
+            
+            GameManager.Instance.Player.UpgradeC.ChoiceUpgrade(selectedCard.UpgradeSO);
 
             foreach (Card card in cards.MyCards)
             {
