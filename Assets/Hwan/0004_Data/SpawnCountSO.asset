@@ -21,4 +21,4 @@ MonoBehaviour:
     Round: 3
   - EnemyCount: 5
     Round: 5
-  <BossTurn>k__BackingField: 0
+  <BossTurn>k__BackingField: 30
