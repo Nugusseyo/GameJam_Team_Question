@@ -22,6 +22,7 @@ public class HealthSystem : MonoBehaviour
 
     private void Awake()
     {
+        CinemachineImpulseManager.Instance.IgnoreTimeScale = true;
         health = maxHealth;
         impulseSource = GetComponent<CinemachineImpulseSource>();
     }
