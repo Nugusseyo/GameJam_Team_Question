@@ -1,4 +1,4 @@
-namespace Hwan
+﻿namespace Hwan
 {
     using TMPro;
     using UnityEngine;
@@ -11,6 +11,7 @@ namespace Hwan
 
         public sealed override void OnPlayerReached()
         {
+            base.OnPlayerReached();
             OnPlayerReachedOnce();
             currentCount++;
             textMeshPro.text = (count - currentCount).ToString();

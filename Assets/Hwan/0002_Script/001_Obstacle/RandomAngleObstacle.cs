@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Hwan
 {
@@ -13,6 +13,7 @@ namespace Hwan
 
         public override void OnPlayerReached()
         {
+            base.OnPlayerReached();
             float randomAngle = Random.Range(-maxAngle, maxAngle);
             float baseAngle = Mathf.Atan2(-normalVector.y, -normalVector.x) * Mathf.Rad2Deg;
             float rad = (randomAngle + baseAngle) * Mathf.Deg2Rad;

@@ -1,5 +1,6 @@
-namespace Hwan
+﻿namespace Hwan
 {
+    using csiimnida.CSILib.SoundManager.RunTime;
     using System;
     using System.Collections.Generic;
     using UnityEngine;
@@ -31,6 +32,7 @@ namespace Hwan
 
         public void SpawnObstacle(int _)
         {
+            SoundManager.Instance.PlaySound("O_Change");
             for (int i = currentObstacles.Count - 1; i >= 0; i--)
             {
                 var obs = currentObstacles[i];

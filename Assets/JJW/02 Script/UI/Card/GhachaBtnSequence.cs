@@ -1,4 +1,5 @@
 ﻿using System;
+using csiimnida.CSILib.SoundManager.RunTime;
 using DG.Tweening;
 using UnityEngine;
 using Sequence = DG.Tweening.Sequence;
@@ -76,18 +77,21 @@ namespace JJW._02_Script.UI.Card
         {
             if (!_isCanClick) return;
             ApplyCard(leftCard);
+            SoundManager.Instance.PlaySound("BookOpen");
         }
 
         public void RightCardClicked()
         {
             if (!_isCanClick) return;
             ApplyCard(rightCard);
+            SoundManager.Instance.PlaySound("BookOpen");
         }
 
         public void MiddleCardClicked()
         {
             if (!_isCanClick) return;
             ApplyCard(middleCard);
+            SoundManager.Instance.PlaySound("BookOpen");
         }
 
         private void ApplyCard(Card selectedCard)

@@ -1,3 +1,4 @@
+﻿using csiimnida.CSILib.SoundManager.RunTime;
 using JJW._02_Script.UI;
 using System;
 using UnityEngine;
@@ -52,6 +53,7 @@ public class HealthSystem : MonoBehaviour
 
     public void GetHeal(int amount)
     {
+        SoundManager.Instance.PlaySound("P_Heal");
         health += amount;
         health = Mathf.Clamp(health, 0, maxHealth);
         eventChannel.Raise(health);
@@ -68,6 +70,7 @@ public class HealthSystem : MonoBehaviour
 
     private void BreakShield()
     {
+        SoundManager.Instance.PlaySound("P_P_ShieldBroken");
         shieldParticle.Play();
     }
 
@@ -77,6 +80,7 @@ public class HealthSystem : MonoBehaviour
         {
             if(lastShield+shieldChargeTime <= GameManager.Instance.TurnManager.Turn)
             {
+                SoundManager.Instance.PlaySound("P_ShieldHeal");
                 shieldParticle2.Play();
                 shield = true;
             }
