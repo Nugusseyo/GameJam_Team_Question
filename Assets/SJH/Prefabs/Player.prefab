@@ -185,6 +185,7 @@ MonoBehaviour:
   particleP2: {fileID: 0}
   UpgradeC: {fileID: 0}
   HealthSystem: {fileID: 0}
+  DamageC: {fileID: 0}
   Level: {fileID: 0}
   StartPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1334989194191306588
@@ -5407,8 +5408,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 359041185
+  m_SortingLayer: 4
   m_SortingOrder: 12
   m_RenderMode: 0
   m_MeshDistribution: 0

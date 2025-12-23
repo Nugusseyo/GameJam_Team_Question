@@ -53,6 +53,7 @@ public class ToolTip : MonoBehaviour
             textMeshPro.fontSize = tmp.fontSize;
             textMeshPro.alignment = textObj.transform.position.x < 0 ? (textObj.transform.position.y < 2 ? TextAlignmentOptions.BottomLeft : TextAlignmentOptions.TopLeft) : (textObj.transform.position.y < 2 ? TextAlignmentOptions.BottomRight : TextAlignmentOptions.TopRight);
             textMeshPro.margin = tmp.margin;
+            textMeshPro.sortingLayerID = tmp.sortingLayerID;
             texts.Add(textMeshPro);
         }
     }

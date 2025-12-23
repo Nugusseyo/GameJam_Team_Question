@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float strength = 1;
+    [SerializeField] private float strength = 10;
     [SerializeField] private float frictionForce = 1;
     [SerializeField] private float cooltime = 1;
     [SerializeField] private LineRenderer predictLine;
@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
         set
         {
             dir = value;
-            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (-(dir.normalized) * UpgradeC.Acceleration) / 10;
+            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (-(dir.normalized) * UpgradeC.Acceleration) / 1;
         }
     }
 
@@ -177,7 +177,7 @@ public class Player : MonoBehaviour
             impulseSource.GenerateImpulseWithVelocity(collision.GetContact(0).normal/180*currentSpeed);
             OnBump?.Invoke();
             dir = Vector2.Reflect(dir, collision.GetContact(0).normal);
-            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (- (dir.normalized) * UpgradeC.Acceleration)/10;
+            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (-(dir.normalized) * UpgradeC.Acceleration)/1;
         }
     }
 

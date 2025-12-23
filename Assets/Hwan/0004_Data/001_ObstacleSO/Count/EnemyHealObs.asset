@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d94eaaf2428b244e841fdb716076f94, type: 3}
   m_Name: EnemyHealObs
   m_EditorClassIdentifier: 
-  <Color>k__BackingField: {r: 0, g: 0.15294118, b: 0.9411765, a: 0}
-  <Desc>k__BackingField: "\uC5D0\uB108\uBBF8\uB97C {d}\uB9CC\uD07C \uD68C\uBCF5\uC2DC\uD0B5\uB2C8\uB2E4.\\n\uB0A8\uC740
+  <Desc>k__BackingField: "\uC801\uC744 {d}\uB9CC\uD07C \uD68C\uBCF5\uC2DC\uD0B5\uB2C8\uB2E4.\\n\uB0A8\uC740
     \uD69F\uC218: {c}"
