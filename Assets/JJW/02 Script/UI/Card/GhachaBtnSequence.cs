@@ -85,10 +85,9 @@ namespace JJW._02_Script.UI.Card
                 if (card.UpgradeSO == leftCard.UpgradeSO)
                 {
                     card.Enable();
+                    card.gameObject.GetComponent<Stack>().CurrentStack++;
                 }
             }
-
-            
             _isCanClick = false;
 
             MoveDownCard(() =>
@@ -107,6 +106,7 @@ namespace JJW._02_Script.UI.Card
                 if (card.UpgradeSO == rightCard.UpgradeSO)
                 {
                     card.Enable();
+                    card.gameObject.GetComponent<Stack>().CurrentStack++;
                 }
             }
 
@@ -128,6 +128,7 @@ namespace JJW._02_Script.UI.Card
                 if (card.UpgradeSO == middleCard.UpgradeSO)
                 {
                     card.Enable();
+                    card.gameObject.GetComponent<Stack>().CurrentStack++;
                 }
             }
 

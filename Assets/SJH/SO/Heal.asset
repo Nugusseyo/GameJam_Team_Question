@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Heal
   m_EditorClassIdentifier: 
   Image: {fileID: -1049461823314036041, guid: fe8e09098bff2c74e86e0daa0b942710, type: 3}
-  Name: Heal
+  Name: "\uCCB4\uB825 \uD68C\uBCF5"
   Type: 5
   Amount: 1
   Desc: "\uCCB4\uB825 \uD68C\uBCF5"
