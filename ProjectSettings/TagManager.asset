@@ -21,7 +21,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Player
   - 
   - 
   - 
@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Table
+    uniqueID: 2512146449
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -47,9 +50,6 @@ TagManager:
     locked: 0
   - name: EnemyDeadParticle
     uniqueID: 1067090465
-    locked: 0
-  - name: Table
-    uniqueID: 2512146449
     locked: 0
   m_RenderingLayers:
   - Default
