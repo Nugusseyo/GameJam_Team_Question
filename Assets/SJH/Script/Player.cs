@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     public Level Level;
     public event Action OnBump;
     public event Action OnStop;
-    public Vector2? RandomBounce = null;
     public Vector3 StartPosition;
 
     private void Awake()
@@ -169,9 +168,8 @@ public class Player : MonoBehaviour
             ParticleSpawn(collision, particleP, 1, 0.4f);
             impulseSource.GenerateImpulseWithVelocity(collision.GetContact(0).normal/180*currentSpeed);
             OnBump?.Invoke();
-            dir = RandomBounce != null ? (Vector2)RandomBounce : Vector2.Reflect(dir, collision.GetContact(0).normal);
+            dir = Vector2.Reflect(dir, collision.GetContact(0).normal);
             rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (- (dir.normalized) * UpgradeC.Acceleration)/10;
-            RandomBounce = null;
         }
     }
 
