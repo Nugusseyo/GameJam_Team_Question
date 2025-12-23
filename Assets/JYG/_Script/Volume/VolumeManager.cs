@@ -27,6 +27,11 @@ public class VolumeManager : PMonoSingleton<VolumeManager>
 
     private void Start()
     {
+        ResetVolume();
+    }
+
+    private void ResetVolume()
+    {
         foreach (VolumeValueChanger volume in volumeDictionary.Values)
         {
             volume.SetWeight(0);
@@ -35,39 +40,72 @@ public class VolumeManager : PMonoSingleton<VolumeManager>
 
     public void IncreaseVolume(VolumeType type, float time)
     {
+        if (defAfterInCoroutine != null)
+        {
+            StopCoroutine(defAfterInCoroutine);
+            ResetVolume();
+        }
         StartCoroutine(volumeDictionary[type].IncreaseWeight(time));
     }
 
     public void DecreaseVolume(VolumeType type, float time)
     {
+        if (defAfterInCoroutine != null)
+        {
+            StopCoroutine(defAfterInCoroutine);
+            ResetVolume();
+        }
         StartCoroutine(volumeDictionary[type].DecreaseWeight(time));
     }
 
     public void DefAfterInc(VolumeType type, float time)
     {
-        if (defAfterInCoroutine != null) StopCoroutine(defAfterInCoroutine);
+        if (defAfterInCoroutine != null)
+        {
+            StopCoroutine(defAfterInCoroutine);
+            ResetVolume();
+        }
         defAfterInCoroutine = StartCoroutine(volumeDictionary[type].DecAfterInc(time));
     }
 
     public void SetVolume(VolumeType type, float value)
     {
+        if (defAfterInCoroutine != null)
+        {
+            StopCoroutine(defAfterInCoroutine);
+            ResetVolume();
+        }
         volumeDictionary[type].SetWeight(value);
     }
 
     public void ObstacleIncrease(float time, Color color)
     {
+        if (defAfterInCoroutine != null)
+        {
+            StopCoroutine(defAfterInCoroutine);
+            ResetVolume();
+        }
         volumeDictionary[VolumeType.Obstacle].SetColor(color);
         StartCoroutine(volumeDictionary[VolumeType.Obstacle].IncreaseWeight(time));
     }
 
     public void ObstacleDecrease(float time, Color color)
     {
+        if (defAfterInCoroutine != null)
+        {
+            StopCoroutine(defAfterInCoroutine);
+            ResetVolume();
+        }
         volumeDictionary[VolumeType.Obstacle].SetColor(color);
         StartCoroutine(volumeDictionary[VolumeType.Obstacle].DecreaseWeight(time));
     }
     public void ObstacleDefAfterInc(float time, Color color)
     {
-        if (defAfterInCoroutine != null) StopCoroutine(defAfterInCoroutine);
+        if (defAfterInCoroutine != null)
+        {
+            StopCoroutine(defAfterInCoroutine);
+            ResetVolume();
+        }
         volumeDictionary[VolumeType.Obstacle].SetColor(color);
         defAfterInCoroutine = StartCoroutine(volumeDictionary[VolumeType.Obstacle].DecAfterInc(time));
     }
