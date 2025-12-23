@@ -16,7 +16,7 @@ namespace Assets.JYG._Script
         [field: SerializeField] public float Distance { get; protected set; } = 2f;
         [field: SerializeField] public float MoveDelay { get; protected set; } = 1f;
         [field: SerializeField] public int MaxHealth { get; protected set; } = 1;
-        protected int _currentHealth = 1;
+        protected int _currentHealth = 0;
         public int CurrentHealth
         {
             get => _currentHealth;
@@ -41,11 +41,11 @@ namespace Assets.JYG._Script
                 {
                     EnemyLive?.Invoke();
                 }
-                if(_currentHealth < value)
+                if(_currentHealth > value)
                 {
                     EnemyDamaged?.Invoke();
                 }
-                else if(_currentHealth > value)
+                else if(_currentHealth < value)
                 {
                     EnemyHeal?.Invoke();
                 }
@@ -75,7 +75,7 @@ namespace Assets.JYG._Script
         public void EnemyInitialize()
         {
             EnemyManager.Instance.AddEnemy(this);
-            CurrentHealth = MaxHealth;
+            CurrentHealth = MaxHealth + 1;
         }
         protected abstract void EnemyMove();
         public virtual void StopEnemy()
@@ -107,6 +107,10 @@ namespace Assets.JYG._Script
             EnemyDead?.Invoke();
 
             Destroy(gameObject, 2f);
+        }
+        private void OnDestroy()
+        {
+            transform.DOKill();
         }
     }
 }

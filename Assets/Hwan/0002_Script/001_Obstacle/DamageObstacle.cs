@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,7 +15,7 @@ namespace Hwan
             switch (damagedType)
             {
                 case ObstacleDamagedType.None:
-                    Debug.Log("None ÀÌÀÜ¾Æ¤¿");
+                    Debug.Log("None ì´ìž”ì•„ã…");
                     break;
                 case ObstacleDamagedType.Player:
                     if (damage > 0)
@@ -28,7 +28,7 @@ namespace Hwan
                     }
                     break;
                 case ObstacleDamagedType.Enemy:
-                    EnemyManager.Instance.MinusEnemyHealth(damage);
+                    EnemyManager.Instance.PlusEnemyHealth(damage);
                     break;
             }
         }
