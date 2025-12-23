@@ -2055,7 +2055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8716845962978989898, guid: 37532ea75855c62419919ccad3d45359, type: 3}
       propertyPath: <DoTuto>k__BackingField
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9099463192050831301, guid: 37532ea75855c62419919ccad3d45359, type: 3}
       propertyPath: m_LocalPosition.x
