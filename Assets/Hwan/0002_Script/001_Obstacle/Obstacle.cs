@@ -20,7 +20,7 @@ namespace Hwan
 
             deadParticle = transform.GetChild(0).GetComponent<ParticleSystem>();
 
-            spriteRen = GetComponent<SpriteRenderer>();
+            spriteRen = GetComponentInChildren<SpriteRenderer>();
             Color useColor = spriteRen.color;
 
             var main = deadParticle.main;
