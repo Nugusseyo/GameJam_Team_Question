@@ -58,10 +58,10 @@ public class Player : MonoBehaviour
         if(isDrag)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            float distance = Mathf.Clamp(Vector2.Distance(mousePosition, StartPosition), 0, 10);
-            Vector2 vector2 = (mousePosition - StartPosition).normalized;
+            float distance = Mathf.Clamp(Vector2.Distance((Vector2)StartPosition, (Vector2)mousePosition), 0, 10f);
+            Vector2 vector2 = (mousePosition - StartPosition).normalized * distance;
             lineRenderer.SetPosition(0, new Vector3(StartPosition.x, StartPosition.y, 0));
-            lineRenderer.SetPosition(1, (vector2 * distance/2)+(Vector2)mousePosition);
+            lineRenderer.SetPosition(1, vector2+(Vector2)StartPosition);
             Vector2 predictDir = -(mousePosition - StartPosition);
             RaycastHit2D hit2d = Physics2D.Raycast(transform.position, predictDir, 200, LayerMask.GetMask("Wall"));
             RaycastHit2D hit2d2 = Physics2D.Raycast(hit2d.point+hit2d.normal, Vector2.Reflect(predictDir,hit2d.normal), 200, LayerMask.GetMask("Wall"));
@@ -85,6 +85,20 @@ public class Player : MonoBehaviour
         set
         {
             currentSpeed = value;
+        }
+    }
+
+    public Vector2 MoveDir
+    {
+        get
+        {
+            return dir;
+        }
+
+        set
+        {
+            dir = value;
+            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (-(dir.normalized) * UpgradeC.Acceleration) / 10;
         }
     }
 
@@ -156,7 +170,7 @@ public class Player : MonoBehaviour
             impulseSource.GenerateImpulseWithVelocity(collision.GetContact(0).normal/180*currentSpeed);
             OnBump?.Invoke();
             dir = RandomBounce != null ? (Vector2)RandomBounce : Vector2.Reflect(dir, collision.GetContact(0).normal);
-            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (- (dir.normalized) * currentSpeed)/10;
+            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (- (dir.normalized) * UpgradeC.Acceleration)/10;
             RandomBounce = null;
         }
     }
