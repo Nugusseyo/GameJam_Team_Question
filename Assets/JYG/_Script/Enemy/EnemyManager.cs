@@ -1,5 +1,6 @@
 ﻿using Assets.JYG._Script;
 using csiimnida.CSILib.SoundManager.RunTime;
+using Hwan;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -172,11 +173,16 @@ public class EnemyManager : MonoBehaviour
             Debug.LogWarning("@@@@@@@@@@ Spawn Position is Full. Checking SO Plz!!!! @@@@@@@@@@");
         }
         Vector2 spawnPos = prevSpawnPos[UnityEngine.Random.Range(0, prevSpawnPos.Count)];
-        Enemy enemy = Instantiate(spawnEnemyList[UnityEngine.Random.Range(0, spawnEnemyList.Count)], spawnPos, Quaternion.identity).GetComponentInChildren<Enemy>();
-        prevSpawnPos.Remove(spawnPos);
-        EnemyHealthShowcase health = Instantiate(healthCount, spawnPos, Quaternion.identity).GetComponent<EnemyHealthShowcase>();
-        enemy.healthShowcase = health;
-        health.Initialize(enemy);
+        Enemy enemy = null;
+        do
+        {
+            enemy = Instantiate(spawnEnemyList[UnityEngine.Random.Range(0, spawnEnemyList.Count)], spawnPos, Quaternion.identity).GetComponentInChildren<Enemy>();
+            prevSpawnPos.Remove(spawnPos);
+            EnemyHealthShowcase health = Instantiate(healthCount, spawnPos, Quaternion.identity).GetComponent<EnemyHealthShowcase>();
+            enemy.healthShowcase = health;
+            health.Initialize(enemy);
+        }
+        while (TutorialManager.Instance.DoTuto == true && enemy.CurrentHealth == 3);
     }
 
     private void InitSpawnPosition()
