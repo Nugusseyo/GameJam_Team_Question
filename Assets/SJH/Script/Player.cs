@@ -1,3 +1,4 @@
+using Hwan;
 using System;
 using System.Collections;
 using Unity.Cinemachine;
@@ -132,6 +133,14 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(cooltime);
         isMoving = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Obstacle obs))
+        {
+            obs.OnPlayerReached();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
