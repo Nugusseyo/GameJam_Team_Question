@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public ParticleSystem particleP2;
     public Upgrade UpgradeC;
     public HealthSystem HealthSystem;
+    public Level Level;
     public event Action OnBump;
     public event Action OnStop;
     public Vector2? RandomBounce = null;
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         HealthSystem = GetComponent<HealthSystem>();
         impulseSource = GetComponent<CinemachineImpulseSource>();
+        Level = GetComponent<Level>();
         UpgradeC = GetComponent<Upgrade>();
         lineRenderer.enabled = false;
     }
