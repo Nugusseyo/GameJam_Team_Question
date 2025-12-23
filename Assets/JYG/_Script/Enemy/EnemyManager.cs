@@ -153,23 +153,16 @@ public class EnemyManager : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.Player.OnBump += HandlePlayerBump;
-        GameManager.Instance.Player.OnStop += HandlePlayerStop;
     }
 
 
     private void OnDisable()
     {
         GameManager.Instance.Player.OnBump -= HandlePlayerBump;
-        GameManager.Instance.Player.OnStop -= HandlePlayerStop;
     }
 
     private void HandlePlayerBump()
     {
         PlusEnemyHealth(-1);
-    }
-    private void HandlePlayerStop()
-    {
-        ResetEnemy();
-        StartMoveEnemy();
     }
 }
