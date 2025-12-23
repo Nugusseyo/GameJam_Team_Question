@@ -625,10 +625,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2246722352291723953, guid: b452d51efc64c854d9526d6758c04837, type: 3}
-      propertyPath: spawnCountSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 22851797454192f4bb2956ab8acfc472, type: 2}
     - target: {fileID: 3028900578744905721, guid: b452d51efc64c854d9526d6758c04837, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.4087477
