@@ -11,10 +11,13 @@ namespace Hwan
         public bool IsDestroyed { get; private set; }
         [SerializeField] private ObstacleSO obstacleSO;
         protected Vector2 normalVector;
+        private Collider2D col;
 
         public virtual void SpawnObstacle(Vector2 normalVector)
         {
             this.normalVector = normalVector;
+
+            col = GetComponent<Collider2D>();
 
             deadParticle = transform.GetChild(0).GetComponent<ParticleSystem>();
 
@@ -31,15 +34,16 @@ namespace Hwan
 
         private void PointMove()
         {
+            col.enabled = false;
             transform.DOKill();
             transform.localScale = Vector3.one;
 
             transform.DOPunchScale(
-                punch: Vector3.one * 0.2f, // 얼마나 커질지
-                duration: 0.2f,            // 전체 시간
+                punch: Vector3.one * 0.5f, // 얼마나 커질지
+                duration: 0.175f,            // 전체 시간
                 vibrato: 1,                // 흔들림 횟수
                 elasticity: 0.8f           // 튕김 정도
-            );
+            ).OnComplete(() => col.enabled = true);
         }
 
         protected abstract void Initialize();
