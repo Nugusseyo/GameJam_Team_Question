@@ -11,6 +11,11 @@ public class UIBlur : MonoBehaviour
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    private void Start()
+    {
+        player = GameManager.Instance.Player;
         player.OnDrag += Transparent;
         player.OnStopDrag += Opacity;
     }
