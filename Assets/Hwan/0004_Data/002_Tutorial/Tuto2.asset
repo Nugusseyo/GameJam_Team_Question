@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e9980745a05304ebdab48b75631d7d, type: 3}
   m_Name: Tuto2
   m_EditorClassIdentifier: 
-  <Text>k__BackingField: "\uC801\uC758 \uBA38\uB9AC \uC704\uC5D0 \uC788\uB294 \uC22B\uC790
-    \uB9CC\uD07C \uBCBD\uC5D0 \uD295\uAE30\uBA74\\n\uC801\uC740 \uCDA9\uACA9\uC560
-    \uC758\uD574 \uAE30\uC808\uD569\uB2C8\uB2E4. \uADF8 \uB54C\uB97C \uB178\uB9AC\uC138\uC694."
+  <Text>k__BackingField: "\uC801\uC758 \uBA38\uB9AC \uC704\uC5D0 \uC788\uB294 \uC22B\uC790\uB9CC\uD07C
+    \uBCBD\uC5D0 \uD295\uAE30\uBA74\\n\uC801\uC740 \uCDA9\uACA9\uC5D0 \uC758\uD574
+    \uAE30\uC808\uD569\uB2C8\uB2E4. \uADF8\uB54C\uB97C \uB178\uB9AC\uC138\uC694."
   <Position>k__BackingField: {x: 0, y: 0}
   <TutoType>k__BackingField: 3
   <WaitTime>k__BackingField: 1.5

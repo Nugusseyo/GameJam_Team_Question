@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e9980745a05304ebdab48b75631d7d, type: 3}
   m_Name: Tuto3
   m_EditorClassIdentifier: 
-  <Text>k__BackingField: "\uB77C\uC6B4\uB4DC \uB9C8\uB2E4 \uC5D0\uB108\uBBF8\uC640
-    \uAE30\uBBF9\uC774 \uC0DD\uC131\uB429\uB2C8\uB2E4.\\n\uAE30\uBBF9 \uB9C8\uB2E4
-    \uB2E4\uC591\uD55C \uD2B9\uC218 \uD6A8\uACFC\uAC00 \uBD80\uC5EC\uB418\uC5B4 \uC788\uC2B5\uB2C8\uB2E4."
+  <Text>k__BackingField: "\uB77C\uC6B4\uB4DC\uB9C8\uB2E4 \uC801\uACFC \uAE30\uBBF9\uC774
+    \uC0DD\uC131\uB429\uB2C8\uB2E4.\\n\uAE30\uBBF9 \uB9C8\uB2E4 \uB2E4\uC591\uD55C
+    \uD2B9\uC218 \uD6A8\uACFC\uAC00 \uBD80\uC5EC\uB418\uC5B4 \uC788\uC2B5\uB2C8\uB2E4."
   <Position>k__BackingField: {x: 150, y: 0}
   <TutoType>k__BackingField: 4
   <WaitTime>k__BackingField: 1
