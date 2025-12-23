@@ -6,13 +6,19 @@ public class ActiveManageButton : MonoBehaviour
 
     public void ActivateTrue()
     {
-        targetObject.SetActive(true);
-        Time.timeScale = 0;
+        if (Time.timeScale == 1)
+        {
+            targetObject.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     public void ActivateFalse()
     {
-        Time.timeScale = 1;
-        targetObject.SetActive(false);
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+            targetObject.SetActive(false);
+        }
     }
 }
