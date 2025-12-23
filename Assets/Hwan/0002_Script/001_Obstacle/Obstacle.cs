@@ -50,6 +50,7 @@ namespace Hwan
         public abstract void OnPlayerReached();
         public virtual void Destroy()
         {
+            if (IsDestroyed) return;
             IsDestroyed = true;
             spriteRen.enabled = false;
             deadParticle.Play();
