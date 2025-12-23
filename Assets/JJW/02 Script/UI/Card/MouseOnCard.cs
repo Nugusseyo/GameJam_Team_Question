@@ -12,29 +12,44 @@ namespace JJW._02_Script.UI.Card
         [SerializeField] private float colorChangeSpeed = 0.1f;
         [SerializeField] private Color changeColor;
         [SerializeField] private Image image;
+
         private Vector3 _originalScale;
         private Tweener _scaleTween;
+        private Tweener _colorTween;
 
-        void Start()
+        private void Awake()
         {
             _originalScale = transform.localScale;
         }
+
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (_scaleTween != null) _scaleTween.Kill();
+            _scaleTween?.Kill();
+            _colorTween?.Kill();
 
-            _scaleTween = transform.DOScale(targetScale, duration)
-                .SetEase(Ease.OutBack);
-                image.DOColor(changeColor, colorChangeSpeed);
+            _scaleTween = transform
+                .DOScale(targetScale, duration)
+                .SetEase(Ease.OutBack)
+                .SetUpdate(true);
+
+            _colorTween = image
+                .DOColor(changeColor, colorChangeSpeed)
+                .SetUpdate(true);
         }
-    
+
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (_scaleTween != null) _scaleTween.Kill();
-        
-            _scaleTween = transform.DOScale(_originalScale, duration)
-                .SetEase(Ease.OutQuad);
-                image.DOColor(Color.white, colorChangeSpeed);
-            }
+            _scaleTween?.Kill();
+            _colorTween?.Kill();
+
+            _scaleTween = transform
+                .DOScale(_originalScale, duration)
+                .SetEase(Ease.OutQuad)
+                .SetUpdate(true);
+
+            _colorTween = image
+                .DOColor(Color.white, colorChangeSpeed)
+                .SetUpdate(true);
         }
     }
+}
