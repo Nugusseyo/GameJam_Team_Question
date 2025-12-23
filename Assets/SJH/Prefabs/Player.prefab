@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strength: 10
-  frictionForce: 3
+  frictionForce: 4
   cooltime: 1
   predictLine: {fileID: 2637557822246481631}
   predictLine2: {fileID: 9173793893786584890}
