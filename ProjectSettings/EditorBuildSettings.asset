@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/JJW/01 Scene/MainScene.unity
+    path: Assets/001_Scene/00_TitleScene.unity
     guid: 8841ca0263035044baccc8f45ad6eeea
   - enabled: 1
-    path: Assets/Hwan/0001_Scene/Tutorial.unity
+    path: Assets/001_Scene/01_TutorialStage.unity
     guid: 921897417a9b07045bc28a7a8f8cbc39
   - enabled: 1
-    path: Assets/Hwan/0001_Scene/Main.unity
+    path: Assets/001_Scene/02_MainStage.unity
     guid: 940436a783173014088b1f6435822cf5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
