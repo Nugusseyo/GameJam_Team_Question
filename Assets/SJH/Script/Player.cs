@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
 
         set
         {
-            currentSpeed = value;
+            currentSpeed = Mathf.Clamp(value, 0, 100);
         }
     }
 
