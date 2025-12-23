@@ -17,7 +17,6 @@ public class Damage : MonoBehaviour
     private void IncreaseDamage()
     {
         damage += DamageIncrease;
-        Debug.Log(damage);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
