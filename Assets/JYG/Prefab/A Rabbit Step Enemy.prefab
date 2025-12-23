@@ -818,6 +818,11 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1199476198707454012, guid: d231c4d42de810b43804fd573804cea4, type: 3}
   m_PrefabInstance: {fileID: 5042947301448130040}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &6447118079353192939 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2055020656739490835, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+  m_PrefabInstance: {fileID: 5042947301448130040}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6551499136132444672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
@@ -839,6 +844,21 @@ MonoBehaviour:
   <Distance>k__BackingField: 2
   <MoveDelay>k__BackingField: 0
   <MaxHealth>k__BackingField: 2
+  EnemyStun:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6447118079353192939}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   EnemyDead:
     m_PersistentCalls:
       m_Calls:
@@ -890,6 +910,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6447118079353192939}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Clear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   EnemyHeal:
     m_PersistentCalls:
       m_Calls:
@@ -907,7 +939,19 @@ MonoBehaviour:
         m_CallState: 2
   EnemyLive:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6447118079353192939}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Clear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <Ease>k__BackingField: 21
   hopCount: 1
   rotationPower: 120

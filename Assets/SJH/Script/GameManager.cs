@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [DefaultExecutionOrder(-100)]
 public class GameManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ParticleSystem bounceParticle;
     [SerializeField] private ParticleSystem bounceParticle2;
     [SerializeField] private MouseClick background;
+    [SerializeField] private Image expBar;
   
     public Player Player;
     public TurnManager TurnManager;
@@ -28,5 +30,6 @@ public class GameManager : MonoBehaviour
         TurnManager = Instantiate(TurnManager);
         Tooltip = Instantiate(Tooltip);
         Instantiate(background);
+        Player.Level.ExpBar = expBar;
     }
 }

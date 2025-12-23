@@ -1,19 +1,31 @@
 using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
-    private int exp;
-    private int currentLevel;
+    public int Exp { get; private set; } = 0;
+    public int CurrentLevel { get; private set; } = 1;
 
     public event Action OnLevelUp;
 
+    public Image ExpBar;
+
+    private void Start()
+    {
+        ExpBar.fillAmount = Mathf.InverseLerp((4 + 2 * CurrentLevel), (4 + 2 * CurrentLevel) + (4 + 2 * CurrentLevel), Exp);
+        ExpBar.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = CurrentLevel.ToString();
+    }
+
     public void GetExp(int amount)
     {
-        exp += amount;
-        if (exp >= exp + (4 + 2*currentLevel))
+        Exp += amount;
+        ExpBar.fillAmount = Mathf.InverseLerp((4 + 2 * CurrentLevel), (4 + 2 * CurrentLevel) + (4 + 2 * CurrentLevel), Exp);
+        if (Exp >= (4 + 2 * CurrentLevel-1) + (4 + 2*CurrentLevel))
         {
-            currentLevel++;
+            CurrentLevel++;
+            ExpBar.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = CurrentLevel.ToString();
             OnLevelUp?.Invoke();
         }
     }
