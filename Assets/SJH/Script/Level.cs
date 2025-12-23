@@ -12,6 +12,12 @@ public class Level : MonoBehaviour
 
     public Image ExpBar;
 
+    private void Start()
+    {
+        ExpBar.fillAmount = Mathf.InverseLerp((4 + 2 * CurrentLevel), (4 + 2 * CurrentLevel) + (4 + 2 * CurrentLevel), Exp);
+        ExpBar.transform.parent.GetComponentInChildren<TextMeshProUGUI>().text = CurrentLevel.ToString();
+    }
+
     public void GetExp(int amount)
     {
         Exp += amount;
