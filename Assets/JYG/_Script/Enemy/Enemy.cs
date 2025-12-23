@@ -107,6 +107,7 @@ namespace Assets.JYG._Script
             EnemyDead?.Invoke();
 
             Destroy(gameObject, 2f);
+            GameManager.Instance.Player.Level.GetExp(1);
         }
         private void OnDestroy()
         {
