@@ -47,7 +47,6 @@ namespace Hwan
 
         public override string GetObstacleDesc()
         {
-            Debug.Log("sdfsfs");
             string desc = base.GetObstacleDesc();
             desc = desc.Replace("{d}", Mathf.Abs(damage).ToString());
             return desc;

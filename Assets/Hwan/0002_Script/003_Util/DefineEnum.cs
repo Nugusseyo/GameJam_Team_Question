@@ -14,4 +14,13 @@ namespace Hwan
         Left,
         Right
     }
+
+    public enum InputType
+    {
+        None,
+        MouseDown,
+        MouseUp,
+        MouseDrag,
+        MouseInObstacle
+    }
 }
