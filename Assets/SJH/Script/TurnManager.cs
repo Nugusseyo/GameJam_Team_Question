@@ -34,6 +34,7 @@ public class TurnManager : MonoBehaviour
     {
         Turn++;
         OnTurnPass?.Invoke();
+        if (TutorialManager.Instance.DoTuto == true && currentTurn != 0) return;
         if (currentTurn % completeTurnCount == 0)
         {
             OnRoundComplete?.Invoke(currentTurn);

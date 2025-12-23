@@ -32,6 +32,7 @@ namespace Hwan
         [field: SerializeField] public bool DoTuto { get; private set; } = false;
         [SerializeField] private TutorialSO[] tutorialSOs;
         [SerializeField] private TextMeshProUGUI tmpProUGUI;
+        [SerializeField] private ObstacleSpawner spawner;
         private RectTransform tmpRectTrm;
         private TutorialSO currentTutoSO;
 
@@ -61,12 +62,14 @@ namespace Hwan
                 case TutorialType.Throw:
                     break;
                 case TutorialType.Cancle:
-                    GameManager.Instance.TurnManager.Turn = -1;
-                    GameManager.Instance.TurnManager.PassTurn();
                     break;
                 case TutorialType.KillEnemy:
+                    GameManager.Instance.TurnManager.Turn = -1;
+                    GameManager.Instance.TurnManager.PassTurn();
+                    GameManager.Instance.Player.OnStop += GameManager.Instance.TurnManager.PassTurn;
                     break;
                 case TutorialType.Obstacle:
+                    spawner.SpawnObstacle(-9999999);
                     break;
                 case TutorialType.ToolTip:
                     break;

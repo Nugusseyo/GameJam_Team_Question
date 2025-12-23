@@ -31,6 +31,8 @@ namespace Hwan
 
         public void SpawnObstacle(int _)
         {
+            if (_ >= -1000) return;
+
             for (int i = currentObstacles.Count - 1; i >= 0; i--)
             {
                 var obs = currentObstacles[i];

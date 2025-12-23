@@ -1,4 +1,5 @@
 ﻿using Assets.JYG._Script;
+using Hwan;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -84,6 +85,7 @@ public class EnemyManager : MonoBehaviour
     public void RemoveEnemy(Enemy enemy)
     {
         if (enemy == null) return;
+        TutorialManager.Instance.TryPassTutorial(TutorialType.KillEnemy);
         enemyList.Remove(enemy);
     }
 
