@@ -17,8 +17,8 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: e94f1e770e03f734ba6fe26deac45a10, type: 3}
   loop: 0
   Priority: 128
-  volume: 0.5
-  pitch: 1.029974
+  volume: 0.2
+  pitch: 0.8254869
   stereoPan: 0
   SpatialBlend: 0
   RandomPitch: 1
