@@ -1,7 +1,6 @@
 ﻿using Assets.JYG._Script;
 using DG.Tweening;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 public class NormalEnemy : Enemy
 {
