@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public ParticleSystem particleP2;
     public Upgrade UpgradeC;
     public HealthSystem HealthSystem;
+    public Damage DamageC;
     public Level Level;
     public event Action OnBump;
     public event Action OnStop;
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
         HealthSystem = GetComponent<HealthSystem>();
         impulseSource = GetComponent<CinemachineImpulseSource>();
         Level = GetComponent<Level>();
+        DamageC = GetComponent<Damage>();
         UpgradeC = GetComponent<Upgrade>();
         bounceLens = FindAnyObjectByType<BounceLens>();
         lineRenderer.enabled = false;
