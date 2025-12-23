@@ -18,7 +18,7 @@ namespace JJW._02_Script.UI
         private void ChangeTurnText(int _turn)
         {
             int turn = _turn;
-            string text = "현재 라운드 : " + (turn / _completeTurnCount + 1)  + "현재 턴 : " + _turn;
+            string text = "현재 라운드 : " + (turn / _completeTurnCount + 1)  + " 현재 턴 : " + _turn;
             _textMeshProUGUI.text = text;
         }
     }
