@@ -795,7 +795,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7668328920119333744, guid: d231c4d42de810b43804fd573804cea4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
@@ -811,9 +812,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8029530849691297215}
-    - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -6784714588316025977}
   m_SourcePrefab: {fileID: 100100000, guid: d231c4d42de810b43804fd573804cea4, type: 3}
 --- !u!1 &2621518504218316822 stripped
 GameObject:
@@ -955,18 +953,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &-6784714588316025977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2621518504218316822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb6853ce092b9a4e91da947dbc9cea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!198 &3157964611149553618 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1199476198707454012, guid: d231c4d42de810b43804fd573804cea4, type: 3}

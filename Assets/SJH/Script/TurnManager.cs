@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
-
+[DefaultExecutionOrder(-20)]
 public class TurnManager : MonoBehaviour
 {
     private int currentTurn = 0;

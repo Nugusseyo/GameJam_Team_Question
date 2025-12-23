@@ -759,7 +759,8 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1529789896899587685}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7668328920119333744, guid: d231c4d42de810b43804fd573804cea4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
@@ -775,9 +776,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3012736329393684004}
-    - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -7818408652352401410}
   m_SourcePrefab: {fileID: 100100000, guid: d231c4d42de810b43804fd573804cea4, type: 3}
 --- !u!4 &24112015230887051 stripped
 Transform:
@@ -962,15 +960,3 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &-7818408652352401410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6393937485354774839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb6853ce092b9a4e91da947dbc9cea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
