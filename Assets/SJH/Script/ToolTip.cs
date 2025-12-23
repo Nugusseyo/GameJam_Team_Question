@@ -34,7 +34,7 @@ public class ToolTip : MonoBehaviour
             objs.Clear();
             foreach(TextMeshPro text in texts)
             {
-                Destroy(text);
+                Destroy(text.gameObject);
             }
             texts.Clear();
         }
@@ -51,7 +51,8 @@ public class ToolTip : MonoBehaviour
             textMeshPro.text = obstacle.GetObstacleDesc();
             textMeshPro.font = tmp.font;
             textMeshPro.fontSize = tmp.fontSize;
-            textMeshPro.alignment = TextAlignmentOptions.Center;
+            textMeshPro.alignment = textObj.transform.position.x < 0 ? (textObj.transform.position.y < 2 ? TextAlignmentOptions.BottomLeft : TextAlignmentOptions.TopLeft) : (textObj.transform.position.y < 2 ? TextAlignmentOptions.BottomRight : TextAlignmentOptions.TopRight);
+            textMeshPro.margin = tmp.margin;
             texts.Add(textMeshPro);
         }
     }
