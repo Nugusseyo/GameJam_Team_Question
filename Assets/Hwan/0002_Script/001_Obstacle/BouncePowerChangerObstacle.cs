@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 
 namespace Hwan
@@ -14,6 +14,7 @@ namespace Hwan
 
         public override void OnPlayerReached()
         {
+            base.OnPlayerReached();
             Player player = GameManager.Instance.Player;
             player.MovePower *= bouncePower;
         }

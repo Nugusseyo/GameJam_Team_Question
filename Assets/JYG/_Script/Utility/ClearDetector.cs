@@ -5,6 +5,7 @@ public class ClearDetector : MonoSingleton<ClearDetector>
 {
     [SerializeField] private SoundPlayer mainSoundPlayer;
     [SerializeField] private SoundPlayer clearSoundPlayer;
+
     [ContextMenu("ClearThisGame")]
     public void ClearThisGame()
     {
