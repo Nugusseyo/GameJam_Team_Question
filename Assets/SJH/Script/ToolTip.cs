@@ -49,7 +49,9 @@ public class ToolTip : MonoBehaviour
         objs.AddRange(FindObjectsByType<Obstacle>(FindObjectsSortMode.None));
         ViewAllTooltips();
         if (TheWorld)
+        {
             Time.timeScale = 0;
+        }
     }
 
     private void OnRelease()
