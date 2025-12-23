@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <SpawnCounts>k__BackingField:
   - EnemyCount: 5
-    Turn: 1
+    Round: 1
   - EnemyCount: 10
-    Turn: 2
+    Round: 2
   - EnemyCount: 15
-    Turn: 3
+    Round: 3
   - EnemyCount: 20
-    Turn: 4
+    Round: 4
