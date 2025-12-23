@@ -20,11 +20,11 @@ namespace Hwan
                 case ObstacleDamagedType.Player:
                     if (damage > 0)
                     {
-                        GameManager.Instance.Player.HealthSystem.GetDamage(damage);
+                        GameManager.Instance.Player.HealthSystem.GetHeal(damage);
                     }
                     else
                     {
-                        GameManager.Instance.Player.HealthSystem.GetHeal(damage);
+                        GameManager.Instance.Player.HealthSystem.GetDamage(-damage);
                     }
                     break;
                 case ObstacleDamagedType.Enemy:
@@ -35,13 +35,20 @@ namespace Hwan
 
         protected override void CountObsInitialize()
         {
-            damage = Random.Range(1, maxDamage + 1);
+            if (maxDamage > 0)
+            {
+                damage = Random.Range(1, maxDamage + 1);
+            }
+            else
+            {
+                damage = Random.Range(maxDamage, 0);
+            }
         }
 
         public override string GetObstacleDesc()
         {
             string desc = base.GetObstacleDesc();
-            desc = desc.Replace("{d}", damage.ToString());
+            desc = desc.Replace("{d}", Mathf.Abs(damage).ToString());
             return desc;
         }
     }

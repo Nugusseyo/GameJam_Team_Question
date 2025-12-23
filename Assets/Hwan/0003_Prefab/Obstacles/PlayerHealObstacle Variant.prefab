@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358cb8cb1f49bdd4e8fe493d0a1bf421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleSO: {fileID: 11400000, guid: e598bab082381244aad8475d164a0b12, type: 2}
+  obstacleSO: {fileID: 11400000, guid: 82019447bef24a34192e12f7f10a0b30, type: 2}
   count: 2
   maxDamage: 2
   damagedType: 1

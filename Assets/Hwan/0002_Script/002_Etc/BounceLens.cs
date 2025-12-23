@@ -22,6 +22,8 @@ public class BounceLens : MonoBehaviour
 
     public void SetLens(float t)
     {
+        if (resetCor != null)
+            StopCoroutine(resetCor);
         cinCam.Lens.OrthographicSize = Mathf.Lerp(originLens, maxDis, t);
     }
 

@@ -9,16 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a27b33fd16eecf548a2077deb3341e9e, type: 3}
-  m_Name: SpawnCountSO
+  m_Script: {fileID: 11500000, guid: 87e9980745a05304ebdab48b75631d7d, type: 3}
+  m_Name: Tuto0
   m_EditorClassIdentifier: 
-  <SpawnCounts>k__BackingField:
-  - EnemyCount: 1
-    Round: 2
-  - EnemyCount: 2
-    Round: 3
-  - EnemyCount: 3
-    Round: 4
-  - EnemyCount: 5
-    Round: 5
-  <BossTurn>k__BackingField: 30
+  <Text>k__BackingField: 
+  <Position>k__BackingField: {x: 0, y: 0}
+  <NeedInput>k__BackingField: 0
+  <WaitTime>k__BackingField: 0

@@ -436,8 +436,8 @@ SpriteMask:
   m_MaskAlphaCutoff: 0
   m_FrontSortingLayerID: -1390411321
   m_BackSortingLayerID: -1390411321
-  m_FrontSortingLayer: 3
-  m_BackSortingLayer: 3
+  m_FrontSortingLayer: 1
+  m_BackSortingLayer: 1
   m_FrontSortingOrder: 5
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 1
@@ -628,7 +628,7 @@ PrefabInstance:
     - target: {fileID: 2246722352291723953, guid: b452d51efc64c854d9526d6758c04837, type: 3}
       propertyPath: spawnCountSO
       value: 
-      objectReference: {fileID: 11400000, guid: 5f216a8bb01fb0f47b33ae74b9248eca, type: 2}
+      objectReference: {fileID: 11400000, guid: 22851797454192f4bb2956ab8acfc472, type: 2}
     - target: {fileID: 3028900578744905721, guid: b452d51efc64c854d9526d6758c04837, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.4087477
@@ -1065,7 +1065,8 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3066810889452151770, guid: 422f1f695d5bd3a4ca4a305ee7e95c06, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 422f1f695d5bd3a4ca4a305ee7e95c06, type: 3}

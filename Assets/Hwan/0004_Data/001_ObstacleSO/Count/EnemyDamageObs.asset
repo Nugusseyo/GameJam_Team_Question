@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d94eaaf2428b244e841fdb716076f94, type: 3}
   m_Name: EnemyDamageObs
   m_EditorClassIdentifier: 
-  <Color>k__BackingField: {r: 0, g: 0.0627451, b: 0.3882353, a: 0}
-  <Desc>k__BackingField: "\uC5D0\uB108\uBBF8\uC5D0\uAC8C {d}\uB370\uBBF8\uC9C0\uB97C
-    \uC90D\uB2C8\uB2E4.\\n\uB0A8\uC740 \uD69F\uC218: {c}"
+  <Desc>k__BackingField: "\uC801\uC5D0\uAC8C {d}\uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4.\\n\uB0A8\uC740
+    \uD69F\uC218: {c}"

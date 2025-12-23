@@ -129,5 +129,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b05ec7eed02ff48b1090e45bd8e999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleSO: {fileID: 11400000, guid: e598bab082381244aad8475d164a0b12, type: 2}
+  obstacleSO: {fileID: 11400000, guid: 4826e5157e09073449297e6e684741b0, type: 2}
   count: 1

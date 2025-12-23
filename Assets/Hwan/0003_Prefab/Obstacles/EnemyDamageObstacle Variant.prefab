@@ -115,5 +115,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleSO: {fileID: 11400000, guid: e598bab082381244aad8475d164a0b12, type: 2}
   count: 3
-  maxDamage: 2
+  maxDamage: -2
   damagedType: 2

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float strength = 1;
+    [SerializeField] private float strength = 10;
     [SerializeField] private float frictionForce = 1;
     [SerializeField] private float cooltime = 1;
     [SerializeField] private LineRenderer predictLine;
@@ -26,9 +26,12 @@ public class Player : MonoBehaviour
     public ParticleSystem particleP2;
     public Upgrade UpgradeC;
     public HealthSystem HealthSystem;
+    public Damage DamageC;
     public Level Level;
     public event Action OnBump;
     public event Action OnStop;
+    public event Action OnDrag;
+    public event Action OnStopDrag;
     public Vector3 StartPosition;
 
     private void Awake()
@@ -38,6 +41,7 @@ public class Player : MonoBehaviour
         HealthSystem = GetComponent<HealthSystem>();
         impulseSource = GetComponent<CinemachineImpulseSource>();
         Level = GetComponent<Level>();
+        DamageC = GetComponent<Damage>();
         UpgradeC = GetComponent<Upgrade>();
         bounceLens = FindAnyObjectByType<BounceLens>();
         lineRenderer.enabled = false;
@@ -100,7 +104,7 @@ public class Player : MonoBehaviour
         set
         {
             dir = value;
-            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (-(dir.normalized) * UpgradeC.Acceleration) / 10;
+            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (-(dir.normalized) * UpgradeC.Acceleration) / 1;
         }
     }
 
@@ -117,15 +121,15 @@ public class Player : MonoBehaviour
         predictLine.enabled = true;
         predictLine2.enabled = true;
         StartPosition = pos;
-
+        OnDrag?.Invoke();
     }
 
     public void DragEnd()
     {
         if(isDrag)
         {
+            OnStopDrag?.Invoke();
             bounceLens.ResetLens();
-            EnemyManager.Instance.StopEnemy();
             isDrag = false;
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dir = mousePosition - StartPosition;
@@ -135,6 +139,7 @@ public class Player : MonoBehaviour
                 ResetDrag();
                 return;
             }
+            EnemyManager.Instance.StopEnemy();
             isMoving = true;
             currentSpeed = strength * distance;
             rigidbody.linearVelocity = -(dir.normalized) * currentSpeed;
@@ -175,7 +180,7 @@ public class Player : MonoBehaviour
             impulseSource.GenerateImpulseWithVelocity(collision.GetContact(0).normal/180*currentSpeed);
             OnBump?.Invoke();
             dir = Vector2.Reflect(dir, collision.GetContact(0).normal);
-            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (- (dir.normalized) * UpgradeC.Acceleration)/10;
+            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (-(dir.normalized) * UpgradeC.Acceleration)/1;
         }
     }
 
