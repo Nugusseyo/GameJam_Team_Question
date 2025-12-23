@@ -131,4 +131,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleSO: {fileID: 11400000, guid: 95e60dfa6fbfa1244b99b368390b2337, type: 2}
-  maxAngle: 45
+  maxAngle: 90

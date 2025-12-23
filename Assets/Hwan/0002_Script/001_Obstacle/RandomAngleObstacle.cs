@@ -14,11 +14,11 @@ namespace Hwan
         public override void OnPlayerReached()
         {
             float randomAngle = Random.Range(-maxAngle, maxAngle);
-            float baseRad = Mathf.Atan2(normalVector.y, normalVector.x);
-            float rad = baseRad + randomAngle * Mathf.Deg2Rad;
+            float baseAngle = Mathf.Atan2(-normalVector.y, -normalVector.x) * Mathf.Rad2Deg;
+            float rad = (randomAngle + baseAngle) * Mathf.Deg2Rad;
 
             Vector2 bounceDir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
-            GameManager.Instance.Player.RandomBounce = bounceDir;
+            GameManager.Instance.Player.MoveDir = bounceDir;
 
         }
     }
