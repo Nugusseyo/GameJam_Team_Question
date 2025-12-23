@@ -7,7 +7,7 @@ public class SceneMoveButton : MonoBehaviour
 
     public void SceneMove()
     {
-        SceneManager.LoadScene(sceneIndex);
+        Hwan.SceneManager.Instance.OnLoadScene(sceneIndex);
     }
 
 }
