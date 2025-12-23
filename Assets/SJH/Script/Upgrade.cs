@@ -4,8 +4,9 @@ using UnityEngine;
 public class Upgrade : MonoBehaviour
 {
     public int Acceleration { get; private set; } = 0;
-    private Player player = GameManager.Instance.Player;
+    private Player player;
     private Damage damageC;
+    private HealthSystem healthSystem;
     private List<UpgradeSO> myUpgrades = new List<UpgradeSO>();
 
     private int extraHealth = 0;
@@ -13,6 +14,8 @@ public class Upgrade : MonoBehaviour
     private void Awake()
     {
         damageC = GetComponent<Damage>();
+        player = GameManager.Instance.Player;
+        healthSystem = GetComponent<HealthSystem>();
     }
 
     public void ChoiceUpgrade(UpgradeSO so)
@@ -21,7 +24,7 @@ public class Upgrade : MonoBehaviour
         switch(so.Type)
         {
             case UpgradeType.Health:
-                player.HealthSystem.GetAddictionalHealth();
+                healthSystem.GetAddictionalHealth();
                 break;
             case UpgradeType.Damage:
                 damageC.DamageIncrease += 1;
@@ -33,10 +36,10 @@ public class Upgrade : MonoBehaviour
                 player.GetSpeed();
                 break;
             case UpgradeType.Shield:
-                player.HealthSystem.hasShield = true;
+                healthSystem.hasShield = true;
                 break;
             case UpgradeType.Heal:
-                player.HealthSystem.GetHeal(so.Amount);
+                healthSystem.GetHeal(so.Amount);
                 break;
         }
     }

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4583368813360535062}
   - component: {fileID: 2845019511572484306}
   - component: {fileID: 4331622648574418619}
+  - component: {fileID: -1675796903749812352}
   m_Layer: 15
   m_Name: Player
   m_TagString: Untagged
@@ -180,6 +181,7 @@ MonoBehaviour:
   predictLine2: {fileID: 9173793893786584890}
   particleP: {fileID: 0}
   particleP2: {fileID: 0}
+  UpgradeC: {fileID: 0}
   HealthSystem: {fileID: 0}
   StartPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1334989194191306588
@@ -392,6 +394,18 @@ MonoBehaviour:
     DissipationDistance: 100
     PropagationSpeed: 343
   DefaultVelocity: {x: 0, y: -1, z: 0}
+--- !u!114 &-1675796903749812352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832444295519675430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8a245e833a420419b3fec8d82ff7b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &954519567352801683
 GameObject:
   m_ObjectHideFlags: 0

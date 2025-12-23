@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DamageUpgrade
   m_EditorClassIdentifier: 
   Image: {fileID: -3753825769889500098, guid: 1446be8319f21174ea97db8ab94c7267, type: 3}
-  Name: DamageUpgrade
+  Name: "\uB370\uBBF8\uC9C0 \uC99D\uAC00"
   Type: 1
   Amount: 1
   Desc: "\uBCBD\uC5D0 \uBD80\uB52A\uD790\uB54C \uC99D\uAC00\uD558\uB294 \uB370\uBBF8\uC9C0\uC758

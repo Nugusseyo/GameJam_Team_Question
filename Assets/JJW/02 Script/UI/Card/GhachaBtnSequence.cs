@@ -79,16 +79,14 @@ namespace JJW._02_Script.UI.Card
         {
             if (!_isCanClick) return;
 
-            Debug.Log("왼쪽");
             foreach (Card card in cards.MyCards)
             {
                 if (card.UpgradeSO == leftCard.UpgradeSO)
                 {
                     card.Enable();
+                    card.gameObject.GetComponent<Stack>().CurrentStack++;
                 }
             }
-
-            
             _isCanClick = false;
 
             MoveDownCard(() =>
@@ -101,12 +99,12 @@ namespace JJW._02_Script.UI.Card
         {
             if (!_isCanClick) return;
 
-            Debug.Log("오른쪽");
             foreach (Card card in cards.MyCards)
             {
                 if (card.UpgradeSO == rightCard.UpgradeSO)
                 {
                     card.Enable();
+                    card.gameObject.GetComponent<Stack>().CurrentStack++;
                 }
             }
 
@@ -122,12 +120,12 @@ namespace JJW._02_Script.UI.Card
         {
             if (!_isCanClick) return;
 
-            Debug.Log("가운데");
             foreach (Card card in cards.MyCards)
             {
                 if (card.UpgradeSO == middleCard.UpgradeSO)
                 {
                     card.Enable();
+                    card.gameObject.GetComponent<Stack>().CurrentStack++;
                 }
             }
 

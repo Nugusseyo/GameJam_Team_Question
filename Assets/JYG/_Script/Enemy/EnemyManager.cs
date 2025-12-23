@@ -19,10 +19,19 @@ public class EnemyManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        GameManager.Instance.TurnManager.OnTurnPass.AddListener((_) => OnTurnEnd());
-        GameManager.Instance.TurnManager.OnTurnComplete.AddListener(() =>
+        GameManager.Instance.TurnManager.OnTurnPass.AddListener(OnTurnEnd);
+        GameManager.Instance.TurnManager.OnRoundComplete.AddListener((turn) =>
         {
-            for (int i = 0; i < spawnCountSO.SpawnCounts[GameManager.Instance.TurnManager.Turn].EnemyCount; i++)
+            int spawnCount = 0;
+            foreach (SpawnCount standard in spawnCountSO.SpawnCounts)
+            {
+                if (turn >= standard.Turn)
+                {
+                    spawnCount = standard.EnemyCount;
+                }
+            }
+
+            for (int i = 0; i < spawnCount; i++)
             {
                 SpawnEnemyRandomPosition();
             }

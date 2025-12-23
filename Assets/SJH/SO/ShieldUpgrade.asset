@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: ShieldUpgrade
   m_EditorClassIdentifier: 
   Image: {fileID: 2389193319765324094, guid: dc1152e6eae32764687ca04cd8b1fc53, type: 3}
-  Name: ShieldUpgrade
+  Name: "\uBC29\uC5B4\uB9C9"
   Type: 3
   Amount: 1
   Desc: "\uD53C\uD574\uB97C 1\uBC29\uC5B4 \uD574\uC8FC\uB294 \uBC29\uC5B4\uB9C9\uC744
-    \uC5BB\uC2B5\uB2C8\uB2E4.\n\uBC29\uC5B4\uB9C9\uC774 \uAE68\uC9C0\uBA74 3\uD134
-    \uD6C4 \uB2E4\uC2DC \uBC29\uC5B4\uB9C9\uC774 \uC0DD\uAE41\uB2C8\uB2E4"
+    \uC5BB\uC2B5\uB2C8\uB2E4."

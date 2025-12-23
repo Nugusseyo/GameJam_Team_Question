@@ -24,31 +24,30 @@ namespace Hwan
             obstacleWeights = new float[obstaclePrefabs.Length];
 
             for (int i = 0; i < obstacleWeights.Length; i++)
-                obstacleWeights[i] = 1f; // ±âº» È®·ü
+                obstacleWeights[i] = 1f; // ï¿½âº» È®ï¿½ï¿½
 
-            GameManager.Instance.TurnManager.OnTurnComplete.AddListener(SpawnObstacle);
+            GameManager.Instance.TurnManager.OnRoundComplete.AddListener(SpawnObstacle);
         }
 
-        public void SpawnObstacle()
+        public void SpawnObstacle(int _)
         {
-            foreach (Obstacle obstacle in currentObstacles)
+            for (int i = currentObstacles.Count - 1; i >= 0; i--)
             {
-                currentObstacles.Remove(obstacle);
-                obstacle.Destroy();
+                var obs = currentObstacles[i];
+                currentObstacles.RemoveAt(i);
+                obs.Destroy();
             }
 
             for (int i = 0; i < spawnPoints.Length; i++)
             {
                 int index = GetRandomObstacleIndex();
 
-                // »ý¼º
+                // ï¿½ï¿½ï¿½ï¿½
                 currentObstacles.Add(Instantiate(obstaclePrefabs[index], transform).GetComponent<Obstacle>());
-
                 currentObstacles[i].transform.position = spawnPoints[i].SpawnPoint.position;
                 currentObstacles[i].SpawnObstacle(normalVectorDictionary[spawnPoints[i].NormalVector]);
                 
                 obstacleWeights[index] *= 0.5f;
-
             }
         }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpeedUpgrade
   m_EditorClassIdentifier: 
   Image: {fileID: -9083362998159298969, guid: 5152f861a6d2dcf4cbac5c9c745e35de, type: 3}
-  Name: SpeedUpgrade
+  Name: "\uC2A4\uD53C\uB4DC \uC5C5"
   Type: 4
   Amount: 1
-  Desc: "\uACF5\uC744 \uCE58\uB294 \uD30C\uC6CC\uAC00 1 \uC99D\uAC00\uD569\uB2C8\uB2E4"
+  Desc: "\uACF5\uC744 \uCE58\uB294 \uD30C\uC6CC\uAC00 0.5f\uB9CC\uD07C \uC99D\uAC00\uD569\uB2C8\uB2E4"
