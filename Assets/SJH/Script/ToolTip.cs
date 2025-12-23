@@ -38,6 +38,11 @@ public class ToolTip : MonoBehaviour
             }
             texts.Clear();
         }
+
+        if(Keyboard.current.spaceKey.isPressed)
+        {
+            tmp.text = "";
+        }
     }
 
     private void ViewAllTooltips()
