@@ -41,7 +41,7 @@ namespace Hwan
         public override string GetObstacleDesc()
         {
             string desc = base.GetObstacleDesc();
-            desc = desc.Replace("{c}", currentCount.ToString());
+            desc = desc.Replace("{c}", (count - currentCount).ToString());
             return desc;
         }
 

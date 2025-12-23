@@ -125,7 +125,6 @@ public class Player : MonoBehaviour
         if(isDrag)
         {
             bounceLens.ResetLens();
-            EnemyManager.Instance.StopEnemy();
             isDrag = false;
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dir = mousePosition - StartPosition;
@@ -135,6 +134,7 @@ public class Player : MonoBehaviour
                 ResetDrag();
                 return;
             }
+            EnemyManager.Instance.StopEnemy();
             isMoving = true;
             currentSpeed = strength * distance;
             rigidbody.linearVelocity = -(dir.normalized) * currentSpeed;

@@ -35,7 +35,14 @@ namespace Hwan
 
         protected override void CountObsInitialize()
         {
-            damage = Random.Range(1, maxDamage + 1);
+            if (maxDamage > 0)
+            {
+                damage = Random.Range(1, maxDamage + 1);
+            }
+            else
+            {
+                damage = Random.Range(maxDamage, 0);
+            }
         }
 
         public override string GetObstacleDesc()
