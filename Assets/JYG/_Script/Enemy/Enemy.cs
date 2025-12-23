@@ -3,6 +3,7 @@ using DG.Tweening;
 using System;
 using UnityEngine.Events;
 using System.Collections;
+using Hwan;
 
 namespace Assets.JYG._Script
 {
@@ -104,7 +105,7 @@ namespace Assets.JYG._Script
             DeadEnemy();
         }
 
-        private void DeadEnemy()
+        public void DeadEnemy()
         {
             if(healthShowcase != null)
             {
@@ -122,9 +123,15 @@ namespace Assets.JYG._Script
             transform.DOKill();
 
             if(CurrentHealth <= 0)
+            {
+                TutorialManager.Instance.TryPassTutorial(TutorialType.KillEnemy);
                 Enemy2Exp?.Invoke();
+            }
             else
+            {
+                EnemyManager.Instance.SpawnEnemyRandomPosition();
                 EnemyDead?.Invoke();
+            }
 
             Destroy(gameObject, 2f);
             GameManager.Instance.Player.Level.GetExp(1);

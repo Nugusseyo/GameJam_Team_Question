@@ -37,7 +37,7 @@ namespace Hwan
         [SerializeField] private GameObject cardSelect;
         private RectTransform tmpRectTrm;
         private TutorialSO currentTutoSO;
-
+        private TutorialType didTuto;
         private int currentTutoNum;
         public bool IsUIOpen { get; private set; }
         public bool CanInput { get; private set; }
@@ -53,7 +53,7 @@ namespace Hwan
         {
             currentTutoSO = tutorialSOs[currentTutoNum];
 
-            tmpProUGUI.DOFade(0.65f, 0.35f);
+            tmpProUGUI.DOFade(0.65f, 0.35f).SetUpdate(true);
             tmpProUGUI.text = currentTutoSO.Text;
             tmpRectTrm.anchoredPosition = currentTutoSO.Position;
 
@@ -71,6 +71,7 @@ namespace Hwan
                     GameManager.Instance.Player.OnStop += GameManager.Instance.TurnManager.PassTurn;
                     break;
                 case TutorialType.Obstacle:
+                    EnemyManager.Instance.EnemyAllDead();
                     spawner.SpawnObstacle(-9999999);
                     break;
                 case TutorialType.ToolTip:
@@ -121,9 +122,10 @@ namespace Hwan
         public void TryPassTutorial(TutorialType tutoType)
         {
             if (DoTuto == false) return;
-
+            if (didTuto == tutoType) return;
             if (currentTutoSO.TutoType == tutoType)
             {
+                didTuto = tutoType;
                 TutoOff();
             }
         }
