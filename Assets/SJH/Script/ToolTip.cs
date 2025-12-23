@@ -18,6 +18,8 @@ public class ToolTip : MonoBehaviour
     private void Awake()
     {
         tmp = GetComponent<TextMeshPro>();
+
+        GameManager.Instance.ObsSpawner.OnObsDestroy += OnRelease;
     }
 
     private void Update()
@@ -28,28 +30,38 @@ public class ToolTip : MonoBehaviour
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            TutorialManager.Instance.TryPassTutorial(TutorialType.ToolTip);
-            objs.AddRange(FindObjectsByType<Obstacle>(FindObjectsSortMode.None));
-            ViewAllTooltips();
-            if(TheWorld)
-                Time.timeScale = 0;
+            OnPressed();
         }
         else if(Keyboard.current.spaceKey.wasReleasedThisFrame)
         {
-            objs.Clear();
-            foreach(TextMeshPro text in texts)
-            {
-                Destroy(text.gameObject);
-            }
-            texts.Clear();
-            if(TheWorld)
-                Time.timeScale = 1;
+            OnRelease();
         }
 
-        if(Keyboard.current.spaceKey.isPressed)
+        if (Keyboard.current.spaceKey.isPressed)
         {
             tmp.text = "";
         }
+    }
+
+    private void OnPressed()
+    {
+        TutorialManager.Instance.TryPassTutorial(TutorialType.ToolTip);
+        objs.AddRange(FindObjectsByType<Obstacle>(FindObjectsSortMode.None));
+        ViewAllTooltips();
+        if (TheWorld)
+            Time.timeScale = 0;
+    }
+
+    private void OnRelease()
+    {
+        objs.Clear();
+        foreach (TextMeshPro text in texts)
+        {
+            Destroy(text.gameObject);
+        }
+        texts.Clear();
+        if (TheWorld)
+            Time.timeScale = 1;
     }
 
     private void ViewAllTooltips()

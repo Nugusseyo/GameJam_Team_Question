@@ -2042,6 +2042,10 @@ PrefabInstance:
       propertyPath: expBar
       value: 
       objectReference: {fileID: 421633614}
+    - target: {fileID: 351812986852524525, guid: 85bd382021e528449b4713dcb30b541c, type: 3}
+      propertyPath: <ObsSpawner>k__BackingField
+      value: 
+      objectReference: {fileID: 867252468}
     - target: {fileID: 6541700016177570343, guid: 85bd382021e528449b4713dcb30b541c, type: 3}
       propertyPath: m_Name
       value: GameManager

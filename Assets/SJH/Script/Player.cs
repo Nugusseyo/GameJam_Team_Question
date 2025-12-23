@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
     public event Action OnStop;
     public event Action OnDrag;
     public event Action OnStopDrag;
+    public event Action OnCancle;
     public Vector3 StartPosition;
 
     private void Awake()
@@ -176,6 +178,7 @@ public class Player : MonoBehaviour
     }
     public void ResetDrag()
     {
+        OnCancle?.Invoke();
         OnStopDrag?.Invoke();
         bounceLens.SetLens(0);
         isDrag = false;

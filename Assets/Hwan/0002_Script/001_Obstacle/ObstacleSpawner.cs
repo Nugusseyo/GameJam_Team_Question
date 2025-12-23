@@ -12,6 +12,7 @@
         [SerializeField] private spawnPoints[] spawnPoints;
         private float[] obstacleWeights;
         private Dictionary<NormalVectorType, Vector2> normalVectorDictionary = new();
+        public event Action OnObsDestroy;
 
         public void Awake()
         {
@@ -49,6 +50,7 @@
                 currentObstacles.Add(Instantiate(obstaclePrefabs[index], transform).GetComponent<Obstacle>());
                 currentObstacles[i].transform.position = spawnPoints[i].SpawnPoint.position;
                 currentObstacles[i].SpawnObstacle(normalVectorDictionary[spawnPoints[i].NormalVector]);
+                currentObstacles[i].OnDestroy += () => OnObsDestroy?.Invoke();
                 
                 obstacleWeights[index] *= 0.5f;
             }
