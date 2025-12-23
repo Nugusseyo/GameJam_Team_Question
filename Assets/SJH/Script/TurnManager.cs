@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hwan;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -13,6 +14,11 @@ public class TurnManager : MonoBehaviour
 
     private void Start()
     {
+        if (TutorialManager.Instance.DoTuto == true)
+        {
+            Turn = 0;
+            return;
+        }
         GameManager.Instance.Player.OnStop += PassTurn;
         Turn = -1;
         PassTurn();
@@ -24,7 +30,7 @@ public class TurnManager : MonoBehaviour
             PassTurn();
         }
     }
-    private void PassTurn()
+    public void PassTurn()
     {
         Turn++;
         OnTurnPass?.Invoke();
@@ -59,7 +65,7 @@ public class TurnManager : MonoBehaviour
             return currentTurn;
         }
 
-        private set
+        set
         {
             currentTurn = value;
             OnTurnChange?.Invoke(currentTurn);

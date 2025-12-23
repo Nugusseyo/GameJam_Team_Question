@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float cooltime = 1;
     [SerializeField] private LineRenderer predictLine;
     [SerializeField] private LineRenderer predictLine2;
+    [SerializeField] private GameObject[] faces;
+    [SerializeField] private float hurtTime;
 
     private BounceLens bounceLens;
     private Rigidbody2D rigidbody;
@@ -45,6 +47,7 @@ public class Player : MonoBehaviour
         UpgradeC = GetComponent<Upgrade>();
         bounceLens = FindAnyObjectByType<BounceLens>();
         lineRenderer.enabled = false;
+        HealthSystem.OnDameged += SetFaceToHurt;
     }
 
     private void FixedUpdate()
@@ -53,9 +56,15 @@ public class Player : MonoBehaviour
         {
             currentSpeed -= (frictionForce*currentSpeed/2/ 250) * (4-(Mathf.InverseLerp(0, -dir.magnitude, rigidbody.linearVelocity.magnitude)*3));
             rigidbody.linearVelocity = -(dir.normalized) * currentSpeed;
-            if(Mathf.Abs(rigidbody.linearVelocity.x) < stopOffset.x && Mathf.Abs(rigidbody.linearVelocity.y) < stopOffset.y)
+            faces[0].SetActive(false);
+            faces[1].SetActive(true);
+            faces[2].SetActive(false);
+            if (Mathf.Abs(rigidbody.linearVelocity.x) < stopOffset.x && Mathf.Abs(rigidbody.linearVelocity.y) < stopOffset.y)
             {
                 rigidbody.linearVelocity = Vector2.zero;
+                faces[0].SetActive(true);
+                faces[1].SetActive(false);
+                faces[2].SetActive(false);
                 StartCoroutine(Cooltime());
                 OnStop?.Invoke();
             }
@@ -92,6 +101,22 @@ public class Player : MonoBehaviour
         {
             currentSpeed = value;
         }
+    }
+
+    private void SetFaceToHurt()
+    {
+        faces[0].SetActive(false);
+        faces[1].SetActive(false);
+        faces[2].SetActive(true);
+        StartCoroutine(ReturnToHappy());
+    }
+
+    private IEnumerator ReturnToHappy()
+    {
+        yield return new WaitForSeconds(hurtTime);
+        faces[0].SetActive(true);
+        faces[1].SetActive(false);
+        faces[2].SetActive(false);
     }
 
     public Vector2 MoveDir
@@ -139,6 +164,7 @@ public class Player : MonoBehaviour
                 ResetDrag();
                 return;
             }
+            TutorialManager.Instance.TryPassTutorial(TutorialType.Throw);
             EnemyManager.Instance.StopEnemy();
             isMoving = true;
             currentSpeed = strength * distance;
@@ -150,6 +176,7 @@ public class Player : MonoBehaviour
     }
     public void ResetDrag()
     {
+        OnStopDrag?.Invoke();
         bounceLens.SetLens(0);
         isDrag = false;
         lineRenderer.enabled = false;
