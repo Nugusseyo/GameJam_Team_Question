@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: P_ShieldHeal
   soundType: 1
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 1fa4f452c5b6e6e4e941f4a2faa4f8d6, type: 3}
   loop: 0
   Priority: 128
   volume: 1

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: P_Stop
   soundType: 1
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: b4eb2871a885c3249b93e7823016fa66, type: 3}
   loop: 0
   Priority: 128
   volume: 1

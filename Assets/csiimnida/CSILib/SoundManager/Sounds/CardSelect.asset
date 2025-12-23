@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: CardSelect
   soundType: 1
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: aec4ac6a94155784ba2ab29efc5feb83, type: 3}
   loop: 0
   Priority: 128
   volume: 1

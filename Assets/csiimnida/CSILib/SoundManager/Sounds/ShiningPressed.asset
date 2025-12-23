@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: ShiningPressed
   soundType: 1
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: e6fc5a48319f51547ad865d9874093c7, type: 3}
   loop: 0
   Priority: 128
   volume: 1

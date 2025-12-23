@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: OptionOn
   soundType: 1
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 3f98c525ef191594cbfc61345c50479a, type: 3}
   loop: 0
   Priority: 128
   volume: 1

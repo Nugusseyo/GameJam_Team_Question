@@ -121,7 +121,7 @@ namespace Assets.JYG._Script
             transform.DOPause();
             transform.DOKill();
 
-            if(CurrentHealth > 0)
+            if(CurrentHealth <= 0)
                 Enemy2Exp?.Invoke();
             else
                 EnemyDead?.Invoke();
