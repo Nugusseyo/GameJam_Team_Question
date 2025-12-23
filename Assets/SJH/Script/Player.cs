@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         lineRenderer.enabled = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(rigidbody.linearVelocity != Vector2.zero)
         {
