@@ -4,7 +4,7 @@ using UnityEngine;
 public class Upgrade : MonoBehaviour
 {
     public int Acceleration { get; private set; } = 0;
-    private Player player = GameManager.Instance.Player;
+    private Player player;
     private Damage damageC;
     private List<UpgradeSO> myUpgrades = new List<UpgradeSO>();
 
@@ -13,6 +13,7 @@ public class Upgrade : MonoBehaviour
     private void Awake()
     {
         damageC = GetComponent<Damage>();
+        player = GameManager.Instance.Player;
     }
 
     public void ChoiceUpgrade(UpgradeSO so)
