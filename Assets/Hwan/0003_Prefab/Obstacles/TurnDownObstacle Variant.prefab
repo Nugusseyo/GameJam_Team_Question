@@ -131,4 +131,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleSO: {fileID: 11400000, guid: 3df82cf289072884da61c18aea900de4, type: 2}
   count: 2
-  isPass: 0
+  isPass: 1
