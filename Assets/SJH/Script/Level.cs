@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    private int exp;
+    public int Exp { get; private set; } = 0;
     private int currentLevel;
 
     public event Action OnLevelUp;
 
     public void GetExp(int amount)
     {
-        exp += amount;
-        if (exp >= exp + (4 + 2*currentLevel))
+        Exp += amount;
+        if (Exp >= Exp + (4 + 2*currentLevel))
         {
             currentLevel++;
             OnLevelUp?.Invoke();
