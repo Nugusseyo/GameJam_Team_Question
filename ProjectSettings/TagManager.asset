@@ -54,5 +54,8 @@ TagManager:
   - name: EnemyDeadParticle
     uniqueID: 1067090465
     locked: 0
+  - name: Tooltip
+    uniqueID: 319220215
+    locked: 0
   m_RenderingLayers:
   - Default
