@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &628508650895838984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3028900578744905721}
+  - component: {fileID: 2246722352291723953}
+  m_Layer: 0
+  m_Name: EnemyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3028900578744905721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628508650895838984}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.4087477, y: 2.1973536, z: -0.035589818}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2246722352291723953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628508650895838984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79f5286bdbd237498b056d51dbe212a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyList: []
+  spawnEnemyList:
+  - {fileID: 2621518504218316822, guid: 43dab8c83479e2d478c4a0bc34fb966e, type: 3}
+  - {fileID: 6551499136132444672, guid: 64f3872ab2429dd41b518bee7ee59d9c, type: 3}
+  - {fileID: 6393937485354774839, guid: d03ab63ea4d04fb4cbf4ae6ebfbba5fb, type: 3}
+  - {fileID: 6827514980458629523, guid: 924191375439f1c4e9bcc2e3e6129cf1, type: 3}
+  - {fileID: 2621518504218316822, guid: 79e5960f93edd674bb57ff11832ea802, type: 3}
+  - {fileID: 2897244373164775247, guid: 88b1672b94802e54bbcb7bd2aa6cce37, type: 3}
+  enemySpawnPoint: []
+  cameraHeight: 0
+  cameraWidth: 0
+  distance: 2
+  spawnCountSO: {fileID: 0}

@@ -78,16 +78,13 @@ namespace JJW._02_Script.UI.Card
         public void LeftCardClicked()
         {
             if (!_isCanClick) return;
-            Time.timeScale = 1;
 
-            Debug.Log("왼쪽");
             foreach (Card card in cards.MyCards)
             {
                 if (card.UpgradeSO == leftCard.UpgradeSO)
                 {
                     card.Enable();
                     card.gameObject.GetComponent<Stack>().CurrentStack++;
-                    GameManager.Instance.Player.UpgradeC.ChoiceUpgrade(card.UpgradeSO);
                 }
             }
             _isCanClick = false;
@@ -101,15 +98,13 @@ namespace JJW._02_Script.UI.Card
         public void RightCardClicked()
         {
             if (!_isCanClick) return;
-            Time.timeScale = 1;
-            Debug.Log("오른쪽");
+
             foreach (Card card in cards.MyCards)
             {
                 if (card.UpgradeSO == rightCard.UpgradeSO)
                 {
                     card.Enable();
                     card.gameObject.GetComponent<Stack>().CurrentStack++;
-                    GameManager.Instance.Player.UpgradeC.ChoiceUpgrade(card.UpgradeSO);
                 }
             }
 
@@ -124,22 +119,18 @@ namespace JJW._02_Script.UI.Card
         public void MiddleCardClicked()
         {
             if (!_isCanClick) return;
-            Time.timeScale = 1;
 
-            Debug.Log("가운데");
             foreach (Card card in cards.MyCards)
             {
                 if (card.UpgradeSO == middleCard.UpgradeSO)
                 {
                     card.Enable();
                     card.gameObject.GetComponent<Stack>().CurrentStack++;
-                    GameManager.Instance.Player.UpgradeC.ChoiceUpgrade(card.UpgradeSO);
                 }
             }
 
             _isCanClick = false;
 
-            Time.timeScale = 1;
             MoveDownCard(() =>
             {
                 gameObject.SetActive(false);

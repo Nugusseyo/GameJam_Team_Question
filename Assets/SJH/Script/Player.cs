@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public ParticleSystem particleP2;
     public Upgrade UpgradeC;
     public HealthSystem HealthSystem;
+    public Level Level;
     public event Action OnBump;
     public event Action OnStop;
     public Vector2? RandomBounce = null;
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         HealthSystem = GetComponent<HealthSystem>();
         impulseSource = GetComponent<CinemachineImpulseSource>();
+        Level = GetComponent<Level>();
         UpgradeC = GetComponent<Upgrade>();
         lineRenderer.enabled = false;
     }
@@ -101,10 +103,15 @@ public class Player : MonoBehaviour
         if(isDrag)
         {
             isDrag = false;
-            isMoving = true;
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dir = mousePosition - StartPosition;
-            float distance = Mathf.Clamp(dir.magnitude, 0, 5);
+            float distance = Mathf.Clamp(Vector2.Distance(StartPosition, mousePosition), 0, 5);
+            if(distance <= 0.5f)
+            {
+                ResetDrag();
+                return;
+            }
+            isMoving = true;
             currentSpeed = strength * distance;
             rigidbody.linearVelocity = -(dir.normalized) * currentSpeed;
             lineRenderer.enabled = false;
@@ -135,7 +142,7 @@ public class Player : MonoBehaviour
             impulseSource.GenerateImpulseWithVelocity(collision.GetContact(0).normal/180*currentSpeed);
             OnBump?.Invoke();
             dir = RandomBounce != null ? (Vector2)RandomBounce : Vector2.Reflect(dir, collision.GetContact(0).normal);
-            rigidbody.linearVelocity = -(dir.normalized) * currentSpeed;
+            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (- (dir.normalized) * currentSpeed)/10;
             RandomBounce = null;
         }
     }

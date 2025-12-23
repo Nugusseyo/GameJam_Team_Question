@@ -29,12 +29,13 @@ namespace Hwan
             GameManager.Instance.TurnManager.OnRoundComplete.AddListener(SpawnObstacle);
         }
 
-        public void SpawnObstacle()
+        public void SpawnObstacle(int _)
         {
-            foreach (Obstacle obstacle in currentObstacles)
+            for (int i = currentObstacles.Count - 1; i >= 0; i--)
             {
-                currentObstacles.Remove(obstacle);
-                obstacle.Destroy();
+                var obs = currentObstacles[i];
+                currentObstacles.RemoveAt(i);
+                obs.Destroy();
             }
 
             for (int i = 0; i < spawnPoints.Length; i++)
@@ -47,7 +48,6 @@ namespace Hwan
                 currentObstacles[i].SpawnObstacle(normalVectorDictionary[spawnPoints[i].NormalVector]);
                 
                 obstacleWeights[index] *= 0.5f;
-
             }
         }
 

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d94eaaf2428b244e841fdb716076f94, type: 3}
   m_Name: TurnDownObs
   m_EditorClassIdentifier: 
-  <Color>k__BackingField: {r: 0, g: 1, b: 0.34117648, a: 0}
-  <Desc>k__BackingField: "\uD134\uC744 {t}\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4.\\n\uB0A8\uC740
+  <Desc>k__BackingField: "\uB77C\uC6B4\uB4DC\uAC00 \uBC14\uB00C\uC9C0 \uC54A\uB294
+    \uC120\uC5D0\uC11C \uD134\uC744 {t}\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4.\\n\uB0A8\uC740
     \uD69F\uC218: {c}"
