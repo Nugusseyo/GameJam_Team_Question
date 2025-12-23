@@ -7,7 +7,8 @@ public enum UpgradeType
     Acceleration,
     Shield,
     Speed,
-    Heal
+    Heal,
+    TheWorld
 }
 
 [CreateAssetMenu(fileName = "UpgradeSO", menuName = "SJH/SO/UpgradeSO")]

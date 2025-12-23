@@ -62,6 +62,7 @@ namespace Assets.JYG._Script
         public Action OnHealthChange;
         public UnityEvent EnemyStun;
         public UnityEvent EnemyDead;
+        public UnityEvent Enemy2Exp;
         public UnityEvent EnemyHeal;
         public UnityEvent EnemyLive;
         public UnityEvent EnemyDamaged;
@@ -120,7 +121,10 @@ namespace Assets.JYG._Script
             transform.DOPause();
             transform.DOKill();
 
-            EnemyDead?.Invoke();
+            if(CurrentHealth <= 0)
+                Enemy2Exp?.Invoke();
+            else
+                EnemyDead?.Invoke();
 
             Destroy(gameObject, 2f);
             GameManager.Instance.Player.Level.GetExp(1);

@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using csiimnida.CSILib.SoundManager.RunTime;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -47,7 +48,10 @@ namespace Hwan
         }
 
         protected abstract void Initialize();
-        public abstract void OnPlayerReached();
+        public virtual void OnPlayerReached()
+        {
+            SoundManager.Instance.PlaySound("O_Reach");
+        }
         public virtual void Destroy()
         {
             if (IsDestroyed) return;
