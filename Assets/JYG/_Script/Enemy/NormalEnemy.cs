@@ -1,32 +1,32 @@
 ﻿using Assets.JYG._Script;
 using DG.Tweening;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public class NormalEnemy : Enemy
 {
-    private Rotation _rotation;
-
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
-        _rotation = GetComponent<Rotation>();
+        base.Start();
+        transform.DORotate(new Vector3(0, 0, 360), 3f, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
     }
     protected override void EnemyMove()
     {
         _moveTween.Kill();
         _moveTween = DOTween.Sequence();
         Vector3 targetPos = (_target.position - transform.position).normalized;
-        _moveTween.Append(transform.DOMove(targetPos * Distance + transform.position, Duration).SetDelay(MoveDelay).SetEase(Ease).OnComplete(EnemyMove));
+        _moveTween.Append(transform.DOMove(targetPos * Distance + transform.position, Duration).SetDelay(MoveDelay).SetEase(Ease));
+        _moveTween.OnComplete(EnemyMove);
     }
 
     public override void StopEnemy()
     {
         base.StopEnemy();
-        _rotation.StopRotation();
+        transform.DOPause();
     }
     public override void StartMoveEnemy()
     {
         base.StartMoveEnemy();
-        _rotation.RotationSelf();
+        transform.DOPlay();
     }
 }
