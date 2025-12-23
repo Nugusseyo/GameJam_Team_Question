@@ -41,6 +41,9 @@ public class Upgrade : MonoBehaviour
             case UpgradeType.Heal:
                 healthSystem.GetHeal(so.Amount);
                 break;
+            case UpgradeType.TheWorld:
+                GameManager.Instance.Tooltip.TheWorld = true;
+                break;
         }
     }
 }

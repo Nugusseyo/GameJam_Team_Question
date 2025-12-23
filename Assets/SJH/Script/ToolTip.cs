@@ -10,8 +10,10 @@ public class ToolTip : MonoBehaviour
     private TextMeshPro tmp;
     private List<Obstacle> objs = new();
     private List<TextMeshPro> texts = new();
-
+    
     private Vector2 mousePosition;
+
+    public bool TheWorld = false;
 
     private void Awake()
     {
@@ -28,6 +30,8 @@ public class ToolTip : MonoBehaviour
         {
             objs.AddRange(FindObjectsByType<Obstacle>(FindObjectsSortMode.None));
             ViewAllTooltips();
+            if(TheWorld)
+                Time.timeScale = 0;
         }
         else if(Keyboard.current.spaceKey.wasReleasedThisFrame)
         {
@@ -37,6 +41,8 @@ public class ToolTip : MonoBehaviour
                 Destroy(text.gameObject);
             }
             texts.Clear();
+            if(TheWorld)
+                Time.timeScale = 1;
         }
 
         if(Keyboard.current.spaceKey.isPressed)
