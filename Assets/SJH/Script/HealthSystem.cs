@@ -61,6 +61,7 @@ public class HealthSystem : MonoBehaviour
     {
         maxHealth += 1;
         health += 1;
+        eventChannel.Raise(health);
     }
 
     private void BreakShield()
