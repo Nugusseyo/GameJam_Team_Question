@@ -1,6 +1,5 @@
 ﻿using System;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 using Sequence = DG.Tweening.Sequence;
 
@@ -14,26 +13,23 @@ namespace JJW._02_Script.UI.Card
         [SerializeField] private Ease ease;
         [SerializeField] private Cards cards;
 
+        [SerializeField] private Card leftCard;
+        [SerializeField] private Card rightCard;
+        [SerializeField] private Card middleCard;
+
         private RectTransform _leftCardRect;
         private RectTransform _rightCardRect;
         private RectTransform _middleCardRect;
-        
-        [SerializeField] private Card leftCard;
-        [SerializeField] private Card rightCard;
-        [SerializeField]  private Card middleCard;
 
         private Vector3 _leftMapCardPos;
         private Vector3 _rightMapCardPos;
         private Vector3 _middleMapCardPos;
 
         private bool _isCanClick = false;
-        private Sequence _moveUpSequence;
-        private RandomCardSetting _randomCardSetting;
+        private Sequence _sequence;
 
         private void Awake()
         {
-            _randomCardSetting = gameObject.GetComponent<RandomCardSetting>();
-
             _leftCardRect = leftMapCardObj.GetComponent<RectTransform>();
             _rightCardRect = rightMapCardObj.GetComponent<RectTransform>();
             _middleCardRect = middleMapCardObj.GetComponent<RectTransform>();
@@ -46,7 +42,7 @@ namespace JJW._02_Script.UI.Card
         private void OnEnable()
         {
             SetTransform();
-            CardFlipSetting();
+            MoveUpCard();
         }
 
         private void SetTransform()
@@ -54,124 +50,108 @@ namespace JJW._02_Script.UI.Card
             _leftCardRect.anchoredPosition = _leftMapCardPos;
             _rightCardRect.anchoredPosition = _rightMapCardPos;
             _middleCardRect.anchoredPosition = _middleMapCardPos;
+
             _leftCardRect.rotation = Quaternion.Euler(0, 180, 0);
             _rightCardRect.rotation = Quaternion.Euler(0, 180, 0);
             _middleCardRect.rotation = Quaternion.Euler(0, 180, 0);
+
+            _isCanClick = false;
         }
 
         private void RotateToFrontCards()
         {
-            _moveUpSequence?.Kill();
-            _moveUpSequence = DOTween.Sequence();
+            _sequence?.Kill();
+            _sequence = DOTween.Sequence().SetUpdate(true);
 
-            _moveUpSequence.Append(_leftCardRect.DORotate(new Vector3(0, 0, 0), 0.1f));
-            _moveUpSequence.AppendInterval(0.1f);
-            _moveUpSequence.Append(_middleCardRect.DORotate(new Vector3(0, 0, 0), 0.1f));
-            _moveUpSequence.AppendInterval(0.1f);
-            _moveUpSequence.Append(_rightCardRect.DORotate(new Vector3(0, 0, 0), 0.1f));
-            _moveUpSequence.OnComplete(() =>
-            {
-                _isCanClick = true;
-            });
+            _sequence.Append(_leftCardRect.DORotate(Vector3.zero, 0.1f));
+            _sequence.AppendInterval(0.1f);
+            _sequence.Append(_middleCardRect.DORotate(Vector3.zero, 0.1f));
+            _sequence.AppendInterval(0.1f);
+            _sequence.Append(_rightCardRect.DORotate(Vector3.zero, 0.1f));
+
+            _sequence.OnComplete(() => _isCanClick = true);
         }
 
         public void LeftCardClicked()
         {
             if (!_isCanClick) return;
-            Time.timeScale = 1;
-
-            foreach (Card card in cards.MyCards)
-            {
-                if (card.UpgradeSO == leftCard.UpgradeSO)
-                {
-                    card.Enable();
-                    card.gameObject.GetComponent<Stack>().CurrentStack++;
-                }
-            }
-            _isCanClick = false;
-
-            MoveDownCard(() =>
-            {
-                gameObject.SetActive(false);
-            });
+            ApplyCard(leftCard);
         }
 
         public void RightCardClicked()
         {
             if (!_isCanClick) return;
-            Time.timeScale = 1;
-
-            foreach (Card card in cards.MyCards)
-            {
-                if (card.UpgradeSO == rightCard.UpgradeSO)
-                {
-                    card.Enable();
-                    card.gameObject.GetComponent<Stack>().CurrentStack++;
-                }
-            }
-
-            _isCanClick = false;
-
-            MoveDownCard(() =>
-            {
-                gameObject.SetActive(false);
-            });
+            ApplyCard(rightCard);
         }
 
         public void MiddleCardClicked()
         {
             if (!_isCanClick) return;
+            ApplyCard(middleCard);
+        }
+
+        private void ApplyCard(Card selectedCard)
+        {
             Time.timeScale = 1;
+            _isCanClick = false;
+
             foreach (Card card in cards.MyCards)
             {
-                if (card.UpgradeSO == middleCard.UpgradeSO)
+                if (card.UpgradeSO == selectedCard.UpgradeSO)
                 {
                     card.Enable();
-                    card.gameObject.GetComponent<Stack>().CurrentStack++;
+
+                    if (card.TryGetComponent(out Stack stack))
+                    {
+                        stack.CurrentStack++;
+                    }
                 }
             }
 
-            _isCanClick = false;
-
-            MoveDownCard(() =>
-            {
-                gameObject.SetActive(false);
-            });
+            MoveDownCard(() => gameObject.SetActive(false));
         }
 
-        public void CardFlipSetting()
+        private void MoveUpCard()
         {
-            MoveUpCard();
-        }
+            _sequence?.Kill();
+            _sequence = DOTween.Sequence().SetUpdate(true);
 
-        public void MoveUpCard()
-        {
-            _moveUpSequence?.Kill();
-            _moveUpSequence = DOTween.Sequence();
             float moveAmount = 846f;
 
-            _moveUpSequence.Append(_leftCardRect.DOAnchorPosY(_leftMapCardPos.y + moveAmount, 0.15f).SetEase(ease));
-            _moveUpSequence.AppendInterval(0.05f);
-            _moveUpSequence.Append(_middleCardRect.DOAnchorPosY(_middleMapCardPos.y + moveAmount, 0.15f).SetEase(ease));
-            _moveUpSequence.AppendInterval(0.05f);
-            _moveUpSequence.Append(_rightCardRect.DOAnchorPosY(_rightMapCardPos.y + moveAmount, 0.15f).SetEase(ease));
-            _moveUpSequence.OnComplete(RotateToFrontCards);
+            _sequence.Append(
+                _leftCardRect.DOAnchorPosY(_leftMapCardPos.y + moveAmount, 0.15f).SetEase(ease)
+            );
+            _sequence.AppendInterval(0.05f);
+            _sequence.Append(
+                _middleCardRect.DOAnchorPosY(_middleMapCardPos.y + moveAmount, 0.15f).SetEase(ease)
+            );
+            _sequence.AppendInterval(0.05f);
+            _sequence.Append(
+                _rightCardRect.DOAnchorPosY(_rightMapCardPos.y + moveAmount, 0.15f).SetEase(ease)
+            );
+
+            _sequence.OnComplete(RotateToFrontCards);
         }
 
-        public void MoveDownCard(Action onComplete)
+        private void MoveDownCard(Action onComplete)
         {
-            _moveUpSequence?.Kill();
-            _moveUpSequence = DOTween.Sequence();
+            _sequence?.Kill();
+            _sequence = DOTween.Sequence().SetUpdate(true);
 
-            _moveUpSequence.Append(_leftCardRect.DOAnchorPosY(_leftMapCardPos.y, 0.15f).SetEase(ease));
-            _moveUpSequence.AppendInterval(0.05f);
-            _moveUpSequence.Append(_middleCardRect.DOAnchorPosY(_middleMapCardPos.y, 0.15f).SetEase(ease));
-            _moveUpSequence.AppendInterval(0.05f);
-            _moveUpSequence.Append(_rightCardRect.DOAnchorPosY(_rightMapCardPos.y, 0.15f).SetEase(ease));
-            _moveUpSequence.OnComplete(() =>
-            {
-                onComplete?.Invoke();
-            });
+            _sequence.Append(
+                _leftCardRect.DOAnchorPosY(_leftMapCardPos.y, 0.15f).SetEase(ease)
+            );
+            _sequence.AppendInterval(0.05f);
+            _sequence.Append(
+                _middleCardRect.DOAnchorPosY(_middleMapCardPos.y, 0.15f).SetEase(ease)
+            );
+            _sequence.AppendInterval(0.05f);
+            _sequence.Append(
+                _rightCardRect.DOAnchorPosY(_rightMapCardPos.y, 0.15f).SetEase(ease)
+            );
+
+            _sequence.OnComplete(() => onComplete?.Invoke());
         }
     }
 }
+
