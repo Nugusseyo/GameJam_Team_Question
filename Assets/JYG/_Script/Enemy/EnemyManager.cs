@@ -43,6 +43,8 @@ public class EnemyManager : MonoBehaviour
     public List<GameObject> spawnEnemyList = new List<GameObject>();
     public List<Vector2> enemySpawnPoint = new List<Vector2>();
 
+    private List<Vector2> prevSpawnPos = new List<Vector2>();
+
     [SerializeField] private float cameraHeight;
     [SerializeField] private float cameraWidth;
     [SerializeField] private float distance;
