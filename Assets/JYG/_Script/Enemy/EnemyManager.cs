@@ -24,6 +24,18 @@ public class EnemyManager : MonoBehaviour
         GameManager.Instance.TurnManager.OnTurnPass.AddListener(OnTurnEnd);
         GameManager.Instance.TurnManager.OnRoundComplete.AddListener((turn) =>
         {
+            if (spawnCountSO.BossTurn == turn)
+            {
+                Debug.Log("Boss Spawned");
+                prevSpawnPos = new List<Vector2>(enemySpawnPoint);
+                Vector2 spawnPos = prevSpawnPos[UnityEngine.Random.Range(0, prevSpawnPos.Count)];
+                Enemy enemy = Instantiate(boss, spawnPos, Quaternion.identity).GetComponentInChildren<Enemy>();
+                prevSpawnPos.Remove(spawnPos);
+                EnemyHealthShowcase health = Instantiate(healthCount, spawnPos, Quaternion.identity).GetComponent<EnemyHealthShowcase>();
+                enemy.healthShowcase = health;
+                health.Initialize(enemy);
+                return;
+            }
             int spawnCount = 0;
             foreach (SpawnCount standard in spawnCountSO.SpawnCounts)
             {
@@ -43,6 +55,7 @@ public class EnemyManager : MonoBehaviour
     }
     #endregion
 
+    public GameObject boss;
     public GameObject healthCount;
     public List<Enemy> enemyList = new List<Enemy>();
     public List<GameObject> spawnEnemyList = new List<GameObject>();
@@ -95,6 +108,15 @@ public class EnemyManager : MonoBehaviour
         foreach (Enemy enemy in enemyList)
         {
             enemy.CurrentHealth = enemy.MaxHealth;
+        }
+    }
+    public void EnemyAllDead()
+    {
+        if (enemyList.Count == 0) return;
+        SoundManager.Instance.PlaySound("E_Explosion");
+        foreach (Enemy enemy in enemyList)
+        {
+            enemy.DeadEnemy();
         }
     }
     [ContextMenu("Stop Enemy")]

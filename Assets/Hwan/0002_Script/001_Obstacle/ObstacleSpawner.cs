@@ -32,6 +32,7 @@
 
         public void SpawnObstacle(int _)
         {
+            if (_ >= -1000 && TutorialManager.Instance.DoTuto == true) return;
             SoundManager.Instance.PlaySound("O_Change");
             for (int i = currentObstacles.Count - 1; i >= 0; i--)
             {

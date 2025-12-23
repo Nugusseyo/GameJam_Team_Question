@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Text>k__BackingField: "\uC801\uC744 \uC804\uBD80 \uCC98\uCE58\uD558\uAC70\uB098
     5\uD134\uC774 \uC9C0\uB098\uBA74\\n \uB2E4\uC74C \uB77C\uC6B4\uB4DC\uAC00 \uC2DC\uC791\uB429\uB2C8\uB2E4."
-  <Position>k__BackingField: {x: 0, y: 300}
+  <Position>k__BackingField: {x: 0, y: 200}
   <TutoType>k__BackingField: 7
   <WaitTime>k__BackingField: 1

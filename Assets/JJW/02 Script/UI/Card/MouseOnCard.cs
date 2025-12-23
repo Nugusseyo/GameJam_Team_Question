@@ -17,10 +17,12 @@ namespace JJW._02_Script.UI.Card
         private Vector3 _originalScale;
         private Tweener _scaleTween;
         private Tweener _colorTween;
+        private Color _originalColor;
 
         private void Awake()
         {
             _originalScale = transform.localScale;
+            _originalColor = image.color;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -50,7 +52,7 @@ namespace JJW._02_Script.UI.Card
                 .SetUpdate(true);
 
             _colorTween = image
-                .DOColor(Color.white, colorChangeSpeed)
+                .DOColor(_originalColor, colorChangeSpeed)
                 .SetUpdate(true);
         }
     }

@@ -625,10 +625,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2246722352291723953, guid: b452d51efc64c854d9526d6758c04837, type: 3}
-      propertyPath: spawnCountSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 22851797454192f4bb2956ab8acfc472, type: 2}
     - target: {fileID: 3028900578744905721, guid: b452d51efc64c854d9526d6758c04837, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.4087477
@@ -1077,6 +1073,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 428474663}
   m_SourcePrefab: {fileID: 100100000, guid: 422f1f695d5bd3a4ca4a305ee7e95c06, type: 3}
+--- !u!1 &350629813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1458100170786673318, guid: 422f1f695d5bd3a4ca4a305ee7e95c06, type: 3}
+  m_PrefabInstance: {fileID: 350629812}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &421633614 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6782735746031634616, guid: 422f1f695d5bd3a4ca4a305ee7e95c06, type: 3}
@@ -1867,7 +1868,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -2193,6 +2194,14 @@ PrefabInstance:
       propertyPath: doTuto
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8716845962978989898, guid: 37532ea75855c62419919ccad3d45359, type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 867252468}
+    - target: {fileID: 8716845962978989898, guid: 37532ea75855c62419919ccad3d45359, type: 3}
+      propertyPath: cardSelect
+      value: 
+      objectReference: {fileID: 350629813}
     - target: {fileID: 8716845962978989898, guid: 37532ea75855c62419919ccad3d45359, type: 3}
       propertyPath: <DoTuto>k__BackingField
       value: 0
