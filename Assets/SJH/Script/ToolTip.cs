@@ -45,6 +45,7 @@ public class ToolTip : MonoBehaviour
         foreach (Obstacle obstacle in objs)
         {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             GameObject textObj = new GameObject();
             TextMeshPro textMeshPro = textObj.AddComponent<TextMeshPro>();
             textMeshPro.textWrappingMode = TextWrappingModes.NoWrap;
@@ -53,6 +54,15 @@ public class ToolTip : MonoBehaviour
             textMeshPro.font = tmp.font;
             textMeshPro.fontSize = tmp.fontSize;
             textMeshPro.alignment = TextAlignmentOptions.Center;
+=======
+            GameObject textObj = new GameObject("ToolTip");
+            TextMeshPro textMeshPro = textObj.AddComponent<TextMeshPro>();
+            textMeshPro.textWrappingMode = TextWrappingModes.NoWrap;
+            textMeshPro.transform.position = new Vector3(obstacle.transform.position.x + obstacle.transform.localScale.x,obstacle.transform.position.y - obstacle.transform.localScale.y);
+            textMeshPro.text = obstacle.GetObstacleDesc();
+            textMeshPro.font = tmp.font;
+            textMeshPro.fontSize = tmp.fontSize;
+>>>>>>> Stashed changes
 =======
             GameObject textObj = new GameObject("ToolTip");
             TextMeshPro textMeshPro = textObj.AddComponent<TextMeshPro>();
