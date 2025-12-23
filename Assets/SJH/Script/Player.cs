@@ -74,16 +74,18 @@ public class Player : MonoBehaviour
             predictLine2.SetPosition(1, dir2);
         }
     }
-
-    public void SetMove(Vector2 vector2, float power)
+    
+    public float MovePower
     {
-        dir = vector2;
-        rigidbody.linearVelocity = dir * power;
-    }
+        get
+        {
+            return currentSpeed;
+        }
 
-    public Vector2 GetDir()
-    {
-        return dir;
+        set
+        {
+            currentSpeed = value;
+        }
     }
 
     public void GetSpeed()
