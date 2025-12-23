@@ -653,7 +653,7 @@ MonoBehaviour:
   <Duration>k__BackingField: 6
   <Distance>k__BackingField: 4
   <MoveDelay>k__BackingField: 0.8
-  <MaxHealth>k__BackingField: 1
+  <MaxHealth>k__BackingField: 5
   EnemyStun:
     m_PersistentCalls:
       m_Calls:
