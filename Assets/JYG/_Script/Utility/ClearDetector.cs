@@ -1,7 +1,7 @@
 ﻿using CSILib.SoundManager.RunTime;
 using UnityEngine;
 
-public class ClearDetector : MonoSingleton<ClearDetector>
+public class ClearDetector : PMonoSingleton<ClearDetector>
 {
     [SerializeField] private SoundPlayer mainSoundPlayer;
     [SerializeField] private SoundPlayer clearSoundPlayer;
