@@ -10,7 +10,7 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private ParticleSystem shieldParticle;
     [SerializeField] private ParticleSystem shieldParticle2;
     private int health;
-    private bool shield = false;
+    private bool shield = true;
     private int lastShield = 0;
 
     public bool hasShield = false;
@@ -20,17 +20,17 @@ public class HealthSystem : MonoBehaviour
     private void Awake()
     {
         health = maxHealth;
-        GameManager.Instance.Player.OnStop += Shield;
     }
 
     private void Start()
     {
         eventChannel.Raise(health);
+        GameManager.Instance.TurnManager.OnTurnPass.AddListener(Shield);
     }
 
     public void GetDamage(int amount)
     {
-        if(shield)
+        if(shield && hasShield)
         {
             lastShield = GameManager.Instance.TurnManager.Turn;
             shield = false;
@@ -71,9 +71,10 @@ public class HealthSystem : MonoBehaviour
 
     private void Shield()
     {
+        Debug.Log("gg");
         if(!shield && hasShield)
         {
-            if(lastShield+shieldChargeTime == GameManager.Instance.TurnManager.Turn)
+            if(lastShield+shieldChargeTime <= GameManager.Instance.TurnManager.Turn)
             {
                 shieldParticle2.Play();
                 shield = true;
