@@ -13,6 +13,7 @@ namespace Hwan
         [SerializeField] private ObstacleSO obstacleSO;
         protected Vector2 normalVector;
         private Collider2D col;
+        public Color Color => spriteRen.color;
 
         public virtual void SpawnObstacle(Vector2 normalVector)
         {
