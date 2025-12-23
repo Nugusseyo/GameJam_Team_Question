@@ -15,7 +15,7 @@ namespace Hwan
         public override void OnPlayerReached()
         {
             Player player = GameManager.Instance.Player;
-            player.SetMove(player.GetDir(), player.GetDir().magnitude * bouncePower);
+            player.MovePower *= bouncePower;
         }
     }
 }
