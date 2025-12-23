@@ -124,6 +124,7 @@ public class Player : MonoBehaviour
     {
         if(isDrag)
         {
+            bounceLens.ResetLens();
             EnemyManager.Instance.StopEnemy();
             isDrag = false;
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -144,6 +145,7 @@ public class Player : MonoBehaviour
     }
     public void ResetDrag()
     {
+        bounceLens.SetLens(0);
         isDrag = false;
         lineRenderer.enabled = false;
         predictLine.enabled = false;
