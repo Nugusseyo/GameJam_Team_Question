@@ -4570,6 +4570,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4863899980872674530, guid: 422f1f695d5bd3a4ca4a305ee7e95c06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4983000606990455835, guid: 422f1f695d5bd3a4ca4a305ee7e95c06, type: 3}
       propertyPath: cardUI
       value: 
