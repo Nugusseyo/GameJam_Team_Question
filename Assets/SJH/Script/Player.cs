@@ -1,4 +1,4 @@
-using Hwan;
+﻿using Hwan;
 using System;
 using System.Collections;
 using Unity.Cinemachine;
@@ -194,6 +194,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Obstacle obs))
         {
+            TutorialManager.Instance.TryPassTutorial(TutorialType.Obstacle);
             obs.OnPlayerReached();
         }
     }

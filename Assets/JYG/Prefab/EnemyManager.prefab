@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79f5286bdbd237498b056d51dbe212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: {fileID: 7532890494098445865, guid: f4a01369bce9ca447931c64303258288, type: 3}
   healthCount: {fileID: 7022625170221060007, guid: 087c0b30b965eac4f8e75a7caec7c885, type: 3}
   enemyList: []
   spawnEnemyList:

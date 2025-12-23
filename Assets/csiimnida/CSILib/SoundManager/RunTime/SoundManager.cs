@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using CSILib.SoundManager.RunTime;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -48,6 +48,33 @@ namespace csiimnida.CSILib.SoundManager.RunTime
             }
             SetAudio(source,so);
         
+        }
+        public AudioSource PlaySoundWithObj(string soundName)
+        {
+            GameObject obj = new GameObject();
+            obj.name = soundName + " Sound";
+            AudioSource source = obj.AddComponent<AudioSource>();
+            SoundSo so = _soundListSo.SoundsDictionary[soundName];
+            if (_mixer == null)
+            {
+                Debug.LogWarning("Mixer가 할당되지 않았습니다. SoundManager를 사용하기 전에 할당해주세요.");
+                SetAudio(source, so);
+                return null;
+            }
+            if (so.soundType == SoundType.SFX)
+                source.outputAudioMixerGroup = _mixer.FindMatchingGroups("SFX")[0];
+            else if (so.soundType == SoundType.BGM)
+            {
+                source.outputAudioMixerGroup = _mixer.FindMatchingGroups("BGM")[0];
+            }
+            else
+            {
+                Debug.LogWarning("Type이 없습니다");
+                source.outputAudioMixerGroup = _mixer.FindMatchingGroups("Master")[0];
+
+            }
+            SetAudio(source, so);
+            return source;
         }
 
         private void SetAudio(AudioSource source,SoundSo sounds)

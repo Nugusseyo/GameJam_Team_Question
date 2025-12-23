@@ -1,6 +1,7 @@
 namespace Hwan
 {
     using DG.Tweening;
+    using System;
     using System.Collections;
     using System.Collections.Generic;
     using TMPro;
@@ -32,6 +33,8 @@ namespace Hwan
         [field: SerializeField] public bool DoTuto { get; private set; } = false;
         [SerializeField] private TutorialSO[] tutorialSOs;
         [SerializeField] private TextMeshProUGUI tmpProUGUI;
+        [SerializeField] private ObstacleSpawner spawner;
+        [SerializeField] private GameObject cardSelect;
         private RectTransform tmpRectTrm;
         private TutorialSO currentTutoSO;
 
@@ -61,22 +64,34 @@ namespace Hwan
                 case TutorialType.Throw:
                     break;
                 case TutorialType.Cancle:
-                    GameManager.Instance.TurnManager.Turn = -1;
-                    GameManager.Instance.TurnManager.PassTurn();
                     break;
                 case TutorialType.KillEnemy:
+                    GameManager.Instance.TurnManager.Turn = -1;
+                    GameManager.Instance.TurnManager.PassTurn();
+                    GameManager.Instance.Player.OnStop += GameManager.Instance.TurnManager.PassTurn;
                     break;
                 case TutorialType.Obstacle:
+                    spawner.SpawnObstacle(-9999999);
                     break;
                 case TutorialType.ToolTip:
                     break;
                 case TutorialType.Card:
+                    cardSelect.SetActive(true);
                     break;
                 case TutorialType.Turn:
+                    StartCoroutine(WaitForNoIfTuto());
                     break;
                 case TutorialType.Boss:
+                    StartCoroutine(WaitForNoIfTuto());
                     break;
             }
+        }
+
+        private IEnumerator WaitForNoIfTuto()
+        {
+            yield return new WaitForSeconds(2f);
+            TryPassTutorial(TutorialType.Boss);
+            TryPassTutorial(TutorialType.Turn);
         }
 
         private void TutoOff()
@@ -84,8 +99,17 @@ namespace Hwan
             tmpProUGUI.DOFade(0, 0.35f);
 
             currentTutoNum++;
-            if (currentTutoNum >= tutorialSOs.Length) return;
+            if (currentTutoNum >= tutorialSOs.Length)
+            {
+                EndTuto();
+                return;
+            }
             StartCoroutine(WaitForNextTutorial(currentTutoSO.WaitTime));
+        }
+
+        private void EndTuto()
+        {
+            SceneManager.Instance.OnLoadScene(0);
         }
 
         private IEnumerator WaitForNextTutorial(float waitTime)

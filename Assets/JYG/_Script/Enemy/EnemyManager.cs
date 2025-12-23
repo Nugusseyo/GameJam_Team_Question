@@ -1,4 +1,5 @@
 ﻿using Assets.JYG._Script;
+using csiimnida.CSILib.SoundManager.RunTime;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,18 @@ public class EnemyManager : MonoBehaviour
         GameManager.Instance.TurnManager.OnTurnPass.AddListener(OnTurnEnd);
         GameManager.Instance.TurnManager.OnRoundComplete.AddListener((turn) =>
         {
+            if (spawnCountSO.BossTurn == turn)
+            {
+                Debug.Log("Boss Spawned");
+                prevSpawnPos = new List<Vector2>(enemySpawnPoint);
+                Vector2 spawnPos = prevSpawnPos[UnityEngine.Random.Range(0, prevSpawnPos.Count)];
+                Enemy enemy = Instantiate(boss, spawnPos, Quaternion.identity).GetComponentInChildren<Enemy>();
+                prevSpawnPos.Remove(spawnPos);
+                EnemyHealthShowcase health = Instantiate(healthCount, spawnPos, Quaternion.identity).GetComponent<EnemyHealthShowcase>();
+                enemy.healthShowcase = health;
+                health.Initialize(enemy);
+                return;
+            }
             int spawnCount = 0;
             foreach (SpawnCount standard in spawnCountSO.SpawnCounts)
             {
@@ -42,6 +55,7 @@ public class EnemyManager : MonoBehaviour
     }
     #endregion
 
+    public GameObject boss;
     public GameObject healthCount;
     public List<Enemy> enemyList = new List<Enemy>();
     public List<GameObject> spawnEnemyList = new List<GameObject>();
@@ -90,6 +104,7 @@ public class EnemyManager : MonoBehaviour
     public void ResetEnemy()
     {
         if(enemyList.Count == 0) return;
+        SoundManager.Instance.PlaySound("E_Heal");
         foreach (Enemy enemy in enemyList)
         {
             enemy.CurrentHealth = enemy.MaxHealth;
@@ -116,9 +131,26 @@ public class EnemyManager : MonoBehaviour
     [ContextMenu("Enemy Attacked")]
     public void PlusEnemyHealth(int value)
     {
+        bool isShutdown = false;
         foreach(Enemy enemy in enemyList)
         {
             enemy.CurrentHealth += value;
+            if(enemy.CurrentHealth <= 0)
+            {
+                isShutdown = true;
+            }
+        }
+        if(isShutdown)
+        {
+            SoundManager.Instance.PlaySound("E_Shutdown");
+        }
+        if(value > 0)
+        {
+            SoundManager.Instance.PlaySound("E_Heal");
+        }
+        else if(value < 0)
+        {
+            SoundManager.Instance.PlaySound("E_Explosion");
         }
     }
 

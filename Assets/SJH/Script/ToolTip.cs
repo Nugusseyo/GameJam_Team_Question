@@ -28,6 +28,7 @@ public class ToolTip : MonoBehaviour
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
+            TutorialManager.Instance.TryPassTutorial(TutorialType.ToolTip);
             objs.AddRange(FindObjectsByType<Obstacle>(FindObjectsSortMode.None));
             ViewAllTooltips();
             if(TheWorld)

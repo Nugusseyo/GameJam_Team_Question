@@ -1,3 +1,4 @@
+﻿using csiimnida.CSILib.SoundManager.RunTime;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -26,6 +27,7 @@ namespace JJW._02_Script.UI.Card
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            SoundManager.Instance.PlaySound("CardSelect");
             _scaleTween?.Kill();
             _colorTween?.Kill();
 
