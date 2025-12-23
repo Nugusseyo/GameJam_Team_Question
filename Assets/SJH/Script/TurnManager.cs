@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 [DefaultExecutionOrder(-20)]
 public class TurnManager : MonoBehaviour
 {
@@ -16,7 +17,13 @@ public class TurnManager : MonoBehaviour
         Turn = -1;
         PassTurn();
     }
-
+    private void Update()
+    {
+        if (Keyboard.current.gKey.wasPressedThisFrame)
+        {
+            PassTurn();
+        }
+    }
     private void PassTurn()
     {
         Turn++;

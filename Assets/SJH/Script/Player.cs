@@ -102,6 +102,7 @@ public class Player : MonoBehaviour
     {
         if(isDrag)
         {
+            EnemyManager.Instance.StopEnemy();
             isDrag = false;
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dir = mousePosition - StartPosition;
@@ -152,7 +153,7 @@ public class Player : MonoBehaviour
         ParticleSystem particle = Instantiate(par);
         particle.gameObject.transform.localScale = new Vector2(scale, scale);
         particle.gameObject.transform.position = other.GetContact(0).point;
-        float atan = Mathf.Atan2(other.GetContact(0).normal.x, -other.GetContact(0).normal.y);
+        float atan = Mathf.Atan2(-other.GetContact(0).normal.x, -other.GetContact(0).normal.y);
         float angle = (other.GetContact(0).normal.y != 0 ? atan : -atan) * Mathf.Rad2Deg;
         particle.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle * rotation));
         particle.Play();

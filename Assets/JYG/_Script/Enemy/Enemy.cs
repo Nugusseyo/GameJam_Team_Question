@@ -41,6 +41,14 @@ namespace Assets.JYG._Script
                 {
                     EnemyLive?.Invoke();
                 }
+                if(_currentHealth < value)
+                {
+                    EnemyDamaged?.Invoke();
+                }
+                else if(_currentHealth > value)
+                {
+                    EnemyHeal?.Invoke();
+                }
                 _currentHealth = value;
             }
         }
@@ -49,6 +57,7 @@ namespace Assets.JYG._Script
         public UnityEvent EnemyDead;
         public UnityEvent EnemyHeal;
         public UnityEvent EnemyLive;
+        public UnityEvent EnemyDamaged;
 
         [field: SerializeField] public Ease Ease { get; set; } = Ease.Linear;
 

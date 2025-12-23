@@ -11,5 +11,5 @@ public class SpawnCountSO : ScriptableObject
 public struct SpawnCount
 {
     [field: SerializeField] public int EnemyCount;
-    [field: SerializeField] public int Turn;
+    [field: SerializeField] public int Round;
 }

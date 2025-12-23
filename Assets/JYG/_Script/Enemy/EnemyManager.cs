@@ -10,7 +10,8 @@ public class EnemyManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        InitSpawnPosition();
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -25,12 +26,14 @@ public class EnemyManager : MonoBehaviour
             int spawnCount = 0;
             foreach (SpawnCount standard in spawnCountSO.SpawnCounts)
             {
-                if (turn >= standard.Turn)
+                if (turn/GameManager.Instance.TurnManager.completeTurnCount + 1 >= standard.Round)
                 {
                     spawnCount = standard.EnemyCount;
+                    break;
                 }
             }
 
+            prevSpawnPos = new List<Vector2>(enemySpawnPoint);
             for (int i = 0; i < spawnCount; i++)
             {
                 SpawnEnemyRandomPosition();
@@ -43,17 +46,14 @@ public class EnemyManager : MonoBehaviour
     public List<GameObject> spawnEnemyList = new List<GameObject>();
     public List<Vector2> enemySpawnPoint = new List<Vector2>();
 
+    private List<Vector2> prevSpawnPos = new List<Vector2>();
+
     [SerializeField] private float cameraHeight;
     [SerializeField] private float cameraWidth;
     [SerializeField] private float distance;
     [SerializeField] private SpawnCountSO spawnCountSO;
     public int ResetSkipTurn { get; set; } = 0;
     public int MoveSkipTurn { get; set; } = 0;
-
-    private void Start()
-    {
-        InitSpawnPosition();
-    }
 
     private void OnTurnEnd()
     {
@@ -128,10 +128,14 @@ public class EnemyManager : MonoBehaviour
     [ContextMenu("Spawn Enemy Random Position")]
     public void SpawnEnemyRandomPosition()
     {
-        foreach(Vector2 pos in enemySpawnPoint)
+        if(prevSpawnPos.Count == 0)
         {
-            Instantiate(spawnEnemyList[UnityEngine.Random.Range(0, spawnEnemyList.Count)], pos, Quaternion.identity);
+            prevSpawnPos = new List<Vector2>(enemySpawnPoint);
+            Debug.LogWarning("@@@@@@@@@@ Spawn Position is Full. Checking SO Plz!!!! @@@@@@@@@@");
         }
+        Vector2 spawnPos = prevSpawnPos[UnityEngine.Random.Range(0, prevSpawnPos.Count)];
+        Instantiate(spawnEnemyList[UnityEngine.Random.Range(0, spawnEnemyList.Count)], spawnPos, Quaternion.identity);
+        prevSpawnPos.Remove(spawnPos);
     }
 
     private void InitSpawnPosition()
