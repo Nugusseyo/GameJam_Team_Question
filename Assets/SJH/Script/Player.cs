@@ -195,6 +195,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out Obstacle obs))
         {
             TutorialManager.Instance.TryPassTutorial(TutorialType.Obstacle);
+            VolumeManager.Instance.ObstacleDefAfterInc(0.3f, obs.Color);
             obs.OnPlayerReached();
         }
     }
