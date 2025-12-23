@@ -113,15 +113,11 @@ public class EnemyManager : MonoBehaviour
     }
 
     [ContextMenu("Enemy Attacked")]
-    public void MinusEnemyHealth(int value)
+    public void PlusEnemyHealth(int value)
     {
         foreach(Enemy enemy in enemyList)
         {
             enemy.CurrentHealth += value;
-            if(value < 0)
-            {
-                enemy.EnemyHeal?.Invoke();
-            }
         }
     }
 

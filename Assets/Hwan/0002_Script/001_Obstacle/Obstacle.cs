@@ -1,8 +1,6 @@
 using DG.Tweening;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 
 namespace Hwan
 {
@@ -14,7 +12,7 @@ namespace Hwan
         [SerializeField] private ObstacleSO obstacleSO;
         protected Vector2 normalVector;
 
-        public void SpawnObstacle(Vector2 normalVector)
+        public virtual void SpawnObstacle(Vector2 normalVector)
         {
             this.normalVector = normalVector;
 
@@ -48,23 +46,11 @@ namespace Hwan
         public abstract void OnPlayerReached();
         public virtual void Destroy()
         {
-            transform
-                .DOScale(Vector3.one * 1.2f, 0.1f)   // 순간적으로 커짐
-                .SetEase(Ease.OutBack)
-                .OnComplete(() =>
-                {
-                    transform
-                        .DOScale(Vector3.zero, 0.15f) // 그대로 0으로 줄어들며 사라짐
-                        .SetEase(Ease.InBack)
-                        .OnComplete(() =>
-                        {
-                            IsDestroyed = true;
-                            spriteRen.enabled = false;
-                            deadParticle.Play();
-                            Destroy(gameObject, deadParticle.main.duration);
-                            transform.DOKill();
-                        });
-                });
+            IsDestroyed = true;
+            spriteRen.enabled = false;
+            deadParticle.Play();
+            transform.DOKill();
+            Destroy(gameObject, deadParticle.main.duration);
         }
 
         public virtual string GetObstacleDesc()

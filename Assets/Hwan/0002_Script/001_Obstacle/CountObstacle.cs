@@ -20,6 +20,12 @@ namespace Hwan
             }
         }
 
+        public override void SpawnObstacle(Vector2 normalVector)
+        {
+            base.SpawnObstacle(normalVector);
+            textMeshPro.transform.position += (Vector3)normalVector/2;
+        }
+
         protected abstract void OnPlayerReachedOnce();
 
         protected sealed override void Initialize()

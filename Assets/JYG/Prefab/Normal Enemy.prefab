@@ -787,6 +787,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7421669515690941248, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 8013928241871282514}
     - target: {fileID: 8665557582574605004, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       propertyPath: target
       value: 
@@ -839,7 +843,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2878604232710202365}
         m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Clear
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -942,6 +946,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  EnemyDamaged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6739966903008502958}
+        m_TargetAssemblyTypeName: ObjectShaker, Assembly-CSharp
+        m_MethodName: ShakeTarget
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <Ease>k__BackingField: 1
 --- !u!114 &-3790044018520091303
 MonoBehaviour:
@@ -1034,6 +1053,17 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7050406385242699738, guid: d231c4d42de810b43804fd573804cea4, type: 3}
   m_PrefabInstance: {fileID: 4284679347843678190}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6739966903008502958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7421669515690941248, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+  m_PrefabInstance: {fileID: 4284679347843678190}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94aec231785e98843b682b1b60eb97e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8975670434612381098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
