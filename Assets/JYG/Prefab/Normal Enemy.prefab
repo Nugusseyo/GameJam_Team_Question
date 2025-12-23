@@ -834,6 +834,21 @@ MonoBehaviour:
   <Distance>k__BackingField: 1
   <MoveDelay>k__BackingField: 0
   <MaxHealth>k__BackingField: 2
+  EnemyStun:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2878604232710202365}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Clear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   EnemyDead:
     m_PersistentCalls:
       m_Calls:
@@ -885,6 +900,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2878604232710202365}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Clear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   EnemyHeal:
     m_PersistentCalls:
       m_Calls:
@@ -902,7 +929,19 @@ MonoBehaviour:
         m_CallState: 2
   EnemyLive:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2878604232710202365}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <Ease>k__BackingField: 1
 --- !u!114 &-3790044018520091303
 MonoBehaviour:
@@ -953,6 +992,11 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!198 &2878604232710202365 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2055020656739490835, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+  m_PrefabInstance: {fileID: 4284679347843678190}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &3157964611149553618 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1199476198707454012, guid: d231c4d42de810b43804fd573804cea4, type: 3}
