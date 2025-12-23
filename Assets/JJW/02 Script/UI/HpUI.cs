@@ -14,6 +14,11 @@ namespace JJW._02_Script.UI
             intEventChannel.OnEvent += UpdateUI;
         }
 
+        private void OnDestroy()
+        {
+            intEventChannel.OnEvent -= UpdateUI;
+        }
+
         private void UpdateUI(int hp)
         {
             for (int i = 0; i < hpUI.Length; i++)
