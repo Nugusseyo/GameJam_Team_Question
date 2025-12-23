@@ -21,4 +21,9 @@ public class BossEnemy : MonoBehaviour
             GameManager.Instance.Player.HealthSystem.GetDamage(100);
         }
     }
+
+    public void BossDie()
+    {
+        BossEndingManager.Instance.BossEnding();
+    }
 }
