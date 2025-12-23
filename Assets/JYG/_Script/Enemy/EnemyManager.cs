@@ -167,6 +167,6 @@ public class EnemyManager : MonoBehaviour
 
     private void HandlePlayerBump()
     {
-        PlusEnemyHealth(GameManager.Instance.Player.DamageC.DamageIncrease);
+        PlusEnemyHealth(-GameManager.Instance.Player.DamageC.DamageIncrease);
     }
 }
