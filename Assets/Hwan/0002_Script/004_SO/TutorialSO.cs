@@ -2,7 +2,7 @@ namespace Hwan
 {
     using UnityEngine;
 
-    [CreateAssetMenu(fileName = "TutorialSO", menuName = "Scriptable Objects/TutorialSO")]
+    [CreateAssetMenu(fileName = "TutorialSO", menuName = "HwanSO/TutorialSO")]
     public class TutorialSO : ScriptableObject
     {
         [field: SerializeField] public string Text { get; private set; }

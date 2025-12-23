@@ -21,6 +21,8 @@ namespace Hwan
         MouseDown,
         MouseUp,
         MouseDrag,
-        MouseInObstacle
+        MouseInObstacle,
+        MouseLeft,
+        SpaceBar
     }
 }
