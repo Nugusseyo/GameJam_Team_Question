@@ -21,6 +21,11 @@ public class HealthSystem : MonoBehaviour
         GameManager.Instance.Player.OnStop += Shield;
     }
 
+    private void Start()
+    {
+        eventChannel.Raise(health);
+    }
+
     public void GetDamage(int amount)
     {
         if(shield)
