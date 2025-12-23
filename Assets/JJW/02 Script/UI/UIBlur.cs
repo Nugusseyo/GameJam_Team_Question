@@ -17,7 +17,7 @@ public class UIBlur : MonoBehaviour
     {
         player = GameManager.Instance.Player;
         player.OnDrag += Transparent;
-        player.OnStopDrag += Opacity;
+        player.OnStop += Opacity;
     }
 
     private void Transparent()
