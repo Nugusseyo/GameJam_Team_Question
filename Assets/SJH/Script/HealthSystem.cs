@@ -7,6 +7,8 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private int maxHealth = 5;
     [SerializeField] private int shieldChargeTime = 3;
     [SerializeField] private IntEventChannel eventChannel;
+    [SerializeField] private ParticleSystem shieldParticle;
+    [SerializeField] private ParticleSystem shieldParticle2;
     private int health;
     private bool shield = false;
     private int lastShield = 0;
@@ -63,7 +65,7 @@ public class HealthSystem : MonoBehaviour
 
     private void BreakShield()
     {
-        
+        shieldParticle.Play();
     }
 
     private void Shield()
@@ -72,6 +74,7 @@ public class HealthSystem : MonoBehaviour
         {
             if(lastShield+shieldChargeTime == GameManager.Instance.TurnManager.Turn)
             {
+                shieldParticle2.Play();
                 shield = true;
             }
         }
