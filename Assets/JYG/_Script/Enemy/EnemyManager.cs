@@ -110,6 +110,15 @@ public class EnemyManager : MonoBehaviour
             enemy.CurrentHealth = enemy.MaxHealth;
         }
     }
+    public void EnemyAllDead()
+    {
+        if (enemyList.Count == 0) return;
+        SoundManager.Instance.PlaySound("E_Explosion");
+        foreach (Enemy enemy in enemyList)
+        {
+            enemy.DeadEnemy();
+        }
+    }
     [ContextMenu("Stop Enemy")]
     public void StopEnemy()
     {

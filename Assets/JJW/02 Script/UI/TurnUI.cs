@@ -14,6 +14,10 @@ namespace JJW._02_Script.UI
             _textMeshProUGUI = GetComponent<TextMeshProUGUI>();
             GameManager.Instance.TurnManager.OnTurnChange.AddListener(ChangeTurnText);
             _completeTurnCount = GameManager.Instance.TurnManager.completeTurnCount;
+        }
+
+        private void Start()
+        {
             if (TutorialManager.Instance.DoTuto == true) _completeTurnCount = 9999999;
         }
 

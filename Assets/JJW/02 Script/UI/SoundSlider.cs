@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using JJW._02_Script.Sound;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +20,6 @@ public class SoundSlider : MonoBehaviour
             value /= 20f;
             value = Mathf.Pow(10, value);
             slider.value = value;
-            Debug.Log(value);
         }
         slider.onValueChanged.AddListener(SetVolume);
     }
