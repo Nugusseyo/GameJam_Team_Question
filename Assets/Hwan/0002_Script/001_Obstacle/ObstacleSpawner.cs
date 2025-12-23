@@ -43,7 +43,6 @@ namespace Hwan
 
                 // »ý¼º
                 currentObstacles.Add(Instantiate(obstaclePrefabs[index], transform).GetComponent<Obstacle>());
-
                 currentObstacles[i].transform.position = spawnPoints[i].SpawnPoint.position;
                 currentObstacles[i].SpawnObstacle(normalVectorDictionary[spawnPoints[i].NormalVector]);
                 

@@ -779,9 +779,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2405305024796508796}
-    - targetCorrespondingSourceObject: {fileID: 2240466163130134520, guid: d231c4d42de810b43804fd573804cea4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 384040703660055232}
   m_SourcePrefab: {fileID: 100100000, guid: d231c4d42de810b43804fd573804cea4, type: 3}
 --- !u!1 &2621518504218316822 stripped
 GameObject:
@@ -924,18 +921,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &384040703660055232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2621518504218316822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb6853ce092b9a4e91da947dbc9cea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!198 &3157964611149553618 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1199476198707454012, guid: d231c4d42de810b43804fd573804cea4, type: 3}
