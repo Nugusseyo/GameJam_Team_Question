@@ -58,6 +58,7 @@ namespace JJW._02_Script.UI.Card
                 rightCardName.text = UpgradeListSO.Upgrades[third].Name;
                 rightCardDesc.text = UpgradeListSO.Upgrades[third].Desc;
             }
+            Time.timeScale = 0f;
         }
     }
 }

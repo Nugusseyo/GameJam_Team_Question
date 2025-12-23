@@ -78,6 +78,7 @@ namespace JJW._02_Script.UI.Card
         public void LeftCardClicked()
         {
             if (!_isCanClick) return;
+            Time.timeScale = 1;
 
             foreach (Card card in cards.MyCards)
             {
@@ -98,6 +99,7 @@ namespace JJW._02_Script.UI.Card
         public void RightCardClicked()
         {
             if (!_isCanClick) return;
+            Time.timeScale = 1;
 
             foreach (Card card in cards.MyCards)
             {
@@ -119,7 +121,7 @@ namespace JJW._02_Script.UI.Card
         public void MiddleCardClicked()
         {
             if (!_isCanClick) return;
-
+            Time.timeScale = 1;
             foreach (Card card in cards.MyCards)
             {
                 if (card.UpgradeSO == middleCard.UpgradeSO)
