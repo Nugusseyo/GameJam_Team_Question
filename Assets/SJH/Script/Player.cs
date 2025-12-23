@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
             isDrag = false;
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dir = mousePosition - StartPosition;
-            float distance = Mathf.Clamp(Vector2.Distance(StartPosition, mousePosition), 0, 5);
+            float distance = Mathf.Clamp(Vector2.Distance(StartPosition, mousePosition), 0, 10);
             if(distance <= 0.5f)
             {
                 ResetDrag();
