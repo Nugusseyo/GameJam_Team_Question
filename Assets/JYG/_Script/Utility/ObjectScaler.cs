@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class ObjectShaker : MonoBehaviour
+public class ObjectScaler : MonoBehaviour
 {
     [SerializeField] private GameObject target;
     [SerializeField] private float duration = 0.5f;
