@@ -1,5 +1,7 @@
 ﻿using System;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -64,7 +66,7 @@ namespace JJW._02_Script.Sound {
             return true;
         }
     }
-
+#if UNITY_EDITOR
     [CustomEditor(typeof(AudioMixerSO))]
     public class AudioMixerSOEditor : Editor
     {
@@ -77,4 +79,5 @@ namespace JJW._02_Script.Sound {
             }
         }
     }
+#endif
 }
