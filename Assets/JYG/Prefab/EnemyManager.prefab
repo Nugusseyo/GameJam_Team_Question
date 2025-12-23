@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79f5286bdbd237498b056d51dbe212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthCount: {fileID: 7022625170221060007, guid: 087c0b30b965eac4f8e75a7caec7c885, type: 3}
   enemyList: []
   spawnEnemyList:
   - {fileID: 2621518504218316822, guid: 43dab8c83479e2d478c4a0bc34fb966e, type: 3}
@@ -56,4 +57,4 @@ MonoBehaviour:
   cameraHeight: 0
   cameraWidth: 0
   distance: 2
-  spawnCountSO: {fileID: 0}
+  spawnCountSO: {fileID: 11400000, guid: 22851797454192f4bb2956ab8acfc472, type: 2}

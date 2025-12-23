@@ -42,6 +42,7 @@ public class EnemyManager : MonoBehaviour
     }
     #endregion
 
+    public GameObject healthCount;
     public List<Enemy> enemyList = new List<Enemy>();
     public List<GameObject> spawnEnemyList = new List<GameObject>();
     public List<Vector2> enemySpawnPoint = new List<Vector2>();
@@ -130,8 +131,11 @@ public class EnemyManager : MonoBehaviour
             Debug.LogWarning("@@@@@@@@@@ Spawn Position is Full. Checking SO Plz!!!! @@@@@@@@@@");
         }
         Vector2 spawnPos = prevSpawnPos[UnityEngine.Random.Range(0, prevSpawnPos.Count)];
-        Instantiate(spawnEnemyList[UnityEngine.Random.Range(0, spawnEnemyList.Count)], spawnPos, Quaternion.identity);
+        Enemy enemy = Instantiate(spawnEnemyList[UnityEngine.Random.Range(0, spawnEnemyList.Count)], spawnPos, Quaternion.identity).GetComponentInChildren<Enemy>();
         prevSpawnPos.Remove(spawnPos);
+        EnemyHealthShowcase health = Instantiate(healthCount, spawnPos, Quaternion.identity).GetComponent<EnemyHealthShowcase>();
+        enemy.healthShowcase = health;
+        health.Initialize(enemy);
     }
 
     private void InitSpawnPosition()

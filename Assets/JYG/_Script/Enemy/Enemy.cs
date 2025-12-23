@@ -8,6 +8,7 @@ namespace Assets.JYG._Script
 {
     public abstract class Enemy : MonoBehaviour
     {
+        public EnemyHealthShowcase healthShowcase;
         protected Transform _target;
         protected Sequence _moveTween;
         private Collider2D _collider;
@@ -32,11 +33,13 @@ namespace Assets.JYG._Script
                         EnemyStun?.Invoke();
                     }
                     _currentHealth = 0;
+                    OnHealthChange?.Invoke();
                     return;
                 }
                 else if(value > MaxHealth)
                 {
                     _currentHealth = MaxHealth;
+                    OnHealthChange?.Invoke();
                     return;
                 }
                 if(_currentHealth == 0 && value > 0)
@@ -52,9 +55,11 @@ namespace Assets.JYG._Script
                     EnemyHeal?.Invoke();
                 }
                 _currentHealth = value;
+                OnHealthChange?.Invoke();
             }
         }
 
+        public Action OnHealthChange;
         public UnityEvent EnemyStun;
         public UnityEvent EnemyDead;
         public UnityEvent EnemyHeal;
@@ -100,6 +105,14 @@ namespace Assets.JYG._Script
 
         private void DeadEnemy()
         {
+            if(healthShowcase != null)
+            {
+                Destroy(healthShowcase.gameObject);
+            }
+            if (CurrentHealth > 0)
+            {
+                GameManager.Instance.Player.HealthSystem.GetDamage(1);
+            }
             _isDead = true;
             _collider.enabled = false;
 
