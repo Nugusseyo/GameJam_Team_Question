@@ -1,6 +1,7 @@
 ﻿using System;
 using csiimnida.CSILib.SoundManager.RunTime;
 using DG.Tweening;
+using Hwan;
 using UnityEngine;
 using Sequence = DG.Tweening.Sequence;
 
@@ -76,6 +77,7 @@ namespace JJW._02_Script.UI.Card
         public void LeftCardClicked()
         {
             if (!_isCanClick) return;
+            TutorialManager.Instance.TryPassTutorial(TutorialType.Card);
             ApplyCard(leftCard);
             SoundManager.Instance.PlaySound("BookOpen");
         }
@@ -83,6 +85,7 @@ namespace JJW._02_Script.UI.Card
         public void RightCardClicked()
         {
             if (!_isCanClick) return;
+            TutorialManager.Instance.TryPassTutorial(TutorialType.Card);
             ApplyCard(rightCard);
             SoundManager.Instance.PlaySound("BookOpen");
         }
@@ -90,6 +93,7 @@ namespace JJW._02_Script.UI.Card
         public void MiddleCardClicked()
         {
             if (!_isCanClick) return;
+            TutorialManager.Instance.TryPassTutorial(TutorialType.Card);
             ApplyCard(middleCard);
             SoundManager.Instance.PlaySound("BookOpen");
         }

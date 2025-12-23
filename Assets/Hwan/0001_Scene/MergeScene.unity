@@ -1077,6 +1077,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 428474663}
   m_SourcePrefab: {fileID: 100100000, guid: 422f1f695d5bd3a4ca4a305ee7e95c06, type: 3}
+--- !u!1 &350629813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1458100170786673318, guid: 422f1f695d5bd3a4ca4a305ee7e95c06, type: 3}
+  m_PrefabInstance: {fileID: 350629812}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &421633614 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6782735746031634616, guid: 422f1f695d5bd3a4ca4a305ee7e95c06, type: 3}
@@ -2197,6 +2202,10 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 867252468}
+    - target: {fileID: 8716845962978989898, guid: 37532ea75855c62419919ccad3d45359, type: 3}
+      propertyPath: cardSelect
+      value: 
+      objectReference: {fileID: 350629813}
     - target: {fileID: 8716845962978989898, guid: 37532ea75855c62419919ccad3d45359, type: 3}
       propertyPath: <DoTuto>k__BackingField
       value: 1
