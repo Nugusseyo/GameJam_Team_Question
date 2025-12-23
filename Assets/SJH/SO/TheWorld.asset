@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fc7ba4fc695bd45848ae975ab50aca, type: 3}
   m_Name: TheWorld
   m_EditorClassIdentifier: 
-  Image: {fileID: -3753825769889500098, guid: 1446be8319f21174ea97db8ab94c7267, type: 3}
+  Image: {fileID: -7754988575891523622, guid: 4515fcd67b1f50742be57281282481e1, type: 3}
   Name: "\uB354 \uC6D4\uB4DC"
   Type: 6
   Amount: 1
