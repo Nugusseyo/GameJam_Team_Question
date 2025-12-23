@@ -130,5 +130,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleSO: {fileID: 11400000, guid: 990d867c8b54ca349b324076d4a0d910, type: 2}
-  count: 1
-  stopTurn: 2
+  count: 2
+  stopTurn: 1

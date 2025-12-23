@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnCountSO : ScriptableObject
 {
     [field: SerializeField] public SpawnCount[] SpawnCounts { get; private set; }
+    [field: SerializeField] public int BossTurn { get; private set; }
 }
 
 [Serializable]

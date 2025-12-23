@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     public Level Level;
     public event Action OnBump;
     public event Action OnStop;
+    public event Action OnDrag;
+    public event Action OnStopDrag;
     public Vector3 StartPosition;
 
     private void Awake()
@@ -119,13 +121,14 @@ public class Player : MonoBehaviour
         predictLine.enabled = true;
         predictLine2.enabled = true;
         StartPosition = pos;
-
+        OnDrag?.Invoke();
     }
 
     public void DragEnd()
     {
         if(isDrag)
         {
+            OnStopDrag?.Invoke();
             bounceLens.ResetLens();
             isDrag = false;
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

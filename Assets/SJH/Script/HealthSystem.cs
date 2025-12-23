@@ -53,7 +53,7 @@ public class HealthSystem : MonoBehaviour
     public void GetHeal(int amount)
     {
         health += amount;
-        health = Mathf.Clamp(health, 0, 10);
+        health = Mathf.Clamp(health, 0, maxHealth);
         eventChannel.Raise(health);
     }
 
@@ -61,6 +61,8 @@ public class HealthSystem : MonoBehaviour
     {
         maxHealth += 1;
         health += 1;
+        maxHealth = Mathf.Clamp(maxHealth, 0, 10);
+        health = Mathf.Clamp(health, 0, maxHealth);
         eventChannel.Raise(health);
     }
 

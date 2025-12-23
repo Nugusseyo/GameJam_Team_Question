@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67fc7ba4fc695bd45848ae975ab50aca, type: 3}
-  m_Name: HealthUpgrade
+  m_Script: {fileID: 11500000, guid: 87e9980745a05304ebdab48b75631d7d, type: 3}
+  m_Name: Tuto0
   m_EditorClassIdentifier: 
-  Image: {fileID: -205270267638800340, guid: cedadac1bdf1a854eba876ae32d59711, type: 3}
-  Name: "\uCCB4\uB825 \uAC15"
-  Type: 0
-  Amount: 1
-  Desc: "\uCD5C\uB300 \uCCB4\uB825 1\uC99D\uAC00"
+  <Text>k__BackingField: 
+  <Position>k__BackingField: {x: 0, y: 0}
+  <NeedInput>k__BackingField: 0
+  <WaitTime>k__BackingField: 0
