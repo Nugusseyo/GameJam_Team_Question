@@ -88,6 +88,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    public Vector2 MoveDir
+    {
+        get
+        {
+            return dir;
+        }
+
+        set
+        {
+            dir = value;
+            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (-(dir.normalized) * UpgradeC.Acceleration) / 10;
+        }
+    }
+
     public void GetSpeed()
     {
         strength += 0.5f;
@@ -156,7 +170,7 @@ public class Player : MonoBehaviour
             impulseSource.GenerateImpulseWithVelocity(collision.GetContact(0).normal/180*currentSpeed);
             OnBump?.Invoke();
             dir = RandomBounce != null ? (Vector2)RandomBounce : Vector2.Reflect(dir, collision.GetContact(0).normal);
-            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (- (dir.normalized) * currentSpeed)/10;
+            rigidbody.linearVelocity = (-(dir.normalized) * currentSpeed) + (- (dir.normalized) * UpgradeC.Acceleration)/10;
             RandomBounce = null;
         }
     }
