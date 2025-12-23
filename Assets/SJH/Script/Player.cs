@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private LineRenderer predictLine;
     [SerializeField] private LineRenderer predictLine2;
 
+    private BounceLens bounceLens;
     private Rigidbody2D rigidbody;
     private LineRenderer lineRenderer;
     private CinemachineImpulseSource impulseSource; 
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
         impulseSource = GetComponent<CinemachineImpulseSource>();
         Level = GetComponent<Level>();
         UpgradeC = GetComponent<Upgrade>();
+        bounceLens = FindAnyObjectByType<BounceLens>();
         lineRenderer.enabled = false;
     }
 
@@ -58,6 +60,7 @@ public class Player : MonoBehaviour
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float distance = Mathf.Clamp(Vector2.Distance((Vector2)StartPosition, (Vector2)mousePosition), 0, 10f);
+            bounceLens.SetLens(distance/10);
             Vector2 vector2 = (mousePosition - StartPosition).normalized * distance;
             lineRenderer.SetPosition(0, new Vector3(StartPosition.x, StartPosition.y, 0));
             lineRenderer.SetPosition(1, vector2+(Vector2)StartPosition);
@@ -114,6 +117,7 @@ public class Player : MonoBehaviour
         predictLine.enabled = true;
         predictLine2.enabled = true;
         StartPosition = pos;
+
     }
 
     public void DragEnd()
