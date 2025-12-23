@@ -716,6 +716,14 @@ PrefabInstance:
       value: A Rabbit Step Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -856,7 +864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Duration>k__BackingField: 2
-  <Distance>k__BackingField: 2
+  <Distance>k__BackingField: 2.5
   <MoveDelay>k__BackingField: 0
   <MaxHealth>k__BackingField: 2
   EnemyStun:
@@ -1042,5 +1050,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.2, y: 1.2}
   m_EdgeRadius: 0

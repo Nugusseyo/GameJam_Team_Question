@@ -716,6 +716,14 @@ PrefabInstance:
       value: A NormalEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -802,7 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Duration>k__BackingField: 2.5
-  <Distance>k__BackingField: 1.5
+  <Distance>k__BackingField: 2
   <MoveDelay>k__BackingField: 3
   <MaxHealth>k__BackingField: 2
   EnemyStun:
@@ -978,7 +986,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.65
 --- !u!198 &2878604232710202365 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2055020656739490835, guid: d231c4d42de810b43804fd573804cea4, type: 3}

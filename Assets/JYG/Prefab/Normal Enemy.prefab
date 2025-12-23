@@ -748,6 +748,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 56cf931b761d4bf42bacec63cfdf3f0b, type: 2}
     - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186389334212786756, guid: d231c4d42de810b43804fd573804cea4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -835,7 +843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Duration>k__BackingField: 2.5
-  <Distance>k__BackingField: 1
+  <Distance>k__BackingField: 1.5
   <MoveDelay>k__BackingField: 0
   <MaxHealth>k__BackingField: 2
   EnemyStun:
@@ -936,7 +944,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2878604232710202365}
         m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
+        m_MethodName: Clear
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1010,7 +1018,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.65
 --- !u!198 &2878604232710202365 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2055020656739490835, guid: d231c4d42de810b43804fd573804cea4, type: 3}
