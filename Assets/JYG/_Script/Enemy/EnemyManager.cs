@@ -10,7 +10,8 @@ public class EnemyManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        InitSpawnPosition();
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -25,9 +26,10 @@ public class EnemyManager : MonoBehaviour
             int spawnCount = 0;
             foreach (SpawnCount standard in spawnCountSO.SpawnCounts)
             {
-                if (turn >= standard.Turn)
+                if (turn/GameManager.Instance.TurnManager.completeTurnCount + 1 >= standard.Round)
                 {
                     spawnCount = standard.EnemyCount;
+                    break;
                 }
             }
 
@@ -49,11 +51,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private SpawnCountSO spawnCountSO;
     public int ResetSkipTurn { get; set; } = 0;
     public int MoveSkipTurn { get; set; } = 0;
-
-    private void Start()
-    {
-        InitSpawnPosition();
-    }
 
     private void OnTurnEnd()
     {
@@ -128,10 +125,7 @@ public class EnemyManager : MonoBehaviour
     [ContextMenu("Spawn Enemy Random Position")]
     public void SpawnEnemyRandomPosition()
     {
-        foreach(Vector2 pos in enemySpawnPoint)
-        {
-            Instantiate(spawnEnemyList[UnityEngine.Random.Range(0, spawnEnemyList.Count)], pos, Quaternion.identity);
-        }
+        Instantiate(spawnEnemyList[UnityEngine.Random.Range(0, spawnEnemyList.Count)], enemySpawnPoint[UnityEngine.Random.Range(0, enemySpawnPoint.Count)], Quaternion.identity);
     }
 
     private void InitSpawnPosition()
