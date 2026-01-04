@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hwan;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +23,7 @@ public class Level : MonoBehaviour
 
     public void GetExp(int amount)
     {
+        if (TutorialManager.Instance.DoTuto == true) return;
         Exp += amount;
         if (Exp >= targetExp + (CurrentLevel))
         {

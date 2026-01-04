@@ -43,7 +43,6 @@ public class EnemyManager : MonoBehaviour
                 if (turn/GameManager.Instance.TurnManager.completeTurnCount + 1 >= standard.Round)
                 {
                     spawnCount = standard.EnemyCount;
-                    break;
                 }
             }
 
@@ -100,6 +99,11 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemy == null) return;
         enemyList.Remove(enemy);
+        if (TutorialManager.Instance.DoTuto == true) return;
+        if (enemyList.Count == 0)
+        {
+            GameManager.Instance.TurnManager.SkipRound();
+        }
     }
 
     public void ResetEnemy()

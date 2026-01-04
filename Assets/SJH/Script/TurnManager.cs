@@ -23,13 +23,7 @@ public class TurnManager : MonoBehaviour
         Turn = -1;
         PassTurn();
     }
-    private void Update()
-    {
-        if (Keyboard.current.gKey.wasPressedThisFrame)
-        {
-            PassTurn();
-        }
-    }
+
     public void PassTurn()
     {
         Turn++;
@@ -57,6 +51,16 @@ public class TurnManager : MonoBehaviour
         if (currentTurn % completeTurnCount == 0) return;
 
         Turn += minusTurn;
+    }
+
+    public void SkipRound()
+    {
+        while (currentTurn % completeTurnCount != 4)
+        {
+            PassTurn();
+        }
+        if (GameManager.Instance.Player.isMoving) return;
+        PassTurn();
     }
 
     public int Turn

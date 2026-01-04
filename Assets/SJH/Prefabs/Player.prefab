@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61376f527170764eb8c9556a2b163a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 10
+  strength: 16
   frictionForce: 4
   cooltime: 1
   predictLine: {fileID: 2637557822246481631}

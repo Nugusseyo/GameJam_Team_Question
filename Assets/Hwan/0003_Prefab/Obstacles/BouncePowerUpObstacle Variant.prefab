@@ -131,4 +131,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleSO: {fileID: 11400000, guid: f47028366814bfe4fb570e6181077ce4, type: 2}
-  bouncePower: 2
+  bouncePower: 2.75

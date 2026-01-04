@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     private Vector2 stopOffset = new Vector2(0.3f, 0.3f);
     private Vector2 dir;
     private bool isDrag = false;
-    private bool isMoving = false;
+    public bool isMoving = false;
     private float currentSpeed;
 
     public ParticleSystem particleP;

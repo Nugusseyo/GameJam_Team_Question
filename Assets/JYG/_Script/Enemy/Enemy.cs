@@ -129,7 +129,10 @@ namespace Assets.JYG._Script
             }
             else
             {
-                EnemyManager.Instance.SpawnEnemyRandomPosition();
+                if (TutorialManager.Instance.DoTuto == true)
+                {
+                    EnemyManager.Instance.SpawnEnemyRandomPosition();
+                }
                 EnemyDead?.Invoke();
             }
 
